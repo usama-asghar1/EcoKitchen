@@ -1,5 +1,4 @@
 # Console-loggers-App
-Carrie testing
 
 # Branching stratergy
 
@@ -10,4 +9,3 @@ Carrie testing
     - Page branches
 - back end
     - page branches
-
