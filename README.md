@@ -42,7 +42,7 @@ Welcome to our project! This document describes our Git branching strategy, whic
 
 ## Example
 
-**Create a new feature branch from frontend**
+1. **Create a new feature branch from frontend**
 
 git checkout frontend
 
@@ -52,15 +52,15 @@ git checkout -b feature/navbar
 
 **...work on the feature...**
 
-**Push your feature branch to the remote repository**
+2. **Push your feature branch to the remote repository**
 
 git push origin feature/navbar
 
-**Create a pull request to merge into frontend**
+3. **Create a pull request to merge into frontend**
 
-**Review code, conduct tests, and merge into frontend**
+4. **Review code, conduct tests, and merge into frontend**
 
-**Merge frontend into development once it's stable**
+5. **Merge frontend into development once it's stable**
 
 git checkout development
 
@@ -70,7 +70,7 @@ git merge frontend
 
 git push origin development
 
-**After thorough testing, merge development into main for production**
+6. **After thorough testing, merge development into main for production**
 
 git checkout main
 
