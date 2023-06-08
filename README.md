@@ -1,7 +1,11 @@
 # Console-loggers-App
+Carrie testing
 
 DEVELOPMENT BRANCH ahia
 note by carrie & saynab
+
+test by carrie
+
 
 # Problem Statement
 
@@ -82,3 +86,11 @@ git pull origin main
 git merge development
 
 git push origin main
+
+7. Testing revert by carrie
+
+# develoment is a secondary main but breakable and won't effect main
+ - Front end
+    - Page branches
+- back end
+    - page branches
