@@ -56,7 +56,7 @@ git checkout -b feature/navbar
 
 git push origin feature/navbar
 
-3. **Create a pull request to merge into frontend**
+3. **Create a pull request to merge into frontend:** Use github for this
 
 4. **Review code, conduct tests, and merge into frontend**
 
