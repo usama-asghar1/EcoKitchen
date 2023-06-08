@@ -1,14 +1,16 @@
 # Console-loggers-App
 
-# Problem Statement 
-“In the UK, many households waste a significant portion of their food costs due to poor planning, lack of culinary ideas, and poor use of leftovers. There is no current solution that solves these problems simultaneously. 
+# Problem Statement
+
+“In the UK, many households waste a significant portion of their food costs due to poor planning, lack of culinary ideas, and poor use of leftovers. There is no current solution that solves these problems simultaneously.
+
 <p>
 Our challenge is to make an easy-to-use app to helps users manage their food consumption, reduce waste and save money.”
 
 Welcome to our project! This document describes our Git branching strategy, which is designed to ensure that new features are properly tested before they are merged into the main branch.
 
 # Git Branching Strategy
-  
+
 ## Branches
 
 - `main`: Contains the Minimum Viable Product (MVP). Only well-tested and reviewed code that is considered ready for production is merged into this branch.
@@ -40,34 +42,40 @@ Welcome to our project! This document describes our Git branching strategy, whic
 
 ## Example
 
-# Create a new feature branch from frontend
+## Create a new feature branch from frontend
 
 git checkout frontend
+
 git pull origin frontend
+
 git checkout -b feature/navbar
 
-# ...work on the feature...
+## ...work on the feature...
 
-# Push your feature branch to the remote repository
+## Push your feature branch to the remote repository
 
 git push origin feature/navbar
 
-# Create a pull request to merge into frontend
+## Create a pull request to merge into frontend
 
-# Review code, conduct tests, and merge into frontend
+## Review code, conduct tests, and merge into frontend
 
-# Merge frontend into development once it's stable
+## Merge frontend into development once it's stable
 
 git checkout development
+
 git pull origin development
+
 git merge frontend
+
 git push origin development
 
-# After thorough testing, merge development into main for production
+## After thorough testing, merge development into main for production
 
 git checkout main
+
 git pull origin main
+
 git merge development
+
 git push origin main
-
-
