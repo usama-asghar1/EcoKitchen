@@ -1,9 +1,14 @@
 # Console-loggers-App
 
-# Git Branching Strategy
+# Problem Statement 
+“In the UK, many households waste a significant portion of their food costs due to poor planning, lack of culinary ideas, and poor use of leftovers. There is no current solution that solves these problems simultaneously. 
+<p>
+Our challenge is to make an easy-to-use app to helps users manage their food consumption, reduce waste and save money.”
 
 Welcome to our project! This document describes our Git branching strategy, which is designed to ensure that new features are properly tested before they are merged into the main branch.
 
+# Git Branching Strategy
+  
 ## Branches
 
 - `main`: Contains the Minimum Viable Product (MVP). Only well-tested and reviewed code that is considered ready for production is merged into this branch.
@@ -64,3 +69,5 @@ git checkout main
 git pull origin main
 git merge development
 git push origin main
+
+
