@@ -1,7 +1,6 @@
 # Console-loggers-App
 
-DEVELOPMENT BRANCH ahia
-note by carrie & saynab
+DEVELOPMENT BRANCH ahia 
 
 # Problem Statement
 
