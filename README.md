@@ -1,5 +1,4 @@
 # Console-loggers-App
-Carrie testing
 
 DEVELOPMENT BRANCH ahia
 note by carrie & saynab
@@ -94,4 +93,3 @@ git push origin main
     - Page branches
 - back end
     - page branches
-
