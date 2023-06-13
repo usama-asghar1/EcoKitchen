@@ -34,26 +34,6 @@
     margin: 0 auto;
   }
   
-  /* .navbar-container {
-    display: flex;
-    justify-content: space-around;
-    
-    height: 10vh;
-    background-color: tomato;
-    font-family: var(--main-font);
-    font-size: 0.5rem;
-  }
-
-  .navbar-icons {
-    align-items: center;
-    color: blue;
-    height: 5vh;
-    width: 5vh;
-  }
-
-  .navbar-icon-name {
-    align-items: bottom;
-  } */
   .navbar-container {
     display: flex;
     flex-direction: row;
