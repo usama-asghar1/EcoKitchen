@@ -7,10 +7,9 @@ import LandingPage from "../src/pages/LandingPage";
 
 import Styles from "./pages/Styles";
 
-
 function App() {
   return (
-    <div>
+    <div className="app-container">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/recipes" element={<Recipes />} />
@@ -18,7 +17,6 @@ function App() {
         <Route path="/LandingPage" element={<LandingPage />} />
 
         <Route path="/styles" element={<Styles />} />
-
       </Routes>
     </div>
   );
