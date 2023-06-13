@@ -16,6 +16,20 @@ function Styles() {
         <button className="donate-btn">Donate</button>
         <input type="text" placeholder="Search" />
         <button>+</button>
+        <h1>hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</h1>
+        <h1>hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</h1>
+        <h1>hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</h1>
+        <h1>hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</h1>
+        <h1>hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</h1>
+        <h1>hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</h1>
+        <h1>hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</h1>
+        <h1>hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</h1>
+        <h1>hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</h1>
+        <h1>hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</h1>
+        <h1>hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</h1>
+        <h1>hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</h1>
+        <h1>hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</h1>
+        <h1>hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</h1>
       </div>
       <div className="navbar-container">
         <nav className="navbar">

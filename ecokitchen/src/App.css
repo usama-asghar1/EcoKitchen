@@ -2,8 +2,9 @@
   --primary-blue: #10a7e6;
   --primary-amber: #fc7c25;
   --primary-green: #27ab5f;
-  --background-white: #eeeeee;
-  --component-grey: #dddddd;
+  --red: #ea324c;
+  --white: #eeeeee;
+  --grey: #dddddd;
 }
 
 * {
@@ -13,8 +14,10 @@
 }
 
 .header-container {
-  background-color: red;
+  background-color: var(--primary-blue);
   height: 10vh;
+  z-index: 1;
+  position: sticky;
 }
 
 .page-title {
@@ -26,20 +29,27 @@
 
 .content-container {
   height: 80vh;
-  background-color: thistle;
+  background-color: var(--white);
+  overflow-y: auto;
+  z-index: 0;
+  padding: 15px;
 }
 
 .styles-container {
-  background-color: aqua;
+  background-color: var(--grey);
   max-height: 100vh;
   max-width: 428px;
   margin: 0 auto;
+  border-style: solid;
+  box-shadow: 0 0 1px black;
 }
 
 .navbar-container {
   height: 10vh;
+  z-index: 1;
+  position: sticky;
 }
 
 .pantry-btn {
-  background-color: var(--primary-blue);
+  background-color: var(--primary-green);
 }
