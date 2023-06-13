@@ -2,12 +2,15 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import React from "react";
 import "primereact/resources/themes/lara-light-indigo/theme.css";
 import { Button } from "primereact/button";
+import Header from "../components/header/Header";
 
 function Styles() {
   <Link to={`/styles}`}></Link>;
   return (
     <div className="styles-container">
-      <div className="header-container"></div>
+      <div className="header-container">
+        <Header />
+      </div>
       <div className="content-container">
         <h1 className="page-title">Your Pantry</h1>
         <div className="card flex justify-content-center">
