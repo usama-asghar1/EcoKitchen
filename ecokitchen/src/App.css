@@ -49,6 +49,7 @@
     color: blue;
     height: 5vh;
     width: 5vh;
+    border: 1px solid black;
   }
   
   .navbar-icon-name {

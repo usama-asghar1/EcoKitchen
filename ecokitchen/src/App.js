@@ -1,11 +1,12 @@
 import "./App.css";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Recipes from "./pages/Recipes";
 
 import LandingPage from "../src/pages/LandingPage";
 
 import Styles from "./pages/Styles";
+import Shopping from "./pages/Shopping-list";
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path="/HomePage" element={<Home />} />
         <Route path="/recipes" element={<Recipes />} />
+        <Route path="/Shopping" element={<Shopping />} />
 
         <Route path="/LandingPage" element={<LandingPage />} />
 
