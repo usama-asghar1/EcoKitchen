@@ -35,6 +35,16 @@
   
   .navbar-container {
     height: 10vh;
+    color: blue;
+    background-color: tomato;
+  }
+
+  .navbar-icons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 10vh;
+    width: 10vh;
   }
   
   .pantry-btn {

@@ -17,8 +17,7 @@ return(
     <Button label="Signup" rounded />
 <br/>
     <Button label="Forgot Password" rounded />
-<br/>
-    <Navbar/>
+
 
 
 
