@@ -45,7 +45,21 @@
   border-style: solid;
   box-shadow: 0 0 1px black;
 }
+.foodimage {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+}
+.foodItemContainer{
+  display: flex;
+  flex-direction: row;
+  gap: 18px;
+  flex-wrap: wrap;
+  width: 400px;
+  padding: 10px;
+  
 
+}
 .navbar-container {
   height: 10vh;
   z-index: 1;
