@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Recipes from "./pages/Recipes";
 import Donate from "./pages/Donate";
@@ -7,7 +7,7 @@ import Donate from "./pages/Donate";
 import LandingPage from "../src/pages/LandingPage";
 
 import Styles from "./pages/Styles";
-
+import Additem from "./pages/AdditemPage";
 
 function App() {
   return (
@@ -20,6 +20,8 @@ function App() {
         <Route path="/LandingPage" element={<LandingPage />} />
 
         <Route path="/styles" element={<Styles />} />
+
+        <Route path="/additem" element={<Additem />} />
       </Routes>
     </div>
   );
