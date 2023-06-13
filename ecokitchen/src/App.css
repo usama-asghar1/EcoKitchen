@@ -37,6 +37,15 @@
   padding: 15px;
 }
 
+.app-container {
+  background-color: var(--grey);
+  max-height: 100vh;
+  max-width: 428px;
+  margin: 0 auto;
+  border-style: solid;
+  box-shadow: 0 0 1px black;
+}
+
 .styles-container {
   background-color: var(--grey);
   max-height: 100vh;
