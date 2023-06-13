@@ -5,6 +5,7 @@ function Home() {
   
   return (
     //Main page styling start
+    
     <div className="styles-container">
       <div className="header-container"></div>
       <div className="content-container">
@@ -16,7 +17,8 @@ function Home() {
       </div>
 {/* main page styling end */}
       <br/>
-      <Navbar/>
+      <Navbar />
+      
       </div>
       
 

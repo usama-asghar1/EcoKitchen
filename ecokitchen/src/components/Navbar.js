@@ -3,52 +3,60 @@ import { BiFridge } from "react-icons/bi";
 import { BiListCheck } from "react-icons/bi";
 import { BiBarChartAlt } from "react-icons/bi";
 import { BiBookOpen } from "react-icons/bi";
-import {Link} from "react-router-dom"
+import {Link, useLocation } from "react-router-dom"
 
 import '../App.css'
 
 
 export default function Navbar() {
-        
-   
-
-return (
-    <div className='navbar-container'>
-    
-    {/* Home icon */}
-        <Link className="link" to={`/HomePage`}>
-        <div className="navbar-icon-name">
-        <BiHomeAlt className='navbar-icons'/>
-        Home</div>
+  const location = useLocation();
+  
+    const getIconColor = (path) => {
+      return location.pathname === path ? 'navbar-icon-blue' : 'navbar-icon-grey';
+    };
+  
+    return (
+      <div className="navbar-container">
+        {/* Home icon */}
+        <Link className="link" to="/HomePage">
+          <div className={`navbar-icon ${getIconColor('/HomePage')}`}>
+            <BiHomeAlt className="navbar-icon-image" />
+            <span className="navbar-icon-name">Home</span>
+          </div>
         </Link>
-
-     {/* Fridge icon */}
-        <Link className="link" to={`/Food`}>
-        <div classname='navbar-icon-name'>
-        <BiFridge className='navbar-icons'/>
-        Food</div>
+  
+        {/* Fridge icon */}
+        <Link className="link" to="/Food">
+          <div className={`navbar-icon ${getIconColor('/Food')}`}>
+            <BiFridge className="navbar-icon-image" />
+            <span className="navbar-icon-name">Food</span>
+          </div>
         </Link>
-
-    {/* Recipes icon */}
-        <Link className="link" to={`/Recipes`}>
-        <div classname='navbar-icon-name'>
-        <BiBookOpen className='navbar-icons'/>
-        Recipes</div>
+  
+        {/* Recipes icon */}
+        <Link className="link" to="/Recipes">
+          <div className={`navbar-icon ${getIconColor('/Recipes')}`}>
+            <BiBookOpen className="navbar-icon-image" />
+            <span className="navbar-icon-name">Recipes</span>
+          </div>
         </Link>
-
-    {/* Shopping icon */}
-        <Link className="link" to={`/Shopping`}>
-        <div classname='navbar-icon-name'>
-        <BiListCheck className='navbar-icons'/>
-        Shopping</div>
+  
+        {/* Shopping icon */}
+        <Link className="link" to="/Shopping">
+          <div className={`navbar-icon ${getIconColor('/Shopping')}`}>
+            <BiListCheck className="navbar-icon-image" />
+            <span className="navbar-icon-name">Shopping</span>
+          </div>
         </Link>
-
-    {/* Breakdown icon */}
-        <Link className="link" to={`/Breakdown`}>
-        <div classname='navbar-icon-name'>
-        <BiBarChartAlt className='navbar-icons'/>
-        Breakdown</div>
+  
+        {/* Breakdown icon */}
+        <Link className="link" to="/Breakdown">
+          <div className={`navbar-icon ${getIconColor('/Breakdown')}`}>
+            <BiBarChartAlt className="navbar-icon-image" />
+            <span className="navbar-icon-name">Breakdown</span>
+          </div>
         </Link>
-        
-        </div>
-)}
+      </div>
+    );
+  }
+  

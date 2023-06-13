@@ -1,6 +1,8 @@
 :root {
 
     --primary-blue: #10a7e6;
+    --navbar-grey: #868686;
+    --background-white: #FFFFFF;
     --main-font: "Roboto Condensed", sans-serif
   }
   
@@ -8,6 +10,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    
   }
   
   .header-container {
@@ -24,46 +27,70 @@
   
   .content-container {
     height: 80vh;
-    background-color: thistle;
+    background-color: var(--background-white);
+
   }
   
   .styles-container {
-    background-color: aqua;
+    
     max-height: 100vh;
     max-width: 428px;
     margin: 0 auto;
+    border: 1px black solid;
   }
   
+  
+  .link {
+    text-decoration: none;
+    
+   
+  } 
   .navbar-container {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
-    height: 10vh;
+    height: 7vh;
     background-color: #DDDDDD;
-    font-family: var(--main-font);
-    font-size: 1rem;
+    border-top:  0.25vh solid var(--primary-blue) ;
   }
   
-  .navbar-icons {
-    color: #868686;
-    height: 5vh;
-    width: 5vh;
-    border: 1px solid black;
+  .navbar-icon {
+    /* display: grid;
+    grid-template-columns: center repeat(5, 2); */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--navbar-grey);
+    font-family: var(--main-font);
+    /* font size is the icon size */
+    font-size: 3vh;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border: 1px black solid
+  
+  }
+  
+  .navbar-icon:hover {
+    color: var(--primary-blue);
+  }
+  
+  .navbar-icon-image {
+    margin-bottom: 0.1vh;
+    
   }
   
   .navbar-icon-name {
-    margin-top: 0.5rem; /* Adjust this value as needed */
-    
+    font-family: var(--main-font);
+    font-size: 1.5vh;
+  }
+  
+  .navbar-icon-blue {
+    color: var(--primary-blue);
   }
 
-  .link {
-    text-decoration: none;
-    color: #868686;
-    border: 1px solid black;
+  .navbar-icon-grey {
+    color: var(--navbar-grey);
   }
-  
-  
   .pantry-btn {
     background-color: var(--primary-blue);
   }
