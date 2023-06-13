@@ -47,11 +47,13 @@
   } 
   .navbar-container {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     height: 7vh;
     background-color: #DDDDDD;
     border-top:  0.25vh solid var(--primary-blue) ;
+    padding-left: 1vh;
+    padding-right: 1vh;
   }
   
   .navbar-icon {
@@ -66,7 +68,7 @@
     font-size: 3vh;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    border: 1px black solid
+    
   
   }
   
