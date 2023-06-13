@@ -16,31 +16,39 @@ return (
     <div className='navbar-container'>
     
     {/* Home icon */}
-        <span classname='navbar-icons'>
+        <Link className="link" to={`/HomePage`}>
+        <div className="navbar-icon-name">
         <BiHomeAlt className='navbar-icons'/>
-        Home</span>
+        Home</div>
+        </Link>
 
      {/* Fridge icon */}
-        <span classname='navbar-icons'>
+        <Link className="link" to={`/Food`}>
+        <div classname='navbar-icon-name'>
         <BiFridge className='navbar-icons'/>
-        Food</span>
-    {/* Recipies icon */}
+        Food</div>
+        </Link>
 
-        <Link to={`/recipes`}>
-        <div>
-        <span classname='navbar-icons'>
+    {/* Recipes icon */}
+        <Link className="link" to={`/Recipes`}>
+        <div classname='navbar-icon-name'>
         <BiBookOpen className='navbar-icons'/>
-        Recipies</span></div>
+        Recipes</div>
         </Link>
 
     {/* Shopping icon */}
-        <span classname='navbar-icons'>
+        <Link className="link" to={`/Shopping`}>
+        <div classname='navbar-icon-name'>
         <BiListCheck className='navbar-icons'/>
-        Shopping</span>
+        Shopping</div>
+        </Link>
 
     {/* Breakdown icon */}
-        <span classname='navbar-icons'>
+        <Link className="link" to={`/Breakdown`}>
+        <div classname='navbar-icon-name'>
         <BiBarChartAlt className='navbar-icons'/>
-        Breakdown</span>
+        Breakdown</div>
+        </Link>
+        
         </div>
 )}

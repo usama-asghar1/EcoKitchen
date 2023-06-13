@@ -40,13 +40,13 @@
     justify-content: center;
     align-items: center;
     height: 10vh;
-    background-color: tomato;
+    background-color: #DDDDDD;
     font-family: var(--main-font);
     font-size: 1rem;
   }
   
   .navbar-icons {
-    color: blue;
+    color: #868686;
     height: 5vh;
     width: 5vh;
     border: 1px solid black;
@@ -54,6 +54,13 @@
   
   .navbar-icon-name {
     margin-top: 0.5rem; /* Adjust this value as needed */
+    
+  }
+
+  .link {
+    text-decoration: none;
+    color: #868686;
+    border: 1px solid black;
   }
   
   
