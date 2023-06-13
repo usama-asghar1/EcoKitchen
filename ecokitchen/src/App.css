@@ -1,5 +1,9 @@
 :root {
   --primary-blue: #10a7e6;
+  --primary-amber: #fc7c25;
+  --primary-green: #27ab5f;
+  --background-white: #eeeeee;
+  --component-grey: #dddddd;
 }
 
 * {
