@@ -8,6 +8,7 @@ import LandingPage from "../src/pages/LandingPage";
 
 import Styles from "./pages/Styles";
 
+
 function App() {
   return (
     <div className="app-container">
