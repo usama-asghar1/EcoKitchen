@@ -35,8 +35,9 @@ function Donate() {
 
     const data = await response.json();
     console.log(data);
-    setFoodbankData(data.slice(0, 1));
+    setFoodbankData(data);
   }
+
 
   return (
     <div>
@@ -45,7 +46,7 @@ function Donate() {
         placeholder="Please input your address"
         onChange={(e) => setAddress(e.target.value)}
       />
-      <p>{foodbankData.name}</p>
+      {foodbankData.length > 0 && <p>{foodbankData[0].name}</p>}
       <button onClick={fetchFoodbanks}>Fetch</button>
     </div>
   );
