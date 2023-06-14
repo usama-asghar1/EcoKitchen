@@ -19,7 +19,6 @@ import RequestPassword from "./pages/Login-pages/ReqestPassword";
 
 function App() {
   return (
-    
     <BrowserRouter>
     <div className="app-container">
       <Header />
@@ -33,7 +32,7 @@ function App() {
 
         <Route path="/ResetPassword" element={<ResetPassword />} />
 
-        <Route path="/RequestPassword" element={<RequestPassword/>} />
+        <Route path="/RPassword" element={<RequestPassword/>} />
 
         <Route path="/HomePage" element={<Home />} />
 
@@ -47,7 +46,8 @@ function App() {
 
         <Route path="/Donate" element={<Donate />} />
 
-
+        
+          
         <Route path="/Styles" element={<Styles />} />
       </Routes>
       </div>
