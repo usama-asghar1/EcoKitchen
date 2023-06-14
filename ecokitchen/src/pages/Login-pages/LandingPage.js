@@ -15,7 +15,7 @@ return(
     <img src={logo1} alt="Logo" className="logo-image-login-pages"></img>
     </div>
 <br/>
-    <div id='button-position-login-pages'>
+    <div className='button-position-login-pages'>
     <Button label="Login" rounded />
 <br/>
 

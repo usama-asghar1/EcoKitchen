@@ -12,7 +12,7 @@
 }
 
 /* button position on page */
-#button-position-login-pages {
+.button-position-login-pages {
   margin-left: 1px;
   margin-bottom: 10px;
   display: flex;
