@@ -54,6 +54,7 @@
     border-top:  0.25vh solid var(--primary-blue) ;
     padding-left: 1vh;
     padding-right: 1vh;
+    
   }
   
   .navbar-icon {
@@ -79,11 +80,12 @@
   .navbar-icon-image {
     margin-bottom: 0.1vh;
     
+    
   }
   
   .navbar-icon-name {
     font-family: var(--main-font);
-    font-size: 1.5vh;
+    font-size: 1vh;
   }
   
   .navbar-icon-blue {
