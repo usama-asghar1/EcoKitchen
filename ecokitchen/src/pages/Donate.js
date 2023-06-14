@@ -1,8 +1,12 @@
-import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { InputText } from "primereact/inputtext";
+import { Button } from "primereact/button";
+import { Card } from "primereact/card";
+import { Message } from "primereact/message";
+
 
 function Donate() {
-  <Link to={`/donate}`}></Link>;
+  
   /*
   state that tracks users location (postcode/town)
   -Begin as empty string
@@ -28,26 +32,60 @@ function Donate() {
   async function fetchFoodbanks() {
     setError(null);
 
+    try {
+
     const response = await fetch(
       `https://www.givefood.org.uk/api/2/foodbanks/search/?address=${address}`
     );
-    console.log(response);
+    
+    if (!response.ok) {
+      setError("Something went wrong, try again");
+      return;
+    }
 
     const data = await response.json();
-    console.log(data);
+        
     setFoodbankData(data);
+
+    console.log(data);
+
+    }
+    catch (error) {
+      setError("Please enter a valid address");
+    }
+
   }
+
+
 
 
   return (
     <div>
-      <input
+
+      <InputText
         type="text"
-        placeholder="Please input your address"
+        placeholder="Enter location"
         onChange={(e) => setAddress(e.target.value)}
       />
-      {foodbankData.length > 0 && <p>{foodbankData[0].name}</p>}
-      <button onClick={fetchFoodbanks}>Fetch</button>
+
+      <Button onClick={fetchFoodbanks} label="Search" />
+
+      {foodbankData.map((foodbank, index) => {
+        return (
+          <Card key={index} title={foodbank.name}>
+            <p>{foodbank.address}</p>
+            <p>{foodbank.phone}</p>
+            <p>{foodbank.email}</p>
+            <p>{foodbank.website}</p>
+
+          </Card>
+        )})}
+
+
+      
+
+      {error && <Message severity="error"   text={error} /> }
+
     </div>
   );
 }
