@@ -1,14 +1,13 @@
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import React from 'react'; 
+
+
 import { Button } from 'primereact/button';
 import 'primereact/resources/themes/lara-light-blue/theme.css';
-import styles from '../App.css'
 
 export default function LandingPage() {
-    <Link to={`/LaningPage}`}></Link>;
+    
 return(
 
-<div className="styles-container">
+<div>
 
     <Button label="Login" rounded />
 <br/>
