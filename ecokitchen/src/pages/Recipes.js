@@ -12,13 +12,13 @@ function Recipes() {
     setError(null);
 
     const response = await fetch(
-      `www.themealdb.com/api/json/v1/1/filter.php?i=${ingredient}`
+      `https://www.themealdb.com/api/json/v1/1/filter.php?i=${ingredient}`
     );
     console.log(response);
 
     const data = await response.json();
     console.log(data);
-    setIngredient(data);
+    setRecipe(data.meals);
   }
 
 
