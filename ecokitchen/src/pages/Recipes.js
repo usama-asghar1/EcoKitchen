@@ -18,7 +18,9 @@ function Recipes() {
 
     const data = await response.json();
     console.log(data);
-    setRecipe(data.meals.slice(0, 9));
+
+    const limitedRecipes = data.meals ? data.meals.slice(0, 9) : [];
+    setRecipe(limitedRecipes);
   }
 
 
