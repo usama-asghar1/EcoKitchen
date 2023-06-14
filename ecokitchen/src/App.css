@@ -45,21 +45,36 @@
   border-style: solid;
   box-shadow: 0 0 1px black;
 }
-.foodimage {
-  border-radius: 50%;
-  width: 100px;
-  height: 100px;
+
+.foodContainer {
+  background-color: #EEEEEE;
+  border-radius: 10px;
+  border: 1px solid #424242;
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
+
 .foodItemContainer{
   display: flex;
   flex-direction: row;
-  gap: 18px;
+  /* border: 1px solid #ea324c; */
+  gap: 10px;
   flex-wrap: wrap;
-  width: 400px;
-  padding: 10px;
+  justify-content: space-between;
+  width: 300px;
+  padding: 2px;
+}
+
+.foodimage {
+    border-radius: 50%;
+    width: 90px;
+    height: 90px;
+}
   
 
-}
+
 .navbar-container {
   height: 10vh;
   z-index: 1;

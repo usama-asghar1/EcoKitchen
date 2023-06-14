@@ -36,17 +36,19 @@ function Additem() {
         <button className="donate-btn">Donate</button>
         <input type="text" placeholder="Search" />
         <button>+</button>
-        <div className="foodItemContainer">
-          <img className="foodimage" src={Wbread} />
-          <img className="foodimage" src={Potatoe} />
-          <img className="foodimage" src={Carrot} />
-          <img className="foodimage" src={Tomatoe} />
-          <img className="foodimage" src={Cabbage} />
-          <img className="foodimage" src={Milk} />
-          <img className="foodimage" src={Watermelon} />
-          <img className="foodimage" src={Pear} />
-          <img className="foodimage" src={Apple} />
-          <img className="foodimage" src={Aubergine} />
+
+        <div className="foodContainer">
+          <div className="foodItemContainer">
+            <img className="foodimage" src={Wbread} />
+            <img className="foodimage" src={Potatoe} />
+            <img className="foodimage" src={Carrot} />
+            <img className="foodimage" src={Tomatoe} />
+            <img className="foodimage" src={Cabbage} />
+            <img className="foodimage" src={Milk} />
+            <img className="foodimage" src={Watermelon} />
+            <img className="foodimage" src={Pear} />
+            <img className="foodimage" src={Apple} />
+            {/* <img className="foodimage" src={Aubergine} />
           <img className="foodimage" src={Bagel} />
           <img className="foodimage" src={Banana} />
           <img className="foodimage" src={Brocoli} />
@@ -54,9 +56,10 @@ function Additem() {
           <img className="foodimage" src={Grapes} />
           <img className="foodimage" src={Lemon} />
           <img className="foodimage" src={Lime} />
-          <img className="foodimage" src={Cheese} />
+          <img className="foodimage" src={Cheese} /> */}
 
-          <h1>this is our page</h1>
+            {/* <h1>the from element</h1> */}
+          </div>
         </div>
       </div>
       <div className="navbar-container">
