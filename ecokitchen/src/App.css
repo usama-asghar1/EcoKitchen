@@ -5,9 +5,14 @@
   --primary-green: #27ab5f;
   --red: #ea324c;
   --white: #eeeeee;
+  --background-white: #FFFFFF
   --grey: #dddddd;
+  --navbar-grey: #868686;
   --font: "Roboto Condensed", sans-serif;
 }
+
+ 
+  
 
 * {
   box-sizing: border-box;
@@ -31,7 +36,7 @@
 
 .content-container {
   height: 80vh;
-  background-color: var(--white);
+  background-color: var(--background-white);
   overflow-y: auto;
   z-index: 0;
   padding: 15px;
@@ -55,12 +60,62 @@
   box-shadow: 0 0 1px black;
 }
 
-.navbar-container {
-  height: 10vh;
-  z-index: 1;
-  position: sticky;
-}
+  .link {
+    text-decoration: none;
+  } 
+  .navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 7vh;
+    background-color: #DDDDDD;
+    border-top:  0.25vh solid var(--primary-blue) ;
+    padding-left: 1vh;
+    padding-right: 1vh;
+    z-index: 1;
+    position: sticky;
+    
+  }
+  
+  .navbar-icon {
+    /* display: grid;
+    grid-template-columns: center repeat(5, 2); */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--navbar-grey);
+    font-family: var(--font);
+    /* font size is the icon size */
+    font-size: 3vh;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .navbar-icon:hover {
+    color: var(--primary-blue);
+  }
+  
+  .navbar-icon-image {
+    margin-bottom: 0.1vh;
+    
+    
+  }
+  
+  .navbar-icon-name {
+    font-family: var(--font);
+    font-size: 1vh;
+  }
+  
+  .navbar-icon-blue {
+    color: var(--primary-blue);
+  }
 
-.pantry-btn {
-  background-color: var(--primary-green);
-}
+  .navbar-icon-grey {
+    color: var(--navbar-grey);
+  }
+  .pantry-btn {
+    background-color: var(--primary-blue);
+  }
+  
+
+
