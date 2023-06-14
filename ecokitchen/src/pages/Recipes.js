@@ -18,7 +18,7 @@ function Recipes() {
 
     const data = await response.json();
     console.log(data);
-    setRecipe(data.meals);
+    setRecipe(data.meals.slice(0, 9));
   }
 
 
@@ -26,11 +26,21 @@ function Recipes() {
     <div>
       <input
         type="text"
-        placeholder="Please input your address"
-        onChange={(e) => setRecipe(e.target.value)}
+        placeholder="Please input your main ingredient"
+        onChange={(e) => setIngredient(e.target.value)}
       />
-      {recipeData.length > 0 && <p>{recipeData[0].strMeal}</p>}
-      <button onClick={fetchRecipe}>Fetch</button>
+       <button onClick={fetchRecipe}>Search</button>
+      {recipeData.length > 0 && (
+        <div>
+          {recipeData.map((recipe) => (
+            <div key={recipe.idMeal}>
+              <img src={recipe.strMealThumb} alt={recipe.strMeal} />
+              <p>{recipe.strMeal}</p>
+            </div>
+          ))}
+        </div>
+      )}
+     
     </div>
   );
 }
