@@ -89,7 +89,7 @@
     border-top:  3px solid var(--primary-blue) ;
     padding-left: 10px;
     padding-right: 10px;
-    z-index: 1;
+    /* z-index: 1; */
     position: sticky;
     
   }
