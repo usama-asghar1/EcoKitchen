@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function Donate() {
   <Link to={`/donate}`}></Link>;
@@ -38,7 +38,7 @@ function Donate() {
     setFoodbankData(data);
   }
 
-error ='hi';
+
   return (
     <div>
       <input
