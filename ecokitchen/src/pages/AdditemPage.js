@@ -12,15 +12,15 @@ import Milk from "../assets/food/milk.jpg";
 import Watermelon from "../assets/food/watermelon.jpg";
 import Pear from "../assets/food/pear.jpg";
 import Apple from "../assets/food/apple.jpg";
-import Aubergine from "../assets/food/aubergine.jpg";
-import Bagel from "../assets/food/bagel.jpg";
-import Banana from "../assets/food/banana.jpg";
-import Brocoli from "../assets/food/brocol.jpg";
-import Bbread from "../assets/food/Brownbread.jpg";
-import Grapes from "../assets/food/grapes (1).jpg";
-import Lemon from "../assets/food/lemon.jpg";
-import Lime from "../assets/food/lime.jpg";
-import Cheese from "../assets/food/cheese.jpg";
+// import Aubergine from "../assets/food/aubergine.jpg";
+// import Bagel from "../assets/food/bagel.jpg";
+// import Banana from "../assets/food/banana.jpg";
+// import Brocoli from "../assets/food/brocol.jpg";
+// import Bbread from "../assets/food/Brownbread.jpg";
+// import Grapes from "../assets/food/grapes (1).jpg";
+// import Lemon from "../assets/food/lemon.jpg";
+// import Lime from "../assets/food/lime.jpg";
+// import Cheese from "../assets/food/cheese.jpg";
 function Additem() {
   <Link to={`/styles}`}></Link>;
   return (
