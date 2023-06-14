@@ -17,7 +17,7 @@ import Header from "./components/header/Header";
 import Shopping from "./pages/Shopping";
 import Food from "./pages/Food";
 import Breakdown from "./pages/Breakdown";
-import Navbar from "../components/Navbar";
+import Navbar from "./components/Navbar";
 
 
 
@@ -37,7 +37,7 @@ function App() {
 
         <Route path="Recipes" element={<Recipes />} />
 
-        <Route path="/Shopping" element={<Shopping />} 
+        <Route path="/Shopping" element={<Shopping />} />
 
         <Route path="/Donate" element={<Donate />} />
 
