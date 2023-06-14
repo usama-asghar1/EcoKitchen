@@ -19,7 +19,7 @@
 
 .header-container {
   background-color: white;
-  height: 10vh;
+  height: 91px;
   z-index: 1;
   position: sticky;
 }
@@ -32,7 +32,7 @@
 }
 
 .content-container {
-  height: 80vh;
+  height: 740px;
   background-color: var(--background-white);
   overflow-y: auto;
   z-index: 0;
@@ -40,22 +40,42 @@
 }
 
 .app-container {
+
   background-color: var(--grey);
-  max-height: 100vh;
+  max-height: 926px;
   max-width: 428px;
   margin: 0 auto;
   border-style: solid;
   box-shadow: 0 0 1px black;
 }
 
-.styles-container {
-  background-color: var(--grey);
-  max-height: 100vh;
-  max-width: 428px;
-  margin: 0 auto;
-  border-style: solid;
-  box-shadow: 0 0 1px black;
+.foodContainer {
+  background-color: #EEEEEE;
+  border-radius: 10px;
+  border: 1px solid #424242;
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
+
+.foodItemContainer{
+  display: flex;
+  flex-direction: row;
+  /* border: 1px solid #ea324c; */
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 300px;
+  padding: 2px;
+}
+
+.foodimage {
+    border-radius: 50%;
+    width: 90px;
+    height: 90px;
+}
+  
 
   .link {
     text-decoration: none;
@@ -64,12 +84,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 7vh;
+    height: 91px;
     background-color: #DDDDDD;
-    border-top:  0.25vh solid var(--primary-blue) ;
-    padding-left: 1vh;
-    padding-right: 1vh;
-    z-index: 1;
+    border-top:  3px solid var(--primary-blue) ;
+    padding-left: 10px;
+    padding-right: 10px;
+    /* z-index: 1; */
     position: sticky;
     
   }
@@ -83,7 +103,7 @@
     color: var(--navbar-grey);
     font-family: var(--font);
     /* font size is the icon size */
-    font-size: 3vh;
+    font-size: 48px;
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
@@ -93,14 +113,13 @@
   }
   
   .navbar-icon-image {
-    margin-bottom: 0.1vh;
-    
+    margin-bottom: 5px;
     
   }
   
   .navbar-icon-name {
     font-family: var(--font);
-    font-size: 1vh;
+    font-size: 12px;
   }
   
   .navbar-icon-blue {

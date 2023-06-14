@@ -16,8 +16,7 @@ import Shopping from "./pages/Shopping";
 import Food from "./pages/Food";
 import Breakdown from "./pages/Breakdown";
 import Navbar from "./components/Navbar";
-
-
+import Additem from "./pages/AdditemPage";
 
 
 function App() {
@@ -36,20 +35,17 @@ function App() {
 
         <Route path="/ResetPassword" element={<ResetPassword />} />
 
-        <Route path="/RPassword" element={<RequestPassword/>} />
+        <Route path="/RequestPassword" element={<RequestPassword/>} />
 
         <Route path="/HomePage" element={<Home />} />
-
         <Route path="/Food" element={<Food />} />
-
         <Route path="/Breakdown" element={<Breakdown />} />        
-
         <Route path="Recipes" element={<Recipes />} />
-
         <Route path="/Shopping" element={<Shopping />} />
-
         <Route path="/Donate" element={<Donate />} />
-
+        
+        <Route path="/additem" element={<Additem />} />
+          
         <Route path="/Styles" element={<Styles />} />
         </Routes>
       </div>
@@ -58,5 +54,4 @@ function App() {
     </BrowserRouter>
   );
 }
-
-export default App;     
+export default App;
