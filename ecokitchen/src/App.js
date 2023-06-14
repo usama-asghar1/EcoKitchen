@@ -3,22 +3,26 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Recipes from "./pages/Recipes";
 import Donate from "./pages/Donate";
+//loging pages
 import LandingPage from "./pages/Login-pages/LandingPage";
+import SignUp from "./pages/Login-pages/Signup";
+import Login from "./pages/Login-pages/Login";
+import ResetPassword from "./pages/Login-pages/ResetPassword";
+import RequestPassword from "./pages/Login-pages/ReqestPassword";
+
 import Styles from "./pages/Styles";
 import Header from "./components/header/Header";
 import Shopping from "./pages/Shopping";
 import Food from "./pages/Food";
 import Breakdown from "./pages/Breakdown";
 import Navbar from "./components/Navbar";
-import SignUp from "./pages/Login-pages/Signup";
-import Login from "./pages/Login-pages/Login";
-import ResetPassword from "./pages/Login-pages/ResetPassword";
-import RequestPassword from "./pages/Login-pages/ReqestPassword";
+
 
 
 
 function App() {
   return (
+    
     <BrowserRouter>
     <div className="app-container">
       <Header />
@@ -46,10 +50,8 @@ function App() {
 
         <Route path="/Donate" element={<Donate />} />
 
-        
-          
         <Route path="/Styles" element={<Styles />} />
-      </Routes>
+        </Routes>
       </div>
       <Navbar />
     </div>
@@ -57,4 +59,4 @@ function App() {
   );
 }
 
-export default App;
+export default App;     
