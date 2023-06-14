@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 //added comment
 function Header() {
   return (
+      <div className="header-container">
     <div className="header-content">
       <ProfilePicture />
       <Link to={"/"}>
@@ -16,6 +17,7 @@ function Header() {
         <Link to={"/donate"}>
           <button className="donate-btn"> Donate</button>
         </Link>
+      </div>
       </div>
     </div>
   );
