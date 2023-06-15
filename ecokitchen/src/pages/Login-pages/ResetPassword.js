@@ -3,12 +3,34 @@ import "./Loginpages.css";
 import { Password } from "primereact/password";
 import React, { useState } from "react";
 import { Button } from "primereact/button";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function ResetPassword() {
-  const [value, setValue] = useState("");
-  const [confirmPassword, setConfimPassword] = useState("");
+  const [newPassword, setNewPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+
+  const handlenewPasswordChange = (event) => {
+    setNewPassword(event.target.value);
+  };
+  const handleConfirmPasswordChange = (event) => {
+    setConfirmPassword(event.target.value);
+  };
+
+  const navigate = useNavigate();
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const newPasswordSubmit = {
+      Password: newPassword,
+      ConfirmedPassword: confirmPassword
+    };
+
+    console.log(newPasswordSubmit);
+
+    navigate('/Login');
+  };
   return (
-    <div>
+    <div> 
       {" "}
       <div>
         <div className="logo-position-login-pages">
@@ -17,23 +39,18 @@ export default function ResetPassword() {
           <div className="card flex justify-content-center">
             <p> New Password </p>
             <div className="card flex justify-content-center">
-              <Password
-                value={value}
-                onChange={(e) => setValue(e.target.value)}
-                toggleMask
-              />
+            <Password value={newPassword} onChange={handlenewPasswordChange} toggleMask />
             </div>
             <p> Confirm New Password </p>
             <div className="card flex justify-content-center">
-              <Password
-                confirmPassword={confirmPassword}
-                onChange={(e) => setConfimPassword(e.target.confirmPassword)}
-                toggleMask
-              />
+              <Password value={confirmPassword} onChange={handleConfirmPasswordChange} toggleMask />
             </div>
+            <br/>
+            <Link className="link" to="/Login">
             <div className="button-position-login-pages">
-              <Button label="Login" rounded />
+              <Button onClick={handleSubmit} label="Login" rounded />
             </div>
+            </Link>
           </div>
         </div>
       </div>
