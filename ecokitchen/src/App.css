@@ -29,6 +29,7 @@
   font-size: 2.5rem;
   font-weight: 400;
   text-align: center;
+  margin-top: -10px;
 }
 
 .content-container {
@@ -48,34 +49,6 @@
   border-style: solid;
   box-shadow: 0 0 1px black;
 }
-
-.foodContainer {
-  background-color: #EEEEEE;
-  border-radius: 10px;
-  border: 1px solid #424242;
-  display: flex;
-  justify-content: center;
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-
-.foodItemContainer{
-  display: flex;
-  flex-direction: row;
-  /* border: 1px solid #ea324c; */
-  gap: 10px;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  width: 300px;
-  padding: 2px;
-}
-
-.foodimage {
-    border-radius: 50%;
-    width: 90px;
-    height: 90px;
-}
-  
 
   .link {
     text-decoration: none;
