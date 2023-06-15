@@ -2,6 +2,7 @@ import logo1 from "./LOGO.svg";
 import './Loginpages.css'
 import { InputText } from "primereact/inputtext";
 import { Button } from 'primereact/button';
+import {Link} from "react-router-dom"
 
 export default function RequestPassword() {
  
@@ -22,8 +23,10 @@ export default function RequestPassword() {
         </div>
         </div>
   <br/>
+  <Link className="link" to="/ResetPassword">
         <div className='button-position-login-pages'>
           <Button label="Send Link" rounded />
         </div>
+        </Link>
     </div>
   )};

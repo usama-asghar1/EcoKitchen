@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { Password } from 'primereact/password';
 import { InputText } from "primereact/inputtext";
 import { Button } from 'primereact/button';
+import {Link} from "react-router-dom"
 
 export default function SignUp() {
   const [value, setValue] = useState('');
@@ -29,9 +30,11 @@ export default function SignUp() {
         <label htmlFor="Confirm Password"> Confim Password</label>
             <Password confirmPassword={confirmPassword} onChange={(e) => setConfimPassword(e.target.confirmPassword)} toggleMask />
         </div>
+        <Link className="link" to="/Login">
         <div className='button-position-login-pages'>
       <Button label="Sign Up" rounded />
       </div>
+      </Link>
 
       </div>
     

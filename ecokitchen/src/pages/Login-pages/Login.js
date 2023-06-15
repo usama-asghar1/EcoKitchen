@@ -5,9 +5,12 @@ import { InputText } from "primereact/inputtext";
 import { Password } from 'primereact/password';
 import { Button } from 'primereact/button';
 import './theme.css'
+// import LoginButton from "../../components/LoginButtonComponent";
 
 export default function Login() {
   const [value, setValue] = useState('');
+
+
     return (
       <div>
       <div className='logo-position-login-pages'>
