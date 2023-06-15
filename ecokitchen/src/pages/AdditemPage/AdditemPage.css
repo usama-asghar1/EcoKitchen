@@ -42,3 +42,13 @@ button {
   margin: 0;
   padding: 0;
 }
+
+.button-list-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  width: 390px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}

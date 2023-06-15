@@ -141,6 +141,9 @@ function Additem() {
   const [selectedImage, setSelectedImage] = useState(null);
   const [error, setError] = useState(null);
 
+  // This state will store the chosen list from the button choice of either fridge, pantry or shopping 
+  const [chosenList, setChosenList] = useState("pantry");
+
   // This function capitalises the first letter of each word in the search term
   const capitalizeWords = (input) => {
     return input
@@ -229,12 +232,29 @@ function Additem() {
     return `${year}-${month}-${day}`;
   };
 
+ 
+
+  /* PLAN
+  1. Create onClick when clicking the 3 buttons
+     - Shopping button will not show the expiry date and cost then store it into a shoppingArray
+     - Fridge and Pantry will show the expiry date then store it into a fridgeArray and pantryArray 
+  
+  2. Create a function that will store the form values into an array
+      - Create an array for each button
+      - Create a function that will store the form values into an array
+      - Create a function that will store the array into local storage
+   */
+
+
   return (
     <div className="add-item-container">
       <div className="add-item-form-container">
-        <form className="add-item-form" onSubmit={handleSubmit}>
-          <div className="add-item-form-title">
             <h1 className="page-title">Add Item</h1>
+        <form className="add-item-form" onSubmit={handleSubmit}>
+          <div className="button-list-container">
+            <Button id="pantry-button" label="Pantry" />
+            <Button id="fridge-button" label="Fridge" />
+            <Button id="shopping-button" label="Shopping"/>
           </div>
           <div className="add-item-form-input">
             <label htmlFor="item-name"></label>
@@ -277,6 +297,7 @@ function Additem() {
               required
             />
           </div>
+        
           <div className="add-item-form-input">
             <label htmlFor="item-expiry">Expiry Date</label>
             <input
@@ -298,6 +319,7 @@ function Additem() {
               required
             />
           </div>
+
           <div className="add-item-form-input">
             <Button
               variant="contained"
@@ -315,3 +337,29 @@ function Additem() {
 }
 
 export default Additem;
+
+/* 
+import React, { useState } from 'react';
+
+const MyComponent = () => {
+  const [formVisible, setFormVisible] = useState(true);
+
+  const handleShoppingClick = (event) => {
+    event.preventDefault();
+    setFormVisible(false);
+  };
+
+  return (
+    <div>
+      {formVisible && (
+        <form className="hide-form">
+          
+          </form>
+          )}
+          <button onClick={handleShoppingClick}>Hide Form</button>
+        </div>
+      );
+    };
+    
+    export default MyComponent;
+    */
