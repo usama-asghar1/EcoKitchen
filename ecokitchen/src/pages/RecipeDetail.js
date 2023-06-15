@@ -29,44 +29,72 @@ Create the route from the receipe search page to deatil page:
 */
 
 function RecipeDetail() {
+  const mealId = "53016";
+  const [selectedRecipeData, setSelectedRecipe] = useState(null);
 
-    const mealId = "53016";
-    const [selectedRecipeData, setSelectedRecipe] = useState(null);
-
-    useEffect(() => {
+  useEffect(() => {
     async function fetchSelectedRecipe() {
-    
-        const response = await fetch(
-          `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`
-        );
-        console.log(response);
-    
-        const data = await response.json();
-        console.log(data);
+      const response = await fetch(
+        `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`
+      );
+      console.log(response);
 
-        setSelectedRecipe(data);
-        console.log(selectedRecipeData);
-        }
+      const data = await response.json();
+      console.log(data);
 
-        fetchSelectedRecipe();
-    
-   },[]);
+      setSelectedRecipe(data);
+      console.log(selectedRecipeData);
+    }
 
-   console.log("After the useEffect");
-   console.log(selectedRecipeData);
+    fetchSelectedRecipe();
+  }, []);
 
-   if (!selectedRecipeData) {
+  console.log("After the useEffect");
+  console.log(selectedRecipeData);
+
+  if (!selectedRecipeData) {
     return <div>Loading...</div>;
   }
 
-   return (
-   
-    <div>
-      <h1>ID: {selectedRecipeData.meals[0].idMeal}</h1>
-      <h2>Title: {selectedRecipeData.meals[0].strMeal}</h2>
-      <img src={selectedRecipeData.meals[0].strMealThumb} alt={selectedRecipeData.strMeal} />
+  function listOfIngredient() {
+    //loop through the object and list all ingredients in an array
+    const meal = selectedRecipeData.meals[0];
+    const ingredients = [];
+
+    for (let i = 1; i <= 20; i++) {
+      const ingredient = meal[`strIngredient${i}`];
+      if (ingredient) {
+        ingredients.push(ingredient);
+      } else {
+        break;
+      }
+    }
+    return ingredients;
+  }
+  const list = listOfIngredient();
+  //   console.log(`${list}`);
+
+  return (
+    <div className="recipe-detail-container">
+      {/* <h1>ID: {selectedRecipeData.meals[0].idMeal}</h1> */}
+      <h3 className="recipe-title">
+        Title: {selectedRecipeData.meals[0].strMeal}
+      </h3>
+      <img
+        className="recipe-img"
+        src={selectedRecipeData.meals[0].strMealThumb}
+        alt={selectedRecipeData.meals[0].strMeal}
+      />
+      <p className="recipe-instructions">
+        {selectedRecipeData.meals[0].strInstructions}
+      </p>
+      <h3>Ingredients:</h3>
+      <ul>
+        {list.map((ingredient, index) => {
+          return <li key={index}>{ingredient}</li>;
+        })}
+      </ul>
     </div>
- 
   );
 }
 
