@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "primereact/resources/themes/lara-light-indigo/theme.css";
+import { Button } from "primereact/button";
 import "./AdditemPage/AdditemPage.css";
+import foodItemArray from "../assets/foodData/testData.js";
 
 import Wbread from "../assets/food/whitebread.jpg";
 import Potatoe from "../assets/food/potatoes.jpg";
@@ -43,7 +45,7 @@ const foodImages = [
   {
     className: "foodimage",
     src: Wbread,
-    alt: "whitebread",
+    alt: "white-bread",
   },
   {
     className: "foodimage",
@@ -108,7 +110,7 @@ const foodImages = [
   {
     className: "foodimage",
     src: Bbread,
-    alt: "brownbread",
+    alt: "brown-bread",
   },
   {
     className: "foodimage",
@@ -132,10 +134,11 @@ const foodImages = [
   },
 ];
 
-
 function Additem() {
   // This state will store the search term
   const [searchTerm, setsearchTerm] = useState("");
+  // This state will store the selected food name
+  const [selectedFoodName, setSelectedFoodName] = useState("");
   const [selectedImage, setSelectedImage] = useState(null);
   const [error, setError] = useState(null);
 
@@ -162,6 +165,7 @@ function Additem() {
   // It removes all special characters and spaces from the search term and the alt text of the images
   const filteredImages = foodImages.filter((image) =>
     image.alt
+      .replace(/[^a-zA-Z]/g, "")
       .toLowerCase()
       .includes(searchTerm.replace(/[^a-zA-Z]/g, "").toLowerCase())
   );
@@ -171,7 +175,9 @@ function Additem() {
     event.preventDefault();
     // This sets the selected image to the image that was clicked
     setSelectedImage(event.target.src);
-    console.log(selectedImage);
+    setSelectedFoodName(
+      capitalizeWords(event.target.alt.replace(/[^a-zA-Z]/g, " ").toLowerCase())
+    );
   };
 
   const handleSubmit = (event) => {
@@ -183,9 +189,28 @@ function Additem() {
       return;
     }
 
-    // Proceed with form submission
-    // ...
+    let foodItemArray = JSON.parse(localStorage.getItem("foodItemArray"));
 
+    // Check if the foodItemArray exists in local storage and if it doesn't, create it
+    if (!foodItemArray) {
+      foodItemArray = [];
+    }
+
+    // This will add the form values to the foodItemArray and store it in local storage and clear the form
+    const foodItem = {
+      name: selectedFoodName,
+      image: selectedImage,
+      quantity: event.target["item-quantity"].value,
+      expiryDate: event.target["item-expiry"].value,
+      cost: event.target["item-cost"].value,
+    };
+
+    foodItemArray.push(foodItem);
+    // This will store the foodItemArray in local storage
+    localStorage.setItem("foodItemArray", JSON.stringify(foodItemArray));
+    event.target.reset();
+    setSelectedImage(null);
+    console.log(foodItemArray);
   };
 
   const getCurrentDate = () => {
@@ -194,17 +219,16 @@ function Additem() {
     let month = currentDate.getMonth() + 1;
     let day = currentDate.getDate();
 
-   // Ensure month and day are in two-digit format
+    // Ensure month and day are in two-digit format
     if (month < 10) {
-      month = '0' + month;
+      month = "0" + month;
     }
     if (day < 10) {
-      day = '0' + day;
-    } 
- 
-   return `${year}-${month}-${day}`;
+      day = "0" + day;
+    }
 
-  }
+    return `${year}-${month}-${day}`;
+  };
 
   return (
     <div className="add-item-container">
@@ -214,19 +238,20 @@ function Additem() {
             <h1 className="page-title">Add Item</h1>
           </div>
           <div className="add-item-form-input">
-            <label htmlFor="item-name">Item Name</label>
+            <label htmlFor="item-name"></label>
             <input
               onChange={handleChange}
               type="text"
               id="item-name"
               name="item-name"
+              placeholder="Search for an item"
               required
             />
           </div>
           <div className="foodContainer">
             <div className="foodItemContainer add-item-form-input">
               {filteredImages.map((image, index) => (
-               <img
+                <img
                   key={index}
                   src={image.src}
                   alt={image.alt}
@@ -237,9 +262,7 @@ function Additem() {
                   }`}
                   onClick={handleImageClick}
                 />
-                
               ))}
-                            
             </div>
           </div>
 
@@ -247,18 +270,44 @@ function Additem() {
 
           <div className="add-item-form-input">
             <label htmlFor="item-quantity">Quantity</label>
-            <input type="number" id="item-quantity" name="item-quantity" min="1" required />
+            <input
+              type="number"
+              id="item-quantity"
+              name="item-quantity"
+              min="1"
+              required
+            />
           </div>
           <div className="add-item-form-input">
             <label htmlFor="item-expiry">Expiry Date</label>
-            <input type="date" id="item-expiry"  name="item-expiry" min={getCurrentDate()} required/>
+            <input
+              type="date"
+              id="item-expiry"
+              name="item-expiry"
+              min={getCurrentDate()}
+              required
+            />
           </div>
           <div className="add-item-form-input">
             <label htmlFor="item-cost">Cost (£)</label>
-            <input type="number" step="0.01" min="0" id="item-cost" name="item-cost" required />
+            <input
+              type="number"
+              step="0.01"
+              min="0"
+              id="item-cost"
+              name="item-cost"
+              required
+            />
           </div>
-         <div className="add-item-form-input">
-            <input type="submit" value="Submit" />
+          <div className="add-item-form-input">
+            <Button
+              variant="contained"
+              color="primary"
+              type="submit"
+              value={SubmitEvent}
+            >
+              Add Item
+            </Button>
           </div>
         </form>
       </div>
