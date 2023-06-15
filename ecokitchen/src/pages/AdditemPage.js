@@ -21,34 +21,8 @@ import Grapes from "../assets/food/grapes (1).jpg";
 import Lemon from "../assets/food/lemon.jpg";
 import Lime from "../assets/food/lime.jpg";
 import Cheese from "../assets/food/cheese.jpg";
-// function Additem() {
-//   return (
-//     <div className="foodContainer">
-<div className="foodItemContainer">
-  <img className="foodimage" src={Wbread} />
-  <img className="foodimage" src={Potatoe} />
-  <img className="foodimage" src={Carrot} />
-  <img className="foodimage" src={Tomatoe} />
-  <img className="foodimage" src={Cabbage} />
-  <img className="foodimage" src={Milk} />
-  <img className="foodimage" src={Watermelon} />
-  <img className="foodimage" src={Pear} />
-  <img className="foodimage" src={Apple} />
-  <img className="foodimage" src={Aubergine} />
-  <img className="foodimage" src={Bagel} />
-  <img className="foodimage" src={Banana} />
-  <img className="foodimage" src={Brocoli} />
-  <img className="foodimage" src={Bbread} />
-  <img className="foodimage" src={Grapes} />
-  <img className="foodimage" src={Lemon} />
-  <img className="foodimage" src={Lime} />
-  <img className="foodimage" src={Cheese} />
 
-  {/* <h1>the from element</h1> */}
-</div>;
-//     </div>
-//   );
-// }
+import { Message } from "primereact/message";
 
 /*
 PLAN:
@@ -91,12 +65,79 @@ const foodImages = [
     src: Cabbage,
     alt: "cabbage",
   },
+  {
+    className: "foodimage",
+    src: Milk,
+    alt: "milk",
+  },
+  {
+    className: "foodimage",
+    src: Watermelon,
+    alt: "watermelon",
+  },
+  {
+    className: "foodimage",
+    src: Pear,
+    alt: "pear",
+  },
+  {
+    className: "foodimage",
+    src: Apple,
+    alt: "apple",
+  },
+  {
+    className: "foodimage",
+    src: Aubergine,
+    alt: "aubergine",
+  },
+  {
+    className: "foodimage",
+    src: Bagel,
+    alt: "bagel",
+  },
+  {
+    className: "foodimage",
+    src: Banana,
+    alt: "banana",
+  },
+  {
+    className: "foodimage",
+    src: Brocoli,
+    alt: "broccoli",
+  },
+  {
+    className: "foodimage",
+    src: Bbread,
+    alt: "brownbread",
+  },
+  {
+    className: "foodimage",
+    src: Grapes,
+    alt: "grapes",
+  },
+  {
+    className: "foodimage",
+    src: Lemon,
+    alt: "lemon",
+  },
+  {
+    className: "foodimage",
+    src: Lime,
+    alt: "lime",
+  },
+  {
+    className: "foodimage",
+    src: Cheese,
+    alt: "cheese",
+  },
 ];
+
 
 function Additem() {
   // This state will store the search term
   const [searchTerm, setsearchTerm] = useState("");
   const [selectedImage, setSelectedImage] = useState(null);
+  const [error, setError] = useState(null);
 
   // This function capitalises the first letter of each word in the search term
   const capitalizeWords = (input) => {
@@ -133,26 +174,59 @@ function Additem() {
     console.log(selectedImage);
   };
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setError(null);
+
+    if (selectedImage === null) {
+      setError("Please select an image");
+      return;
+    }
+
+    // Proceed with form submission
+    // ...
+
+  };
+
+  const getCurrentDate = () => {
+    const currentDate = new Date();
+    const year = currentDate.getFullYear();
+    let month = currentDate.getMonth() + 1;
+    let day = currentDate.getDate();
+
+   // Ensure month and day are in two-digit format
+    if (month < 10) {
+      month = '0' + month;
+    }
+    if (day < 10) {
+      day = '0' + day;
+    } 
+ 
+   return `${year}-${month}-${day}`;
+
+  }
+
   return (
     <div className="add-item-container">
       <div className="add-item-form-container">
-        <form className="add-item-form">
+        <form className="add-item-form" onSubmit={handleSubmit}>
           <div className="add-item-form-title">
             <h1 className="page-title">Add Item</h1>
           </div>
           <div className="add-item-form-input">
-            <label for="item-name">Item Name</label>
+            <label htmlFor="item-name">Item Name</label>
             <input
               onChange={handleChange}
               type="text"
               id="item-name"
               name="item-name"
+              required
             />
           </div>
           <div className="foodContainer">
             <div className="foodItemContainer add-item-form-input">
               {filteredImages.map((image, index) => (
-                <img
+               <img
                   key={index}
                   src={image.src}
                   alt={image.alt}
@@ -163,46 +237,27 @@ function Additem() {
                   }`}
                   onClick={handleImageClick}
                 />
+                
               ))}
-              {/* <img className="foodimage" src={Wbread} alt="whitebread" />
-              <img className="foodimage" src={Potatoe} alt="potato" />
-              <img className="foodimage" src={Carrot} alt="carrot" />
-              <img className="foodimage" src={Tomatoe} alt="tomato" />
-              <img className="foodimage" src={Cabbage} alt="potato" />
-              <img className="foodimage" src={Milk} />
-              <img className="foodimage" src={Watermelon} />
-              <img className="foodimage" src={Pear} />
-              <img className="foodimage" src={Apple} />
-              <img className="foodimage" src={Aubergine} />
-              <img className="foodimage" src={Bagel} />
-              <img className="foodimage" src={Banana} />
-              <img className="foodimage" src={Brocoli} />
-              <img className="foodimage" src={Bbread} />
-              <img className="foodimage" src={Grapes} />
-              <img className="foodimage" src={Lemon} />
-              <img className="foodimage" src={Lime} />
-              <img className="foodimage" src={Cheese} /> */}
-
-              {/* <h1>the from element</h1> */}
+                            
             </div>
           </div>
+
+          {error && <Message severity="error" text={error} />}
+
           <div className="add-item-form-input">
-            <label for="item-quantity">Quantity</label>
-            <input type="number" id="item-quantity" name="item-quantity" />
+            <label htmlFor="item-quantity">Quantity</label>
+            <input type="number" id="item-quantity" name="item-quantity" min="1" required />
           </div>
           <div className="add-item-form-input">
-            <label for="item-expiry">Expiry Date</label>
-            <input type="date" id="item-expiry" name="item-expiry" />
+            <label htmlFor="item-expiry">Expiry Date</label>
+            <input type="date" id="item-expiry"  name="item-expiry" min={getCurrentDate()} required/>
           </div>
           <div className="add-item-form-input">
-            <label for="item-cost">Cost (£)</label>
-            <input type="number" id="item-cost" name="item-cost" />
+            <label htmlFor="item-cost">Cost (£)</label>
+            <input type="number" step="0.01" min="0" id="item-cost" name="item-cost" required />
           </div>
-          <div className="add-item-form-input">
-            <label for="item-image">Image</label>
-            <input type="file" id="item-image" name="item-image" />
-          </div>
-          <div className="add-item-form-input">
+         <div className="add-item-form-input">
             <input type="submit" value="Submit" />
           </div>
         </form>
