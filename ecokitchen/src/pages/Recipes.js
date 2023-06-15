@@ -37,7 +37,7 @@ function Recipes() {
       {recipeData.length > 0 && (
         <div className="recipes-grid">
           {recipeData.map((recipe) => (
-            <div key={recipe.idMeal}>
+            <div className="image-container" key={recipe.idMeal}>
               <img
                 className="recipe-img"
                 src={recipe.strMealThumb}
