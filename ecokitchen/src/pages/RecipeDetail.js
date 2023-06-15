@@ -31,7 +31,7 @@ Create the route from the receipe search page to deatil page:
 function RecipeDetail() {
 
     const mealId = "53016";
-    const [selectedRecipeData, setSelectedRecipe] = useState([]);
+    const [selectedRecipeData, setSelectedRecipe] = useState(null);
 
     useEffect(() => {
     async function fetchSelectedRecipe() {
@@ -47,17 +47,27 @@ function RecipeDetail() {
         setSelectedRecipe(data);
         console.log(selectedRecipeData);
         }
-        
+
         fetchSelectedRecipe();
     
    },[]);
 
+   console.log("After the useEffect");
+   console.log(selectedRecipeData);
 
+   if (!selectedRecipeData) {
+    return <div>Loading...</div>;
+  }
+
+   return (
    
-
-    return(
-        <div></div>
-    );
+    <div>
+      <h1>ID: {selectedRecipeData.meals[0].idMeal}</h1>
+      <h2>Title: {selectedRecipeData.meals[0].strMeal}</h2>
+      <img src={selectedRecipeData.meals[0].strMealThumb} alt={selectedRecipeData.strMeal} />
+    </div>
+ 
+  );
 }
 
 export default RecipeDetail;
