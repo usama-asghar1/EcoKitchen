@@ -8,7 +8,7 @@ export default function ResetPassword() {
   const [value, setValue] = useState("");
   const [confirmPassword, setConfimPassword] = useState("");
   return (
-    <div>
+    <div> 
       {" "}
       <div>
         <div className="logo-position-login-pages">
