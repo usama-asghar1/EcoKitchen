@@ -7,6 +7,7 @@ function Recipes() {
   const [ingredient, setIngredient] = useState("");
   const [recipeData, setRecipe] = useState([]);
   const [error, setError] = useState(null);
+  const [clickedRecipeId, setClickedRecipeId] = useState(null);
 
   async function fetchRecipe() {
     setError(error);
@@ -23,6 +24,15 @@ function Recipes() {
     setRecipe(limitedRecipes);
   }
 
+  function clickRecipe(recipeId) {
+    setClickedRecipeId(recipeId);
+    console.log(`this is what we want:${recipeId}`);
+  }
+
+  // function selectRecipe() {
+  //   console.log(recipe.mealId);
+  // }
+
   return (
     <div className="recipe-container">
       <div className="recipe-search-container">
@@ -37,14 +47,20 @@ function Recipes() {
       {recipeData.length > 0 && (
         <div className="recipes-grid">
           {recipeData.map((recipe) => (
+            
             <div className="image-container" key={recipe.idMeal}>
-              <img
+            
+            <button onClick={() => clickRecipe(recipe.idMeal)}>
+            <img
                 className="recipe-img"
                 src={recipe.strMealThumb}
                 alt={recipe.strMeal}
               />
               <p>{recipe.strMeal}</p>
+          
+              </button> 
             </div>
+            
           ))}
         </div>
       )}

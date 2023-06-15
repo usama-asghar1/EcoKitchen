@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import Recipes from "./Recipes";
 
 /* PLAN
 
@@ -28,8 +28,9 @@ Create the route from the receipe search page to deatil page:
 
 */
 
-function RecipeDetail() {
-  const mealId = "53016";
+function RecipeDetail({recipeId}) {
+
+  const mealId = recipeId;
   const [selectedRecipeData, setSelectedRecipe] = useState(null);
 
   useEffect(() => {
