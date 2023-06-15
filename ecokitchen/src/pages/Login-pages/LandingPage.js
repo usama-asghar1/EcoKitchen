@@ -16,11 +16,14 @@ return(
     </div>
 <br/>
     <div className='button-position-login-pages'>
-    <Button label="Login" severity="success" rounded />
+<br/>
+    
 <br/>
     <Button label="Sign Up" severity="secondary" rounded />
 <br/>
     <Button label="Forgotten Password" severity="warning" rounded />
+<br/>
+    <Button label="Login" severity="success" rounded />
 </div>
 
 
