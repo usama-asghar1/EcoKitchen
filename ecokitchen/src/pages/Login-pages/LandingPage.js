@@ -1,8 +1,8 @@
 import React from 'react'; 
 import logo1 from "./LOGO.svg";
 import { Button } from 'primereact/button';
-import 'primereact/resources/themes/lara-light-blue/theme.css';
-import './Loginpages.css'
+import './theme.css';
+import './Loginpages.css';
 
 
 
@@ -16,12 +16,14 @@ return(
     </div>
 <br/>
     <div className='button-position-login-pages'>
-    <Button label="Login" rounded />
 <br/>
-
-    <Button label="Signup" rounded />
+    <Button label="Login" severity="success" rounded />
 <br/>
-    <Button label="Forgot Password" rounded />
+    <Button label="Sign Up" severity="secondary" rounded />
+<br/>
+    <Button label="Forgotten Password" severity="warning" rounded />
+<br/>
+    
 </div>
 
 
