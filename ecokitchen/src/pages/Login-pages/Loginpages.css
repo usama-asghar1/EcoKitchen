@@ -46,3 +46,18 @@
   font-weight: 700;
   text-align: center;
 }
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-label {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 700;
+}
+
+.card-input {
+  font-family: 'Roboto Condensed', sans-serif;
+  /* Add any additional styling for the input here */
+}

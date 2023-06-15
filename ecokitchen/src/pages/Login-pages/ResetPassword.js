@@ -3,6 +3,7 @@ import "./Loginpages.css";
 import { Password } from "primereact/password";
 import React, { useState } from "react";
 import { Button } from "primereact/button";
+import {Link} from "react-router-dom"
 
 export default function ResetPassword() {
   const [value, setValue] = useState("");
@@ -31,9 +32,11 @@ export default function ResetPassword() {
                 toggleMask
               />
             </div>
+            <Link className="link" to="/Login">
             <div className="button-position-login-pages">
               <Button label="Login" rounded />
             </div>
+            </Link>
           </div>
         </div>
       </div>
