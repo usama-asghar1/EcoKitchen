@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "primereact/resources/themes/lara-light-indigo/theme.css";
 import { Button } from "primereact/button";
 import "./AdditemPage/AdditemPage.css";
-import foodItemArray from "../assets/foodData/testData.js";
 
 import Wbread from "../assets/food/whitebread.jpg";
 import Potatoe from "../assets/food/potatoes.jpg";
