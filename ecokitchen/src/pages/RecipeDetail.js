@@ -74,14 +74,30 @@ function RecipeDetail() {
   const list = listOfIngredient();
   //   console.log(`${list}`);
 
+  function listOfMeasurement() {
+    //loop through the object and list all measurements in an array
+    const meal = selectedRecipeData.meals[0];
+    const measurements = [];
+
+    for (let i = 1; i <= 20; i++) {
+      const measurement = meal[`strMeasure${i}`];
+      if (measurement) {
+        measurements.push(measurement);
+      } else {
+        break;
+      }
+    }
+    return measurements;
+  }
+
+  const measurements = listOfMeasurement();
+
   return (
     <div className="recipe-detail-container">
       {/* <h1>ID: {selectedRecipeData.meals[0].idMeal}</h1> */}
-      <h3 className="recipe-title">
-        Title: {selectedRecipeData.meals[0].strMeal}
-      </h3>
+      <h3 className="recipe-title">{selectedRecipeData.meals[0].strMeal}</h3>
       <img
-        className="recipe-img"
+        className="recipe-card-img"
         src={selectedRecipeData.meals[0].strMealThumb}
         alt={selectedRecipeData.meals[0].strMeal}
       />
@@ -94,6 +110,15 @@ function RecipeDetail() {
           return <li key={index}>{ingredient}</li>;
         })}
       </ul>
+
+      <div>
+        <h3>measurements</h3>
+        <ul>
+          {measurements.map((measurement, index) => {
+            return <li key={index}>{measurement}</li>;
+          })}
+        </ul>
+      </div>
     </div>
   );
 }
