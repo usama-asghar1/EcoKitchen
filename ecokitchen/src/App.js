@@ -12,6 +12,7 @@ import Food from "./pages/Food";
 import Breakdown from "./pages/Breakdown";
 import Navbar from "./components/Navbar";
 import Additem from "./pages/AdditemPage";
+import RecipeDetail from "./pages/RecipeDetail";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/Food" element={<Food />} />
         <Route path="/Breakdown" element={<Breakdown />} />        
         <Route path="Recipes" element={<Recipes />} />
+        <Route path="RecipeDetail" element={<RecipeDetail />} />
         <Route path="/Shopping" element={<Shopping />} />
         <Route path="/Donate" element={<Donate />} />
         <Route path="/LandingPage" element={<LandingPage />} />
