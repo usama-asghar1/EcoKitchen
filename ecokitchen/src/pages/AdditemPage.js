@@ -64,6 +64,7 @@ PLAN:
 -For now, we will not be using a database to store the information, so the information will be stored in the local storage. E.g. as an array of objects.
 */
 
+// Dummy data for the food images
 const foodImages = [
   {
     className: "foodimage",
@@ -93,20 +94,44 @@ const foodImages = [
 ];
 
 function Additem() {
+  // This state will store the search term
   const [searchTerm, setsearchTerm] = useState("");
+  const [selectedImage, setSelectedImage] = useState(null);
 
+  // This function capitalises the first letter of each word in the search term
+  const capitalizeWords = (input) => {
+    return input
+      .toLowerCase()
+      .split(" ")
+      .map(function (word) {
+        return word.charAt(0).toUpperCase() + word.slice(1);
+      })
+      .join(" ");
+  };
+
+  // This function handles the change in the search term
   const handleChange = (event) => {
-    // This edits the search term to remove any special characters and spaces
-    const editedSearchTerm = event.target.value
-      .replace(/[^a-zA-Z]/g, "")
-      .toLowerCase();
+    // This edits the search term to capitalises the first letter of each word in the search term
+    const editedSearchTerm = capitalizeWords(event.target.value);
     console.log(editedSearchTerm);
     setsearchTerm(editedSearchTerm);
   };
 
+  // This filters the food images based on the search term
+  // It removes all special characters and spaces from the search term and the alt text of the images
   const filteredImages = foodImages.filter((image) =>
-    image.alt.toLowerCase().includes(searchTerm)
+    image.alt
+      .toLowerCase()
+      .includes(searchTerm.replace(/[^a-zA-Z]/g, "").toLowerCase())
   );
+
+  // This function handles the click of the food image
+  const handleImageClick = (event) => {
+    event.preventDefault();
+    // This sets the selected image to the image that was clicked
+    setSelectedImage(event.target.src);
+    console.log(selectedImage);
+  };
 
   return (
     <div className="add-item-container">
@@ -131,7 +156,12 @@ function Additem() {
                   key={index}
                   src={image.src}
                   alt={image.alt}
-                  className="foodimage"
+                  // This adds the selected class to the image that was clicked
+                  // This will allow us to style the selected image differently
+                  className={`foodimage ${
+                    selectedImage === image.src ? "selected" : ""
+                  }`}
+                  onClick={handleImageClick}
                 />
               ))}
               {/* <img className="foodimage" src={Wbread} alt="whitebread" />
