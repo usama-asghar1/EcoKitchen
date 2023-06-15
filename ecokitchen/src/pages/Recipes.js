@@ -47,20 +47,23 @@ function Recipes() {
       {recipeData.length > 0 && (
         <div className="recipes-grid">
           {recipeData.map((recipe) => (
-            
             <div className="image-container" key={recipe.idMeal}>
-            
-            <button onClick={() => clickRecipe(recipe.idMeal)}>
-            <img
-                className="recipe-img"
-                src={recipe.strMealThumb}
-                alt={recipe.strMeal}
-              />
-              <p>{recipe.strMeal}</p>
-          
-              </button> 
+              <Link
+                to={{
+                  pathname: "/RecipeDetail",
+                  state: { id: `${recipe.idMeal}` },
+                }}
+              >
+                <button onClick={() => clickRecipe(recipe.idMeal)}>
+                  <img
+                    className="recipe-img"
+                    src={recipe.strMealThumb}
+                    alt={recipe.strMeal}
+                  />
+                  <p>{recipe.strMeal}</p>
+                </button>
+              </Link>
             </div>
-            
           ))}
         </div>
       )}
