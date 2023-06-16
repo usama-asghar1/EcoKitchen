@@ -40,6 +40,10 @@
   padding: 15px;
 }
 
+.content-container::-webkit-scrollbar {
+  display: none;
+}
+
 .app-container {
 
   background-color: var(--grey);
