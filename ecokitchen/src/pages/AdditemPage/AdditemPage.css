@@ -52,3 +52,19 @@ button {
   margin-top: 5px;
   margin-bottom: 5px;
 }
+
+.not-selected {
+  background-color: var(--navbar-grey);
+  border: none;
+}
+
+.add-item-form-input {
+  margin-top: 10px;
+}
+
+/* form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+} */
