@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
@@ -67,6 +68,7 @@ function Recipes() {
       )}
     </div>
   );
+
 }
 
 export default Recipes;
