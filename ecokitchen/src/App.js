@@ -22,8 +22,13 @@ import RecipeDetail from "./pages/RecipeDetail";
 
 import AddItemButton from "./components/AddItemButton.js";
 
+
+import Styles from "./pages/Styles";
+
+
 function App() {
   return (
+
     <BrowserRouter>
       <div className="app-container">
         <Header />
