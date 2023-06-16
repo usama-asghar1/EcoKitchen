@@ -29,7 +29,10 @@ function Donate() {
 
   async function fetchFoodbanks() {
     setError(null);
-
+    if (address === "") {
+      setError("Please enter a valid address");
+      return;
+    }
     try {
       const response = await fetch(
         `https://www.givefood.org.uk/api/2/foodbanks/search/?address=${address}`
@@ -64,53 +67,54 @@ function Donate() {
         <Button onClick={fetchFoodbanks} label="Search" />
       </div>
 
-      {foodbankData.map((foodbank, index) => {
-        const header = (
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              margin: 20,
-              marginBottom: -28,
-            }}
-          >
-            <h2 style={{ margin: 0 }}>{foodbank.name}</h2>
-            <Button
-              // icon="pi pi-check"
-              // className="p-button-rounded p-button-success"
-              // Would be best to use a separate CSS file to style the buttons
-              style={{ backgroundColor: "#10a7e6", borderColor: "#10a7e6" }}
-              label="View on map"
-              onClick={() =>
-                window.open(
-                  `https://www.google.com/maps/search/?api=1&query=${foodbank.address}`
-                )
-              }
-            />
-          </div>
-        );
+      {error === null &&
+        foodbankData.map((foodbank, index) => {
+          const header = (
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                margin: 20,
+                marginBottom: -28,
+              }}
+            >
+              <h2 style={{ margin: 0 }}>{foodbank.name}</h2>
+              <Button
+                // icon="pi pi-check"
+                // className="p-button-rounded p-button-success"
+                // Would be best to use a separate CSS file to style the buttons
+                style={{ backgroundColor: "#10a7e6", borderColor: "#10a7e6" }}
+                label="View on map"
+                onClick={() =>
+                  window.open(
+                    `https://www.google.com/maps/search/?api=1&query=${foodbank.address}`
+                  )
+                }
+              />
+            </div>
+          );
 
-        return (
-          <Card
-            key={index}
-            header={header}
-            subTitle={`${foodbank.distance_mi} miles away`}
-            className="p-shadow-10"
-            style={{ marginBottom: "1em" }}
-          >
-            <p>
-              <strong>Address: </strong>
-              {foodbank.address}
-            </p>
-            <p>
-              <strong>Phone Number: </strong>
-              {foodbank.phone}
-            </p>
-            {/* <img src={foodbank.urls.map} alt="foodbank map" /> */}
-          </Card>
-        );
-      })}
+          return (
+            <Card
+              key={index}
+              header={header}
+              subTitle={`${foodbank.distance_mi} miles away`}
+              className="p-shadow-10"
+              style={{ marginBottom: "1em" }}
+            >
+              <p>
+                <strong>Address: </strong>
+                {foodbank.address}
+              </p>
+              <p>
+                <strong>Phone Number: </strong>
+                {foodbank.phone}
+              </p>
+              {/* <img src={foodbank.urls.map} alt="foodbank map" /> */}
+            </Card>
+          );
+        })}
 
       {error && <Message severity="error" text={error} />}
     </div>
