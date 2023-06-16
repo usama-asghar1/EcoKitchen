@@ -48,12 +48,7 @@ function Recipes() {
         <div className="recipes-grid">
           {recipeData.map((recipe) => (
             <div className="image-container" key={recipe.idMeal}>
-              <Link
-                to={{
-                  pathname: "/RecipeDetail",
-                  state: { id: `${recipe.idMeal}` },
-                }}
-              >
+              <Link to={recipe.idMeal}>
                 <button onClick={() => clickRecipe(recipe.idMeal)}>
                   <img
                     className="recipe-img"

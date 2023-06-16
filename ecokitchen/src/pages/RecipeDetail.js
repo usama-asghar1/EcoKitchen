@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Recipes from "./Recipes";
-import { useLocation, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 /* PLAN
 
@@ -31,12 +31,13 @@ Create the route from the receipe search page to deatil page:
 
 function RecipeDetail() {
   // need ot come back to this
-  const { dave } = useParams();
-  const location = useLocation();
-  const { id } = location.state;
-  const mealId = id;
+  const parmas = useParams();
+  console.log("i am here");
+  console.log(parmas.recipeIdMeal);
+
+  const mealId = parmas.recipeIdMeal;
   const [selectedRecipeData, setSelectedRecipe] = useState(null);
-  console.log(id);
+  // console.log(id);
 
   useEffect(() => {
     async function fetchSelectedRecipe() {
