@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "primereact/resources/themes/lara-light-indigo/theme.css";
 import { Button } from "primereact/button";
 import "./AdditemPage/AdditemPage.css";
@@ -141,8 +141,18 @@ function Additem() {
   const [selectedImage, setSelectedImage] = useState(null);
   const [error, setError] = useState(null);
 
-  // This state will store the chosen list from the button choice of either fridge, pantry or shopping 
-  const [chosenList, setChosenList] = useState("pantry");
+  // This state will store the chosen list from the button choice of either fridge, pantry or shopping
+  const [foodCategory, setFoodCategory] = useState(null);
+
+  // This function will change the foodCategory state based on the button choice
+  const handleFoodCategoryChange = (category) => {
+    setFoodCategory(category);
+  };
+
+  // This useEffect will run when the foodCategory state changes
+  useEffect(() => {
+    console.log(foodCategory);
+  }, [foodCategory]);
 
   // This function capitalises the first letter of each word in the search term
   const capitalizeWords = (input) => {
@@ -191,7 +201,7 @@ function Additem() {
       return;
     }
 
-    let foodItemArray = JSON.parse(localStorage.getItem("foodItemArray"));
+    let foodItemArray = JSON.parse(localStorage.getItem(foodCategory));
 
     // Check if the foodItemArray exists in local storage and if it doesn't, create it
     if (!foodItemArray) {
@@ -203,13 +213,16 @@ function Additem() {
       name: selectedFoodName,
       image: selectedImage,
       quantity: event.target["item-quantity"].value,
-      expiryDate: event.target["item-expiry"].value,
-      cost: event.target["item-cost"].value,
     };
+
+    if (foodCategory === "fridge" || foodCategory === "pantry") {
+      foodItem.expiryDate = event.target["item-expiry"].value;
+      foodItem.cost = event.target["item-cost"].value;
+    }
 
     foodItemArray.push(foodItem);
     // This will store the foodItemArray in local storage
-    localStorage.setItem("foodItemArray", JSON.stringify(foodItemArray));
+    localStorage.setItem(foodCategory, JSON.stringify(foodItemArray));
     event.target.reset();
     setSelectedImage(null);
     console.log(foodItemArray);
@@ -232,8 +245,6 @@ function Additem() {
     return `${year}-${month}-${day}`;
   };
 
- 
-
   /* PLAN
   1. Create onClick when clicking the 3 buttons
      - Shopping button will not show the expiry date and cost then store it into a shoppingArray
@@ -245,121 +256,115 @@ function Additem() {
       - Create a function that will store the array into local storage
    */
 
-
   return (
     <div className="add-item-container">
+      <h1 className="page-title">Add Item</h1>
       <div className="add-item-form-container">
-            <h1 className="page-title">Add Item</h1>
         <form className="add-item-form" onSubmit={handleSubmit}>
           <div className="button-list-container">
-            <Button id="pantry-button" label="Pantry" />
-            <Button id="fridge-button" label="Fridge" />
-            <Button id="shopping-button" label="Shopping"/>
-          </div>
-          <div className="add-item-form-input">
-            <label htmlFor="item-name"></label>
-            <input
-              onChange={handleChange}
-              type="text"
-              id="item-name"
-              name="item-name"
-              placeholder="Search for an item"
-              required
-            />
-          </div>
-          <div className="foodContainer">
-            <div className="foodItemContainer add-item-form-input">
-              {filteredImages.map((image, index) => (
-                <img
-                  key={index}
-                  src={image.src}
-                  alt={image.alt}
-                  // This adds the selected class to the image that was clicked
-                  // This will allow us to style the selected image differently
-                  className={`foodimage ${
-                    selectedImage === image.src ? "selected" : ""
-                  }`}
-                  onClick={handleImageClick}
-                />
-              ))}
-            </div>
-          </div>
-
-          {error && <Message severity="error" text={error} />}
-
-          <div className="add-item-form-input">
-            <label htmlFor="item-quantity">Quantity</label>
-            <input
-              type="number"
-              id="item-quantity"
-              name="item-quantity"
-              min="1"
-              required
-            />
-          </div>
-        
-          <div className="add-item-form-input">
-            <label htmlFor="item-expiry">Expiry Date</label>
-            <input
-              type="date"
-              id="item-expiry"
-              name="item-expiry"
-              min={getCurrentDate()}
-              required
-            />
-          </div>
-          <div className="add-item-form-input">
-            <label htmlFor="item-cost">Cost (£)</label>
-            <input
-              type="number"
-              step="0.01"
-              min="0"
-              id="item-cost"
-              name="item-cost"
-              required
-            />
-          </div>
-
-          <div className="add-item-form-input">
             <Button
-              variant="contained"
-              color="primary"
-              type="submit"
-              value={SubmitEvent}
-            >
-              Add Item
-            </Button>
+              id="pantry-button"
+              label="Pantry"
+              type="button"
+              onClick={() => handleFoodCategoryChange("pantryArray")}
+              className={foodCategory === "pantryArray" ? "" : "not-selected"}
+            />
+            <Button
+              id="fridge-button"
+              label="Fridge"
+              type="button"
+              onClick={() => handleFoodCategoryChange("fridgeArray")}
+              className={foodCategory === "fridgeArray" ? "" : "not-selected"}
+            />
+            <Button
+              id="shopping-button"
+              label="Shopping"
+              type="button"
+              onClick={() => handleFoodCategoryChange("shoppingArray")}
+              className={foodCategory === "shoppingArray" ? "" : "not-selected"}
+            />
           </div>
         </form>
+        {foodCategory && (
+          <div>
+            <form className="add-item-form" onSubmit={handleSubmit}>
+              <div className="add-item-form-input">
+                <label htmlFor="item-name"></label>
+                <input
+                  onChange={handleChange}
+                  type="text"
+                  id="item-name"
+                  name="item-name"
+                  placeholder="Search for an item"
+                />
+              </div>
+              <div className="foodContainer">
+                <div className="foodItemContainer">
+                  {filteredImages.map((image, index) => (
+                    <img
+                      key={index}
+                      src={image.src}
+                      alt={image.alt}
+                      // This adds the selected class to the image that was clicked
+                      // This will allow us to style the selected image differently
+                      className={`foodimage ${
+                        selectedImage === image.src ? "selected" : ""
+                      }`}
+                      onClick={handleImageClick}
+                    />
+                  ))}
+                </div>
+              </div>
+
+              {error && <Message severity="error" text={error} />}
+
+              <div className="add-item-form-input">
+                <label htmlFor="item-quantity">Quantity</label>
+                <input
+                  type="number"
+                  id="item-quantity"
+                  name="item-quantity"
+                  min="1"
+                  required
+                />
+              </div>
+              {foodCategory !== "shoppingArray" && (
+                <>
+                  <div className="add-item-form-input">
+                    <label htmlFor="item-expiry">Expiry Date</label>
+                    <input
+                      type="date"
+                      id="item-expiry"
+                      name="item-expiry"
+                      min={getCurrentDate()}
+                      required
+                    />
+                  </div>
+                  <div className="add-item-form-input">
+                    <label htmlFor="item-cost">Cost (£)</label>
+                    <input
+                      type="number"
+                      step="0.01"
+                      min="0"
+                      id="item-cost"
+                      name="item-cost"
+                      required
+                    />
+                  </div>
+                </>
+              )}
+
+              <div className="add-item-form-input">
+                <Button variant="contained" color="primary" type="submit">
+                  Add Item
+                </Button>
+              </div>
+            </form>
+          </div>
+        )}
       </div>
     </div>
   );
 }
 
 export default Additem;
-
-/* 
-import React, { useState } from 'react';
-
-const MyComponent = () => {
-  const [formVisible, setFormVisible] = useState(true);
-
-  const handleShoppingClick = (event) => {
-    event.preventDefault();
-    setFormVisible(false);
-  };
-
-  return (
-    <div>
-      {formVisible && (
-        <form className="hide-form">
-          
-          </form>
-          )}
-          <button onClick={handleShoppingClick}>Hide Form</button>
-        </div>
-      );
-    };
-    
-    export default MyComponent;
-    */
