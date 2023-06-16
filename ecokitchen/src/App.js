@@ -17,6 +17,9 @@ import Food from "./pages/Food";
 import Breakdown from "./pages/Breakdown";
 import Navbar from "./components/Navbar";
 import Additem from "./pages/AdditemPage";
+
+import RecipeDetail from "./pages/RecipeDetail";
+
 import AddItemButton from "./components/AddItemButton.js";
 
 function App() {
@@ -25,6 +28,7 @@ function App() {
       <div className="app-container">
         <Header />
         <div className="content-container">
+
           <div className="scrollable-content">
             <Routes>
               <Route path="/LandingPage" element={<LandingPage />} />
@@ -41,6 +45,7 @@ function App() {
               <Route path="/Food" element={<Food />} />
               <Route path="/Breakdown" element={<Breakdown />} />
               <Route path="Recipes" element={<Recipes />} />
+            <Route path="Recipes/:recipeIdMeal" element={<RecipeDetail />} />
               <Route path="/Shopping" element={<Shopping />} />
               <Route path="/Donate" element={<Donate />} />
 
@@ -50,6 +55,7 @@ function App() {
             </Routes>
           </div>
           <AddItemButton />
+
         </div>
         <Navbar />
       </div>
