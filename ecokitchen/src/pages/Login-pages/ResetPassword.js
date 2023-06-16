@@ -27,22 +27,26 @@ export default function ResetPassword() {
 
     console.log(newPasswordSubmit);
 
-    navigate('/Login');
+    if(newPassword === confirmPassword){
+      navigate('/Login');
+    } else {
+      alert('try again')
+    }
   };
   return (
     <div> 
-      {" "}
       <div>
         <div className="logo-position-login-pages">
           <img src={logo1} alt="Logo" className="logo-image-login-pages"></img>
-          <h2> RESET PASSWORD </h2>
-          <div className="card flex justify-content-center">
+          </div>
+          <h2 className="page-text-positioning"> RESET PASSWORD </h2>
+          <div className="box-centering">
             <p> New Password </p>
-            <div className="card flex justify-content-center">
+            <div className="box-centering">
             <Password value={newPassword} onChange={handlenewPasswordChange} toggleMask />
             </div>
             <p> Confirm New Password </p>
-            <div className="card flex justify-content-center">
+            <div className="box-centering">
               <Password value={confirmPassword} onChange={handleConfirmPasswordChange} toggleMask />
             </div>
             <br/>
@@ -52,7 +56,7 @@ export default function ResetPassword() {
             </div>
             </Link>
           </div>
-        </div>
+        
       </div>
     </div>
   );

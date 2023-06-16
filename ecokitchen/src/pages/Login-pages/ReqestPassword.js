@@ -22,7 +22,7 @@ export default function RequestPassword() {
 
     console.log(emailSubmit);
 
-    navigate('/Login');
+    navigate('/ResetPassword');
   };
     return (
     <div>
@@ -30,12 +30,12 @@ export default function RequestPassword() {
         <div className='logo-position-login-pages'>
           <img src={logo1} alt="Logo" className="logo-image-login-pages"></img>
         </div>
-        <div className="Request-Password-page-text-positioning"> 
+        <div className="page-text-positioning"> 
           <h2>To Reset Your Password Please Enter Your Email Below To Recieve A Link</h2>
         </div>
   <br/>
   <br/>
-        <div className="flex flex-column gap-2">
+        <div className="box-centering">
           <label htmlFor="Email">Email</label>
           <InputText value={email} onChange={handleEmailChange} id="Email" />
         </div>

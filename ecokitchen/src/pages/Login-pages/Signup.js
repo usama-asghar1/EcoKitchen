@@ -37,8 +37,12 @@ export default function SignUp() {
     };
 
     console.log(loginSubmit);
-
-    navigate('/Login');
+    if(password === confirmPassword){
+      navigate('/Login');
+    } else {
+      alert('Your passwords do not match')
+    }
+    
   };
 
   return (
@@ -46,22 +50,25 @@ export default function SignUp() {
       <div className='logo-position-login-pages'>
         <img src={logo1} alt="Logo" className="logo-image-login-pages" />
       </div>
-      <div className="flex flex-column gap-2">
+      <h2 className="page-text-positioning">SIGN UP</h2>
+      <div className="box-centering">
         <label htmlFor="username">Username</label>
         <InputText value={username} onChange={handleUsernameChange} id="username" aria-describedby="username-help" />
       </div>
-      <div className="flex flex-column gap-2">
+      <div className="box-centering">
         <label htmlFor="Email">Email</label>
         <InputText value={email} onChange={handleEmailChange} id="Email" />
       </div>
-      <div className="card flex justify-content-center">
+      <div className="box-centering">
         <label htmlFor="Password">Password</label>
         <Password value={password} onChange={handlePasswordChange} toggleMask />
       </div>
-      <div className="card flex justify-content-center">
+      <div className="box-centering">
         <label htmlFor="Confirm Password">Confirm Password</label>
         <Password value={confirmPassword} onChange={handleConfirmPasswordChange} toggleMask />
       </div>
+      <br/>
+     
       <Link className="link" to="/Login">
         <div className='button-position-login-pages'>
           <Button onClick={handleSubmit} label="Sign Up" rounded />

@@ -15,6 +15,9 @@ return(
     <div className='logo-position-login-pages'>
     <img src={logo1} alt="Logo" className="logo-image-login-pages"></img>
     </div>
+    <h2 className="page-text-positioning"> WELCOME TO THE ECO KITCHEN APP </h2>
+<br/>
+    <h3 className="page-text-positioning"> This app is desgined to help Reduce waste, Cut cost and Find new recipies</h3>
 <br/>
 
     <div className='button-position-login-pages'>
