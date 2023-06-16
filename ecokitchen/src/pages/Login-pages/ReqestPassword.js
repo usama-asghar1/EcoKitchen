@@ -22,7 +22,7 @@ export default function RequestPassword() {
 
     console.log(emailSubmit);
 
-    navigate('/Login');
+    navigate('/ResetPassword');
   };
     return (
     <div>

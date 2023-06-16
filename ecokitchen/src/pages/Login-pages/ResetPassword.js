@@ -31,7 +31,6 @@ export default function ResetPassword() {
   };
   return (
     <div> 
-      {" "}
       <div>
         <div className="logo-position-login-pages">
           <img src={logo1} alt="Logo" className="logo-image-login-pages"></img>
