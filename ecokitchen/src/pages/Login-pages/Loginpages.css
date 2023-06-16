@@ -36,7 +36,7 @@
   margin: 4px 2px;
   cursor: pointer;
 }
-.Request-Password-page-text-positioning {
+.page-text-positioning {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -46,18 +46,20 @@
   font-weight: 700;
   text-align: center;
 }
-/* .card {
+/*login page css start*/
+.box-centering {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.card-label {
+.box-centering-text {
   font-family: 'Roboto Condensed', sans-serif;
   font-weight: 700;
 }
 
-.card-input {
+.box-centering-input {
   font-family: 'Roboto Condensed', sans-serif;
-  
-} */
+}
+/* login page css finish*/
+

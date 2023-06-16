@@ -34,11 +34,12 @@ export default function Login() {
       <div className='logo-position-login-pages'>
       <img src={logo1} alt="Logo" className="logo-image-login-pages"></img>
       </div>
-      <div className="card flex justify-content-center">
+      <h2 className="page-text-positioning"> LOGIN </h2>
+      <div className="box-centering">
            
                 <label htmlFor="username">Username</label>
             <InputText value={username} onChange={handleUsernameChange} id="username" aria-describedby="username-help" />
-        <div className="card flex justify-content-center">
+        <div className="box-centering">
                 <label htmlFor="Password">Password</label>
             <Password value={password} onChange={handlePasswordChange} toggleMask />
         </div>
