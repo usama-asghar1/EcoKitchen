@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Recipes from "./Recipes";
+// import Recipes from "./Recipes";
 import { useParams } from "react-router-dom";
 
 /* PLAN
@@ -50,11 +50,11 @@ function RecipeDetail() {
       console.log(data);
 
       setSelectedRecipe(data);
-      console.log(selectedRecipeData);
+      // console.log(selectedRecipeData);
     }
 
     fetchSelectedRecipe();
-  }, []);
+  }, [mealId]);
 
   console.log("After the useEffect");
   console.log(selectedRecipeData);

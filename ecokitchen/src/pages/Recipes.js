@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
@@ -28,6 +27,7 @@ function Recipes() {
   function clickRecipe(recipeId) {
     setClickedRecipeId(recipeId);
     console.log(`this is what we want:${recipeId}`);
+    console.log(clickedRecipeId);
   }
 
   // function selectRecipe() {
@@ -68,7 +68,6 @@ function Recipes() {
       )}
     </div>
   );
-
 }
 
 export default Recipes;
