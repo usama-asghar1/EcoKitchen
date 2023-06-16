@@ -49,7 +49,10 @@ function Recipes() {
           {recipeData.map((recipe) => (
             <div className="image-container" key={recipe.idMeal}>
               <Link to={recipe.idMeal}>
-                <button onClick={() => clickRecipe(recipe.idMeal)}>
+                <button
+                  className="btnRecipe"
+                  onClick={() => clickRecipe(recipe.idMeal)}
+                >
                   <img
                     className="recipe-img"
                     src={recipe.strMealThumb}
