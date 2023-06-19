@@ -13,12 +13,13 @@ import { supabase } from "../../components/supabase/supabaseClient.js";
 
 export default function Login() {
   const [password, setPassword] = useState("");
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [error, setError] = useState(null);
 
   const navigate = useNavigate();
+
   const handleUsernameChange = (event) => {
-    setUsername(event.target.value);
+    setEmail(event.target.value);
   };
 
   const handlePasswordChange = (event) => {
@@ -27,7 +28,7 @@ export default function Login() {
 
   async function signInWithEmail() {
     const { error } = await supabase.auth.signInWithPassword({
-      email: username,
+      email: email,
       password: password,
     });
 
@@ -51,7 +52,7 @@ export default function Login() {
       <div className="box-centering">
         <label htmlFor="username">Username</label>
         <InputText
-          value={username}
+          value={email}
           onChange={handleUsernameChange}
           id="username"
           aria-describedby="username-help"
