@@ -1,0 +1,11 @@
+.profile-picture {
+  background-color: var(--primary-blue);
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  font-size: 36px;
+  color: var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
