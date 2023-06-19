@@ -24,6 +24,7 @@ import Lime from "../assets/food/lime.jpg";
 import Cheese from "../assets/food/cheese.jpg";
 
 import { Message } from "primereact/message";
+import supabase from "../components/supabase/supabaseClient";
 
 /*
 PLAN:
