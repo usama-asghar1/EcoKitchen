@@ -69,11 +69,11 @@ export default function SignUp() {
       </div>
       <br/>
      
-      <Link className="link" to="/Login">
+      
         <div className='button-position-login-pages'>
           <Button onClick={handleSubmit} label="Sign Up" rounded />
         </div>
-      </Link>
+   
     </div>
   );
 }
