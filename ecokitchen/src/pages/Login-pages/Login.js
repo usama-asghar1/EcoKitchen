@@ -5,7 +5,7 @@ import { InputText } from "primereact/inputtext";
 import { Password } from 'primereact/password';
 import { Button } from 'primereact/button';
 import './theme.css'
-// import LoginButton from "../../components/LoginButtonComponent";
+import { Link } from "react-router-dom";
 
 export default function Login() {
     const [password, setPassword] = useState('');
@@ -43,10 +43,11 @@ export default function Login() {
                 <label htmlFor="Password">Password</label>
             <Password value={password} onChange={handlePasswordChange} toggleMask />
         </div>
-                {/* <small id="username-help">
-                    Enter your username.
-                </small> */}
-            
+        <div>
+        <Link className="link" to="/RequestPassword">
+          <p> forgotten password?</p>
+        </Link>
+        </div>  
         </div>
   <br/>
       <div className='button-position-login-pages'>
