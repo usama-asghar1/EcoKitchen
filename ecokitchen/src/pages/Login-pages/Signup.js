@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { Password } from 'primereact/password';
 import { InputText } from "primereact/inputtext";
 import { Button } from 'primereact/button';
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function SignUp() {
   const [username, setUsername] = useState('');
