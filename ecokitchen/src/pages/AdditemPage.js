@@ -40,6 +40,15 @@ PLAN:
 -For now, we will not be using a database to store the information, so the information will be stored in the local storage. E.g. as an array of objects.
 */
 
+/* 
+PLAN for connecting to the database:
+0. Watch tutorial 3 on youtube (make notes!!)
+1. Create useState for every row on the food_item table
+2. Expected Challenge: Finding the userID and food name to send to supabase
+3. Linking to food item table (on supabase)
+4. 
+*/
+
 // Dummy data for the food images
 const foodImages = [
   {
