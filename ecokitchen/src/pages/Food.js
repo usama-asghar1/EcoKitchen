@@ -39,7 +39,7 @@ useEffect(() => {
     {food && (
       <div className="food">
         {food.map((food) => (
-          <p>{food.name}</p>
+          <p>{food.selectedFoodName}</p>
         ))}
       </div>
     )}
