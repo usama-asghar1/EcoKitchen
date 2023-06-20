@@ -23,7 +23,7 @@ import RecipeDetail from "./pages/RecipeDetail";
 import AddItemButton from "./components/AddItemButton.js";
 
 
-
+import Styles from "./pages/Styles";
 
 
 function App() {
