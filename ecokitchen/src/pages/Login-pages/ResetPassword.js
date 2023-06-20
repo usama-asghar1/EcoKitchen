@@ -5,10 +5,12 @@ import React, { useState } from "react";
 import { Button } from "primereact/button";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "../../components/supabase/supabaseClient.js";
+import { Message } from "primereact/message";
 
 export default function ResetPassword() {
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [error, setError] = useState(null);
 
   const handlenewPasswordChange = (event) => {
     setNewPassword(event.target.value);
@@ -35,7 +37,9 @@ export default function ResetPassword() {
 
       navigate("/Login");
     } else {
-      alert("try again");
+      
+      setError("Passwords Don't Match");
+      console.error("Error logging in:", "Passwords Don't Match");
     }
   }
 
@@ -62,10 +66,11 @@ export default function ResetPassword() {
               onChange={handleConfirmPasswordChange}
               toggleMask
             />
+            {error && <Message severity="error" text={error} />}
           </div>
           <br />
           <div className="button-position-login-pages">
-            <Button onClick={handleSubmit} label="Login" rounded />
+            <Button onClick={handleSubmit} label="Reset Password" rounded />
           </div>
         </div>
       </div>

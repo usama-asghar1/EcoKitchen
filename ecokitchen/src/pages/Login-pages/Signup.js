@@ -8,14 +8,14 @@ import { useNavigate } from "react-router-dom";
 import { supabase } from "../../components/supabase/supabaseClient.js";
 
 export default function SignUp() {
-  const [username, setUsername] = useState("");
+  // const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  const handleUsernameChange = (event) => {
-    setUsername(event.target.value);
-  };
+  // const handleUsernameChange = (event) => {
+  //   setUsername(event.target.value);
+  // };
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
   };
@@ -32,13 +32,8 @@ export default function SignUp() {
     if (password === confirmPassword) {
       const { data, error } = await supabase.auth.signUp({
         email: email,
-        password: password,
-        options: {
-          data: {
-            username: username,
-          },
-        },
-      });
+        password: password},
+      );
       navigate("/Login");
       console.log(data);
       console.log(error);
@@ -67,7 +62,7 @@ export default function SignUp() {
         <img src={logo1} alt="Logo" className="logo-image-login-pages" />
       </div>
       <h2 className="page-text-positioning">SIGN UP</h2>
-      <div className="box-centering">
+      {/* <div className="box-centering">
         <label htmlFor="username">Username</label>
         <InputText
           value={username}
@@ -75,7 +70,7 @@ export default function SignUp() {
           id="username"
           aria-describedby="username-help"
         />
-      </div>
+      </div> */}
       <div className="box-centering">
         <label htmlFor="Email">Email</label>
         <InputText value={email} onChange={handleEmailChange} id="Email" />

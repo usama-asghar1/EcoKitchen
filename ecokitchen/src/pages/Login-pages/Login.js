@@ -50,12 +50,12 @@ export default function Login() {
       </div>
       <h2 className="page-text-positioning"> LOGIN </h2>
       <div className="box-centering">
-        <label htmlFor="username">Username</label>
+        <label htmlFor="username">Email</label>
         <InputText
           value={email}
           onChange={handleUsernameChange}
-          id="username"
-          aria-describedby="username-help"
+          id="Email"
+          aria-describedby="Email-help"
         />
         <div className="box-centering">
           <label htmlFor="Password">Password</label>
