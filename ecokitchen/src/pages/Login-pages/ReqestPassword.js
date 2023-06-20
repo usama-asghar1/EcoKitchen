@@ -5,33 +5,38 @@ import { InputText } from "primereact/inputtext";
 import { Message } from "primereact/message";
 import { Button } from "primereact/button";
 import { supabase } from "../../components/supabase/supabaseClient.js";
+import { useNavigate } from "react-router-dom";
 
 export default function RequestPassword() {
   const [email, setEmail] = useState("");
   const [sentEmail, setSentEmail] = useState(false);
   const [error, setError] = useState(null);
 
+  const navigate = useNavigate();
+
   const handleEmailChange = (event) => {
-    setEmail(event.target.value);
+    setEmail(event.target.value.trim());
   };
 
+  function isValidEmail(email) {
+    const emailCheck = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    return emailCheck;
+  }
+
   async function SendResetPasswordLink() {
-    if (!email.includes("@")) {
+    if (!isValidEmail(email)) {
       setError("Please enter a valid email address");
       return;
     }
 
-    const { data, error } = await supabase.auth.resetPasswordForEmail(
-      email,
-      {}
-    );
-    if (error === null) {
-      setSentEmail(true);
-      console.log(data, error);
+    const { error } = await supabase.auth.resetPasswordForEmail(email, {
+      redirectTo: "http://localhost:3000/ResetPassword",
+    });
+    if (error) {
+      setError("An error was encountered when resetting your password");
       return;
     } else {
-      setError(error.message);
-      return;
+      setSentEmail(true);
     }
   }
 
@@ -68,13 +73,19 @@ export default function RequestPassword() {
               <InputText
                 value={email}
                 onChange={handleEmailChange}
+                aria-label="input Email address"
                 id="Email"
               />
             </div>
             <br />
-            <div className="button-position-login-pages">
+            <div className="button-position-login-pages" aria-live="polite">
               <Button
                 onClick={SendResetPasswordLink}
+                onKeyDown={(event) => {
+                  if (event.key === "Enter") {
+                    SendResetPasswordLink();
+                  }
+                }}
                 label="Send Link"
                 rounded
               />
@@ -83,9 +94,23 @@ export default function RequestPassword() {
         )}
         {error && <Message text={"Please enter a valid email address"} />}
         {sentEmail && (
-          <Message
-            text={"Please check your email for the reset password link"}
-          />
+          <section aria-live="polite">
+            <Message
+              text={"Please check your email for the reset password link"}
+              role="alert"
+            />
+            <Button
+              onClick={navigate("/Login")}
+              onKeyDown={(event) => {
+                if (event.key === "Enter") {
+                  navigate("/Login");
+                }
+              }}
+              label="navigate to login page"
+              rounded
+              aria-label="Navigate to the login page"
+            />
+          </section>
         )}
       </div>
     </div>
