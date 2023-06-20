@@ -14,8 +14,8 @@ useEffect(() => {
   const fetchFood = async () => {
     const { data, error } = await supabase
       .from('food_items')
-      .select()
-      
+      .select('*')
+
       console.log(data);
 
       if (error) {
