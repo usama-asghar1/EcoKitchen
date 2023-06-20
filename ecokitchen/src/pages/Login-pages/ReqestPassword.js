@@ -18,9 +18,10 @@ export default function RequestPassword() {
     setEmail(event.target.value.trim());
   };
 
+  // Function to check if email is valid
   function isValidEmail(email) {
     const emailCheck = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-    return emailCheck;
+    return emailCheck; // either true or false
   }
 
   async function SendResetPasswordLink() {
@@ -100,13 +101,13 @@ export default function RequestPassword() {
               role="alert"
             />
             <Button
-              onClick={navigate("/Login")}
+              onClick={() => navigate("/Login")}
               onKeyDown={(event) => {
                 if (event.key === "Enter") {
                   navigate("/Login");
                 }
               }}
-              label="navigate to login page"
+              label="Go to login page"
               rounded
               aria-label="Navigate to the login page"
             />
