@@ -149,6 +149,9 @@ function Additem() {
   // This state will store the selected food name
   const [selectedFoodName, setSelectedFoodName] = useState("");
   const [selectedImage, setSelectedImage] = useState(null);
+  const [quantity, setQuantity] = useState("");
+  const [expiryDate, setExpiryDate] = useState("");
+  const [cost, setCost] = useState("");
   const [error, setError] = useState(null);
 
   // This state will store the chosen list from the button choice of either fridge, pantry or shopping
@@ -202,7 +205,7 @@ function Additem() {
     );
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     setError(null);
 
@@ -210,6 +213,25 @@ function Additem() {
       setError("Please select an image");
       return;
     }
+
+    const { data, error } = await supabase
+      .from("food_item")
+      .insert([{ selectedImage, quantity, expiryDate,  cost }]);
+
+    if (error) {
+      console.log(error);
+      setError("Please select an image");
+    }
+    if (data) {
+      console.log(data);
+      setError(null);
+    }
+
+    // if (!selectedImage || !quantity || !expiryDate || !cost) {
+    //   setError("Please fill in all fields");
+    //   return;
+    // }
+    // console.log(selectedImage, quantity, expiryDate, cost);
 
     let foodItemArray = JSON.parse(localStorage.getItem(foodCategory));
 
@@ -232,11 +254,12 @@ function Additem() {
 
     foodItemArray.push(foodItem);
     // This will store the foodItemArray in local storage
-    localStorage.setItem(foodCategory, JSON.stringify(foodItemArray));
+    localStorage.setItem(foodCategory, JSON.stringify(foodItemArray)); //check this line
     event.target.reset();
     setSelectedImage(null);
-    console.log(foodItemArray);
+    console.log(selectedImage); // foodItemArray was here before
   };
+  // if this doesn't work host image on api - check help dev
 
   const getCurrentDate = () => {
     const currentDate = new Date();
@@ -336,6 +359,7 @@ function Additem() {
                   name="item-quantity"
                   min="1"
                   required
+                  onChange={(e) => setQuantity(e.target.value)}
                 />
               </div>
               {foodCategory !== "shoppingArray" && (
@@ -348,6 +372,7 @@ function Additem() {
                       name="item-expiry"
                       min={getCurrentDate()}
                       required
+                      onChange={(e) => setExpiryDate(e.target.value)}
                     />
                   </div>
                   <div className="add-item-form-input">
@@ -359,6 +384,7 @@ function Additem() {
                       id="item-cost"
                       name="item-cost"
                       required
+                      onChange={(e) => setCost(e.target.value)}
                     />
                   </div>
                 </>
