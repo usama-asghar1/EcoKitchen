@@ -19,10 +19,9 @@ import Breakdown from "./pages/Breakdown";
 import Navbar from "./components/Navbar";
 import Additem from "./pages/AdditemPage";
 
-// authorisation components
-// import AuthRoute from "./components/authorisation/AuthRoutes";
-// import AuthProvider from "./components/authorisation/AuthContext";
-// import withAuthentication from "./components/authorisation/withAuthentication";
+// authorisation component
+import AuthProvider from "./components/authorisation/AuthProvider";
+import AuthRoute from "./components/authorisation/AuthRoute";
 
 import RecipeDetail from "./pages/RecipeDetail";
 
@@ -31,39 +30,45 @@ import AddItemButton from "./components/AddItemButton.js";
 function App() {
   return (
     <BrowserRouter>
-      <div className="app-container">
-        <Header />
-        <div className="content-container">
-          <div className="scrollable-content">
-            <Routes>
-              <Route path="/LandingPage" element={<LandingPage />} />
+      <AuthProvider>
+        <div className="app-container">
+          <Header />
+          <div className="content-container">
+            <div className="scrollable-content">
+              <Routes>
+                <Route path="/LandingPage" element={<LandingPage />} />
 
-              <Route path="/Login" element={<Login />} />
+                <Route path="/Login" element={<Login />} />
 
-              <Route path="/SignUp" element={<SignUp />} />
+                <Route path="/SignUp" element={<SignUp />} />
 
-              <Route path="/ResetPassword" element={<ResetPassword />} />
+                <Route path="/ResetPassword" element={<ResetPassword />} />
 
-              <Route path="/RequestPassword" element={<RequestPassword />} />
+                <Route path="/RequestPassword" element={<RequestPassword />} />
+                <Route path="/Styles" element={<Styles />} />
 
-              {/* Authorisation routes */}
-              <Route path="/Home" element={<Home />} />
-              <Route path="/Food" element={<Food />} />
-              <Route path="/Breakdown" element={<Breakdown />} />
-              <Route path="/Recipes" element={<Recipes />} />
-              <Route path="/Recipes/:recipeIdMeal" element={<RecipeDetail />} />
-              <Route path="/Shopping" element={<Shopping />} />
-              <Route path="/Donate" element={<Donate />} />
+                {/* Authorisation routes */}
+                <Route element={<AuthRoute />}>
+                  <Route path="/HomePage" element={<Home />} />
+                  <Route path="/Food" element={<Food />} />
+                  <Route path="/Breakdown" element={<Breakdown />} />
+                  <Route path="/Recipes" element={<Recipes />} />
+                  <Route
+                    path="/Recipes/:recipeIdMeal"
+                    element={<RecipeDetail />}
+                  />
+                  <Route path="/Shopping" element={<Shopping />} />
+                  <Route path="/Donate" element={<Donate />} />
 
-              <Route path="/additem" element={<Additem />} />
-
-              <Route path="/Styles" element={<Styles />} />
-            </Routes>
+                  <Route path="/additem" element={<Additem />} />
+                </Route>
+              </Routes>
+            </div>
+            <AddItemButton />
           </div>
-          <AddItemButton />
+          <Navbar />
         </div>
-        <Navbar />
-      </div>
+      </AuthProvider>
     </BrowserRouter>
   );
 }
