@@ -1,7 +1,6 @@
-import supabase from "../components/supabase/supabaseClient";
+import { supabase } from "../components/supabase/supabaseClient";
 
 function Home() {
-
   console.log(supabase);
 
   return (

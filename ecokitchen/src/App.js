@@ -42,7 +42,7 @@ function App() {
       )}
       <div>
         <Routes>
-          <Route path="/LandingPage" element={<LandingPage />} />
+          <Route path="/" element={<LandingPage />} />
 
           <Route
             path="/Login"
