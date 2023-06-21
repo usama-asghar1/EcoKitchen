@@ -11,7 +11,7 @@ import { Message } from "primereact/message";
 // We import our supabase client from the supabase folder to use it
 import { supabase } from "../../components/supabase/supabaseClient.js";
 
-export default function Login() {
+export default function Login({ setIsAuthenticated }) {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [error, setError] = useState(null);
@@ -39,6 +39,7 @@ export default function Login() {
     } else {
       console.log("User logged in");
       navigate("/HomePage", { replace: true });
+      setIsAuthenticated(true);
       // Redirect user to the homepage after successful login
     }
   }
