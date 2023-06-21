@@ -1,6 +1,5 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
 import Home from "./pages/Home";
 import Recipes from "./pages/Recipes";
 import Donate from "./pages/Donate";
@@ -19,10 +18,6 @@ import Breakdown from "./pages/Breakdown";
 import Navbar from "./components/Navbar";
 import Additem from "./pages/AdditemPage";
 
-// authorisation component
-import AuthProvider from "./components/authorisation/AuthProvider";
-import AuthRoute from "./components/authorisation/AuthRoute";
-
 import RecipeDetail from "./pages/RecipeDetail";
 
 import AddItemButton from "./components/AddItemButton.js";
@@ -31,46 +26,42 @@ import AddItemButton from "./components/AddItemButton.js";
 
 function App() {
   return (
+
     <BrowserRouter>
-      <AuthProvider>
-        <div className="app-container">
-          <Header />
-          <div className="content-container">
-            <div className="scrollable-content">
-              <Routes>
-                <Route path="/" element={<LandingPage />} />
+      <div className="app-container">
+        <Header />
+        <div className="content-container">
 
-                <Route path="/Login" element={<Login />} />
+          <div className="scrollable-content">
+            <Routes>
+              <Route path="/LandingPage" element={<LandingPage />} />
 
-                <Route path="/SignUp" element={<SignUp />} />
+              <Route path="/Login" element={<Login />} />
 
-                <Route path="/ResetPassword" element={<ResetPassword />} />
+              <Route path="/SignUp" element={<SignUp />} />
 
-                <Route path="/RequestPassword" element={<RequestPassword />} />
-                <Route path="/Styles" element={<Styles />} />
+              <Route path="/ResetPassword" element={<ResetPassword />} />
 
-                {/* Authorisation routes */}
-                <Route element={<AuthRoute />}>
-                  <Route path="/HomePage" element={<Home />} />
-                  <Route path="/Food" element={<Food />} />
-                  <Route path="/Breakdown" element={<Breakdown />} />
-                  <Route path="/Recipes" element={<Recipes />} />
-                  <Route
-                    path="/Recipes/:recipeIdMeal"
-                    element={<RecipeDetail />}
-                  />
-                  <Route path="/Shopping" element={<Shopping />} />
-                  <Route path="/Donate" element={<Donate />} />
+              <Route path="/RequestPassword" element={<RequestPassword />} />
 
-                  <Route path="/additem" element={<Additem />} />
-                </Route>
-              </Routes>
-            </div>
-            <AddItemButton />
+              <Route path="/HomePage" element={<Home />} />
+              <Route path="/Food" element={<Food />} />
+              <Route path="/Breakdown" element={<Breakdown />} />
+              <Route path="Recipes" element={<Recipes />} />
+            <Route path="Recipes/:recipeIdMeal" element={<RecipeDetail />} />
+              <Route path="/Shopping" element={<Shopping />} />
+              <Route path="/Donate" element={<Donate />} />
+
+              <Route path="/additem" element={<Additem />} />
+
+              <Route path="/Styles" element={<Styles />} />
+            </Routes>
           </div>
-          <Navbar />
+          <AddItemButton />
+
         </div>
-      </AuthProvider>
+        <Navbar />
+      </div>
     </BrowserRouter>
   );
 }
