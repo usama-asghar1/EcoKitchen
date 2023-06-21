@@ -24,7 +24,7 @@ import Lime from "../assets/food/lime.jpg";
 import Cheese from "../assets/food/cheese.jpg";
 
 import { Message } from "primereact/message";
-import supabase from "../components/supabase/supabaseClient";
+import { supabase } from "../components/supabase/supabaseClient";
 
 /*
 PLAN:
@@ -216,8 +216,16 @@ function Additem() {
 
     const { data, error } = await supabase
       .from("food_items")
-      .insert([{ user_id: '1423656b-c3dc-4d9c-8d2d-067b2b9b60d5', selectedImage, quantity, expiryDate, cost}]);
-      // .insert({ id: 1, user_id: '1423656b-c3dc-4d9c-8d2d-067b2b9b60d5', quantity: 1, cost: 1, status: 'available', selectedFoodName: 'beef', foodCategory: 'fridge', expiryDate: '2021-10-10' })
+      .insert([
+        {
+          user_id: "1423656b-c3dc-4d9c-8d2d-067b2b9b60d5",
+          selectedImage,
+          quantity,
+          expiryDate,
+          cost,
+        },
+      ]);
+    // .insert({ id: 1, user_id: '1423656b-c3dc-4d9c-8d2d-067b2b9b60d5', quantity: 1, cost: 1, status: 'available', selectedFoodName: 'beef', foodCategory: 'fridge', expiryDate: '2021-10-10' })
 
     if (error) {
       console.log(error);
