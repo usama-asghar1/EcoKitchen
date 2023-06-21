@@ -26,7 +26,7 @@ import Additem from "./pages/AdditemPage";
 import RecipeDetail from "./pages/RecipeDetail";
 
 import AddItemButton from "./components/AddItemButton.js";
-import { useState, useReducer } from "react";
+import { useState } from "react";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
