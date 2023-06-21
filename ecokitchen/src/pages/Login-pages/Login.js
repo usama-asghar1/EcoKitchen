@@ -8,7 +8,7 @@ import { Button } from "primereact/button";
 import "./theme.css";
 import { Link } from "react-router-dom";
 import { Message } from "primereact/message";
-// We import our supabase client from the supabase folder to use it
+// We import our supabase client from the supabase folder to use it hello
 import supabase from "../../components/supabase/supabaseClient.js";
 
 export default function Login() {
