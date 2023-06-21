@@ -36,7 +36,7 @@ function App() {
           <div className="content-container">
             <div className="scrollable-content">
               <Routes>
-                <Route path="/LandingPage" element={<LandingPage />} />
+                <Route path="/" element={<LandingPage />} />
 
                 <Route path="/Login" element={<Login />} />
 
