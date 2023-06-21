@@ -1,4 +1,4 @@
-import { useAuth } from "./AuthProvider.js";
+import { useAuth } from "./authProvider";
 import { Navigate, Outlet, useLocation } from "react-router-dom";
 
 const AuthRoute = () => {

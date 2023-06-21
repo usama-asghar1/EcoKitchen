@@ -214,17 +214,15 @@ function Additem() {
       return;
     }
 
-    const { data, error } = await supabase
-      .from("food_items")
-      .insert([
-        {
-          user_id: "1423656b-c3dc-4d9c-8d2d-067b2b9b60d5",
-          selectedImage,
-          quantity,
-          expiryDate,
-          cost,
-        },
-      ]);
+    const { data, error } = await supabase.from("food_items").insert([
+      {
+        user_id: "1423656b-c3dc-4d9c-8d2d-067b2b9b60d5",
+        selectedImage,
+        quantity,
+        expiryDate,
+        cost,
+      },
+    ]);
     // .insert({ id: 1, user_id: '1423656b-c3dc-4d9c-8d2d-067b2b9b60d5', quantity: 1, cost: 1, status: 'available', selectedFoodName: 'beef', foodCategory: 'fridge', expiryDate: '2021-10-10' })
 
     if (error) {
