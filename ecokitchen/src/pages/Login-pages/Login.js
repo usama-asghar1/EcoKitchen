@@ -6,6 +6,9 @@ import { Password } from 'primereact/password';
 import { Button } from 'primereact/button';
 import './theme.css'
 import { Link } from "react-router-dom";
+import { Message } from "primereact/message";
+// We import our supabase client from the supabase folder to use it
+import supabase from "../../components/supabase/supabaseClient.js";
 
 export default function Login() {
     const [password, setPassword] = useState('');
