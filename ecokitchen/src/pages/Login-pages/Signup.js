@@ -5,7 +5,7 @@ import { Password } from "primereact/password";
 import { InputText } from "primereact/inputtext";
 import { Button } from "primereact/button";
 import { useNavigate } from "react-router-dom";
-import { supabase } from "../../components/supabase/supabaseClient.js";
+import { supabase } from "../../components/supabase/supabaseClient";
 
 export default function SignUp() {
   // const [username, setUsername] = useState("");
