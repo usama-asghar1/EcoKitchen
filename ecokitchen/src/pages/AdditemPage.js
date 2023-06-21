@@ -24,6 +24,7 @@ import Lime from "../assets/food/lime.jpg";
 import Cheese from "../assets/food/cheese.jpg";
 
 import { Message } from "primereact/message";
+import { supabase } from "../components/supabase/supabaseClient";
 
 /*
 PLAN:
@@ -37,6 +38,15 @@ PLAN:
 -All fields must be filled in before the user can submit the form
 -Once the user submits the form, the item will be added to the fridge, pantry or shopping list
 -For now, we will not be using a database to store the information, so the information will be stored in the local storage. E.g. as an array of objects.
+*/
+
+/* 
+PLAN for connecting to the database:
+0. Watch tutorial 3 on youtube (make notes!!)
+1. Create useState for every row on the food_item table
+2. Expected Challenge: Finding the userID and food name to send to supabase
+3. Linking to food item table (on supabase)
+4. 
 */
 
 // Dummy data for the food images
@@ -139,6 +149,9 @@ function Additem() {
   // This state will store the selected food name
   const [selectedFoodName, setSelectedFoodName] = useState("");
   const [selectedImage, setSelectedImage] = useState(null);
+  const [quantity, setQuantity] = useState("");
+  const [expiryDate, setExpiryDate] = useState("");
+  const [cost, setCost] = useState("");
   const [error, setError] = useState(null);
 
   // This state will store the chosen list from the button choice of either fridge, pantry or shopping
@@ -192,7 +205,7 @@ function Additem() {
     );
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     setError(null);
 
@@ -200,6 +213,35 @@ function Additem() {
       setError("Please select an image");
       return;
     }
+
+    const { data, error } = await supabase
+      .from("food_items")
+      .insert([
+        {
+          user_id: "1423656b-c3dc-4d9c-8d2d-067b2b9b60d5",
+          selectedImage,
+          quantity,
+          expiryDate,
+          cost,
+        },
+      ]);
+    // .insert({ id: 1, user_id: '1423656b-c3dc-4d9c-8d2d-067b2b9b60d5', quantity: 1, cost: 1, status: 'available', selectedFoodName: 'beef', foodCategory: 'fridge', expiryDate: '2021-10-10' })
+
+    if (error) {
+      console.log(error);
+      setError("There is an error");
+    }
+    if (data) {
+      console.log(data);
+      console.log(quantity, expiryDate, cost);
+      setError(null);
+    }
+
+    // if (!selectedImage || !quantity || !expiryDate || !cost) {
+    //   setError("Please fill in all fields");
+    //   return;
+    // }
+    // console.log(selectedImage, quantity, expiryDate, cost);
 
     let foodItemArray = JSON.parse(localStorage.getItem(foodCategory));
 
@@ -222,11 +264,12 @@ function Additem() {
 
     foodItemArray.push(foodItem);
     // This will store the foodItemArray in local storage
-    localStorage.setItem(foodCategory, JSON.stringify(foodItemArray));
+    localStorage.setItem(foodCategory, JSON.stringify(foodItemArray)); //check this line
     event.target.reset();
     setSelectedImage(null);
-    console.log(foodItemArray);
+    console.log(selectedImage); // foodItemArray was here before
   };
+  // if this doesn't work host image on api - check help dev
 
   const getCurrentDate = () => {
     const currentDate = new Date();
@@ -326,6 +369,7 @@ function Additem() {
                   name="item-quantity"
                   min="1"
                   required
+                  onChange={(e) => setQuantity(e.target.value)}
                 />
               </div>
               {foodCategory !== "shoppingArray" && (
@@ -338,6 +382,7 @@ function Additem() {
                       name="item-expiry"
                       min={getCurrentDate()}
                       required
+                      onChange={(e) => setExpiryDate(e.target.value)}
                     />
                   </div>
                   <div className="add-item-form-input">
@@ -349,6 +394,7 @@ function Additem() {
                       id="item-cost"
                       name="item-cost"
                       required
+                      onChange={(e) => setCost(e.target.value)}
                     />
                   </div>
                 </>

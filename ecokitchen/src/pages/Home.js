@@ -1,5 +1,7 @@
+import { supabase } from "../components/supabase/supabaseClient";
 
 function Home() {
+  console.log(supabase);
 
   return (
     //Main page styling start
