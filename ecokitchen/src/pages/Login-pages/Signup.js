@@ -3,8 +3,9 @@ import './Loginpages.css';
 import React, { useState } from "react";
 import { Password } from 'primereact/password';
 import { InputText } from "primereact/inputtext";
-import { Button } from 'primereact/button';
-import { Link, useNavigate } from "react-router-dom";
+import { Button } from "primereact/button";
+import { useNavigate } from "react-router-dom";
+import { supabase } from "../../components/supabase/supabaseClient";
 
 export default function SignUp() {
   const [username, setUsername] = useState('');
