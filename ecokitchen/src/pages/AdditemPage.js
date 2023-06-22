@@ -48,6 +48,7 @@ PLAN for connecting to the database:
 3. Linking to food item table (on supabase)
 4. 
 5.
+6.
 */
 
 // Dummy data for the food images
