@@ -50,7 +50,7 @@ PLAN for connecting to the database:
 */
 
 // Dummy data for the food images
-const foodImages = [
+export const foodImages = [
   {
     className: "foodimage",
     src: Wbread,
