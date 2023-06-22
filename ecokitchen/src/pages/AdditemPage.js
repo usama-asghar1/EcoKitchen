@@ -46,9 +46,11 @@ PLAN for connecting to the database:
 1. Create useState for every row on the food_item table
 2. Expected Challenge: Finding the userID and food name to send to supabase
 3. Linking to food item table (on supabase)
-4. 
-5.
-6.
+
+PLAN For polishing code & setting up selectedFoodName,foodCategory, status:
+0. Do we really need status?
+1. Put the selectedFoodItem on the list
+2.Put the foodCategory on the list
 */
 
 // Dummy data for the food images
@@ -211,14 +213,12 @@ function Additem() {
   // const { user } = supabase.auth.getUser
   // const userId = user.id
 
-  
-
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const response = await supabase.auth.getUser()
-    const user = response.data.user
+    const response = await supabase.auth.getUser();
+    const user = response.data.user;
     setError(null);
-  
+
     if (selectedImage === null) {
       setError("Please select an image");
       return;
@@ -230,17 +230,18 @@ function Additem() {
       return;
     }
 
-  
     const { data, error } = await supabase.from("food_items").insert([
       {
         user_id: user.id,
+        selectedFoodName,
         selectedImage,
         quantity,
+        foodCategory,
         expiryDate,
         cost,
       },
     ]);
-  
+
     if (error) {
       console.log(error);
       setError("There is an error");
