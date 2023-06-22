@@ -30,11 +30,6 @@ return(
 <Link className="link" to="/SignUp">
     <Button label="Sign Up" severity="secondary" rounded />
     </Link>
-<br/>
-<Link className="link" to="/RequestPassword">
-    <Button label="Forgotten Password" severity="warning" rounded />
-    </Link>
-<br/>
     
 </div>
 
