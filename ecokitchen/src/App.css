@@ -17,12 +17,7 @@
   padding: 0;
 }
 
-.header-container {
-  background-color: white;
-  height: 91px;
-  z-index: 1;
-  position: sticky;
-}
+
 
 .page-title {
   font-family: "Roboto Condensed", sans-serif;
@@ -33,11 +28,8 @@
 }
 
 .content-container {
-  position: relative;
-  height: 740px;
   background-color: var(--background-white);
-  z-index: 0;
-  padding: 15px;
+
 }
 
 .content-container::-webkit-scrollbar {
@@ -138,8 +130,8 @@
     opacity: 0.8;
   }
 
-  #add-item-button-container {
+  /* #add-item-button-container {
     position: absolute;
     bottom: 4px;
     right: 4px;
-  }
+  } */
