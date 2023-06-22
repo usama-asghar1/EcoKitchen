@@ -6,15 +6,6 @@ import Image from "react-bootstrap/Image";
 import broccoli from "../../assets/food/brocol.jpg";
 
 function ShoppingFoodCard() {
-  const shoppingList = [
-    {
-      id: 1,
-      name: "Broccoli",
-      quantity: 2,
-      image: broccoli,
-    },
-  ];
-
   return (
     <div className="shopping-food-card">
       <Card className="shopping-food-card">
