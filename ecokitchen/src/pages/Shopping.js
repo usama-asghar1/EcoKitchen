@@ -5,11 +5,15 @@ import { foodImages } from "./AdditemPage.js";
 
 function Shopping() {
   console.log(foodImages[0].alt);
-  return (
-    <div>
-      <ShoppingFoodCard />
-    </div>
-  );
+
+  const foodShoppingCard = foodImages.map((foodItem) => {
+    console.log(foodItem.src);
+    return (
+      <ShoppingFoodCard name={foodItem.alt} quantity={0} image={foodItem.src} />
+    );
+  });
+
+  return <div>{foodShoppingCard}</div>;
 }
 
 export default Shopping;

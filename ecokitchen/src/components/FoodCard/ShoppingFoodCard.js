@@ -5,21 +5,17 @@ import Button from "react-bootstrap/Button";
 import Image from "react-bootstrap/Image";
 import broccoli from "../../assets/food/brocol.jpg";
 
-function ShoppingFoodCard() {
+function ShoppingFoodCard({ name, quantity, src }) {
   return (
     <div className="shopping-food-card">
       <Card className="shopping-food-card">
         <Card.Body className="d-flex align-items-center justify-content-left ">
           <div className="shopping-food-card-image-container">
-            <Image
-              className="shopping-card-image"
-              src={broccoli}
-              alt="broccoli"
-            />
-            <div className="quantity-count">2</div>
+            <Image className="shopping-card-image" src={src} alt={name} />
+            <div className="quantity-count">{quantity}</div>
           </div>
           <div className="shopping-food-card-title-container">
-            <Card.Title className="shopping-card-title">Broccoli</Card.Title>
+            <Card.Title className="shopping-card-title">{name}</Card.Title>
           </div>
           <div className="shopping-food-card-count-buttons">
             <Button
