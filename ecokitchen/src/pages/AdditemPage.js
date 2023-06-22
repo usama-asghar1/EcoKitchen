@@ -50,7 +50,7 @@ PLAN for connecting to the database:
 PLAN For polishing code & setting up selectedFoodName,foodCategory, status:
 0. Do we really need status?
 1. Put the selectedFoodItem on the list
-2.Put the foodCategory on the list
+2.Put the foodCategory on the list.
 */
 
 // Dummy data for the food images
