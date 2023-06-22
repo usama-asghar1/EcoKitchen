@@ -207,26 +207,40 @@ function Additem() {
     );
   };
 
+  // const { user } = supabase.auth.user()
+  // const { user } = supabase.auth.getUser
+  // const userId = user.id
+
+  
+
   const handleSubmit = async (event) => {
     event.preventDefault();
+    const response = await supabase.auth.getUser()
+    const user = response.data.user
     setError(null);
-
+  
     if (selectedImage === null) {
       setError("Please select an image");
       return;
     }
 
+    if (!user || !user.id) {
+      console.log(user);
+      setError("User not authenticated");
+      return;
+    }
+
+  
     const { data, error } = await supabase.from("food_items").insert([
       {
-        user_id: "1423656b-c3dc-4d9c-8d2d-067b2b9b60d5",
+        user_id: user.id,
         selectedImage,
         quantity,
         expiryDate,
         cost,
       },
     ]);
-    // .insert({ id: 1, user_id: '1423656b-c3dc-4d9c-8d2d-067b2b9b60d5', quantity: 1, cost: 1, status: 'available', selectedFoodName: 'beef', foodCategory: 'fridge', expiryDate: '2021-10-10' })
-
+  
     if (error) {
       console.log(error);
       setError("There is an error");
