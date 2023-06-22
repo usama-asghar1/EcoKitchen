@@ -16,7 +16,7 @@ export default function Navbar() {
     };
   
     return (
-      <div className="navbar-container">
+      <div className="navbar-container" data-testid="navbar">
         {/* Home icon */}
         <Link className="link" to="/HomePage">
           <div className={`navbar-icon ${getIconColor('/HomePage')}`}>
