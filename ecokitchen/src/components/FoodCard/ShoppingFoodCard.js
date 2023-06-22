@@ -1,24 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import "./ShoppingFoodCard.css";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Image from "react-bootstrap/Image";
-import broccoli from "../../assets/food/brocol.jpg";
 
-function ShoppingFoodCard({ name, quantity, src }) {
+function ShoppingFoodCard({ name, quantity, image_url }) {
+  const [updateQuantity, setUpdateQuantity] = useState(quantity);
+
+  function increaseQuantity() {
+    setUpdateQuantity(updateQuantity + 1);
+
+    console.log("increase");
+  }
+
   return (
     <div className="shopping-food-card">
       <Card className="shopping-food-card">
         <Card.Body className="d-flex align-items-center justify-content-left ">
           <div className="shopping-food-card-image-container">
-            <Image className="shopping-card-image" src={src} alt={name} />
-            <div className="quantity-count">{quantity}</div>
+            <Image className="shopping-card-image" src={image_url} alt={name} />
+            <div className="quantity-count">{updateQuantity}</div>
           </div>
           <div className="shopping-food-card-title-container">
             <Card.Title className="shopping-card-title">{name}</Card.Title>
           </div>
           <div className="shopping-food-card-count-buttons">
             <Button
+              onClick={increaseQuantity}
+              id="increaseQuantity"
               variant="success"
               className="shopping-food-card-quantity-button shopping-food-card-add-button food-btn"
             >

@@ -1,19 +1,40 @@
 //this is shopping list
-import React from "react";
+import React, { useState, useEffect } from "react";
 import ShoppingFoodCard from "../components/FoodCard/ShoppingFoodCard.js";
-import { foodImages } from "./AdditemPage.js";
+import { supabase } from "../components/supabase/supabaseClient.js";
 
 function Shopping() {
-  console.log(foodImages[0].alt);
+  const [data, setData] = useState([]);
 
-  const foodShoppingCard = foodImages.map((foodItem) => {
-    console.log(foodItem.src);
+  useEffect(() => {
+    async function fetchData() {
+      const dataSB = await supabase.from("Shopping_List").select("*");
+      //convert from json to array
+      // const object = await result.json();
+      // const object2 = Object.values(object);
+      setData(dataSB.data);
+      console.log(data);
+    }
+
+    fetchData();
+  }, []);
+
+  const foodShoppingCard = data.map((foodItem) => {
     return (
-      <ShoppingFoodCard name={foodItem.alt} quantity={0} image={foodItem.src} />
+      <ShoppingFoodCard
+        key={foodItem.id}
+        name={foodItem.name}
+        quantity={foodItem.quantity}
+        image_url={foodItem.image_url}
+      />
     );
   });
 
-  return <div>{foodShoppingCard}</div>;
+  return (
+    <div>
+      <div>{foodShoppingCard}</div>
+    </div>
+  );
 }
 
 export default Shopping;
