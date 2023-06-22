@@ -47,6 +47,7 @@ PLAN for connecting to the database:
 2. Expected Challenge: Finding the userID and food name to send to supabase
 3. Linking to food item table (on supabase)
 4. 
+5.
 */
 
 // Dummy data for the food images
