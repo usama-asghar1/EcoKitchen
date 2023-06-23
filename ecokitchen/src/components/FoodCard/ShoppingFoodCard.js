@@ -28,6 +28,11 @@ function ShoppingFoodCard({ foodID, name, quantity, image_url }) {
       .update({ quantity: newQuantity })
       .eq("id", foodID);
     console.log("decrease");
+
+    if (newQuantity === 0) {
+      await supabase.from("Shopping_List").delete().eq("id", foodID);
+      console.log("delete");
+    }
   }
 
   return (
