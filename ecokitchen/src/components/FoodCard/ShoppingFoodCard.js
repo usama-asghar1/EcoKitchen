@@ -3,14 +3,31 @@ import "./ShoppingFoodCard.css";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Image from "react-bootstrap/Image";
+import { supabase } from "../supabase/supabaseClient.js";
 
-function ShoppingFoodCard({ name, quantity, image_url }) {
+function ShoppingFoodCard({ foodID, name, quantity, image_url }) {
   const [updateQuantity, setUpdateQuantity] = useState(quantity);
 
-  function increaseQuantity() {
-    setUpdateQuantity(updateQuantity + 1);
+  async function increaseQuantity() {
+    let newQuantity = updateQuantity + 1;
+    setUpdateQuantity(newQuantity);
 
+    await supabase
+      .from("Shopping_List")
+      .update({ quantity: newQuantity })
+      .eq("id", foodID);
     console.log("increase");
+  }
+
+  async function decreaseQuantity() {
+    let newQuantity = updateQuantity - 1;
+    setUpdateQuantity(newQuantity);
+
+    await supabase
+      .from("Shopping_List")
+      .update({ quantity: newQuantity })
+      .eq("id", foodID);
+    console.log("decrease");
   }
 
   return (
@@ -34,6 +51,7 @@ function ShoppingFoodCard({ name, quantity, image_url }) {
               +
             </Button>
             <Button
+              onClick={decreaseQuantity}
               variant="danger"
               className="shopping-food-card-quantity-button shopping-food-card-reduce-button food-btn"
             >

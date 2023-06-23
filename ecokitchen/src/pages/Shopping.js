@@ -10,7 +10,6 @@ function Shopping() {
     async function fetchData() {
       const response = await supabase.auth.getUser();
       const user = response.data.user.id;
-      console.log(user);
 
       const dataSB = await supabase
         .from("Shopping_List")
@@ -31,6 +30,7 @@ function Shopping() {
     return (
       <ShoppingFoodCard
         key={foodItem.id}
+        foodID={foodItem.id}
         name={foodItem.name}
         quantity={foodItem.quantity}
         image_url={foodItem.image_url}
