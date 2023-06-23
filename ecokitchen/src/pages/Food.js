@@ -9,20 +9,15 @@ function Food() {
   const [fetchError, setFetchError] = useState(null);
   const [data, setData] = useState([]);
 
-  
   useEffect(() => {
     async function fetchData() {
       const dataSB = await supabase.from("food_items").select("*");
       setData(dataSB.data);
-
-      
-      
     }
 
     fetchData();
   }, []);
 
-  
   const foodItemCard = data.map((foodItem) => {
     return (
       <KitchenFoodCard
@@ -34,7 +29,6 @@ function Food() {
       />
     );
   });
-
   console.log(foodItemCard);
 
   // const [food, setFood] = useState(null);
@@ -45,18 +39,16 @@ function Food() {
 
   //     console.log(data);
 
-
   //   fetchFood();
   // }, []);
 
   return (
-    <div >
+    <div>
       <p>This is the Food Page</p>
       {fetchError && <p>{fetchError}</p>}
       <div>
-       <div>{foodItemCard}</div>
-    </div>
-  
+        <div>{foodItemCard}</div>
+      </div>
     </div>
   );
 }
