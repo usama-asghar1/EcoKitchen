@@ -12,8 +12,9 @@ function Shopping() {
       //convert from json to array
       // const object = await result.json();
       // const object2 = Object.values(object);
+      //remove this console log before deployment
       setData(dataSB.data);
-      console.log(data);
+      console.log(dataSB.data);
     }
 
     fetchData();
