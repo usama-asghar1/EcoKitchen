@@ -8,7 +8,14 @@ function Shopping() {
 
   useEffect(() => {
     async function fetchData() {
-      const dataSB = await supabase.from("Shopping_List").select("*");
+      const response = await supabase.auth.getUser();
+      const user = response.data.user.id;
+      console.log(user);
+
+      const dataSB = await supabase
+        .from("Shopping_List")
+        .select("*")
+        .eq("user_id", user);
       //convert from json to array
       // const object = await result.json();
       // const object2 = Object.values(object);
