@@ -3,11 +3,14 @@ import "./Loginpages.css";
 import { Password } from "primereact/password";
 import React, { useState } from "react";
 import { Button } from "primereact/button";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { supabase } from "../../components/supabase/supabaseClient.js";
+import { Message } from "primereact/message";
 
 export default function ResetPassword() {
-  const [newPassword, setNewPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+  const [newPassword, setNewPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [error, setError] = useState(null);
 
   const handlenewPasswordChange = (event) => {
     setNewPassword(event.target.value);
@@ -18,45 +21,57 @@ export default function ResetPassword() {
 
   const navigate = useNavigate();
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const newPasswordSubmit = {
-      Password: newPassword,
-      ConfirmedPassword: confirmPassword
-    };
+  async function handleSubmit() {
+    // const newPasswordSubmit = {
+    //   Password: newPassword,
+    //   ConfirmedPassword: confirmPassword
+    // };
 
-    console.log(newPasswordSubmit);
+    // console.log(newPasswordSubmit);
 
-    if(newPassword === confirmPassword){
-      navigate('/Login');
+    if (newPassword === confirmPassword) {
+      const { user, error } = await supabase.auth.updateUser({
+        password: confirmPassword,
+      });
+      console.log(user, error);
+
+      navigate("/Login");
     } else {
-      alert('try again')
+      setError("Passwords Don't Match");
+      console.error("Error logging in:", "Passwords Don't Match");
     }
-  };
+  }
+
   return (
-    <div> 
+    <div>
       <div>
         <div className="logo-position-login-pages">
           <img src={logo1} alt="Logo" className="logo-image-login-pages"></img>
-          </div>
-          <h2 className="page-text-positioning"> RESET PASSWORD </h2>
+        </div>
+        <h2 className="page-text-positioning"> RESET PASSWORD </h2>
+        <div className="box-centering">
+          <p> New Password </p>
           <div className="box-centering">
-            <p> New Password </p>
-            <div className="box-centering">
-            <Password value={newPassword} onChange={handlenewPasswordChange} toggleMask />
-            </div>
-            <p> Confirm New Password </p>
-            <div className="box-centering">
-              <Password value={confirmPassword} onChange={handleConfirmPasswordChange} toggleMask />
-            </div>
-            <br/>
-            <Link className="link" to="/Login">
-            <div className="button-position-login-pages">
-              <Button onClick={handleSubmit} label="Login" rounded />
-            </div>
-            </Link>
+            <Password
+              value={newPassword}
+              onChange={handlenewPasswordChange}
+              toggleMask
+            />
           </div>
-        
+          <p> Confirm New Password </p>
+          <div className="box-centering">
+            <Password
+              value={confirmPassword}
+              onChange={handleConfirmPasswordChange}
+              toggleMask
+            />
+            {error && <Message severity="error" text={error} />}
+          </div>
+          <br />
+          <div className="button-position-login-pages">
+            <Button onClick={handleSubmit} label="Reset Password" rounded />
+          </div>
+        </div>
       </div>
     </div>
   );
