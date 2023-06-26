@@ -239,17 +239,25 @@ function Additem() {
     }
 
     async function postToFoodItems() {
-      const { data, error } = await supabase.from("food_items").insert([
-        {
-          user_id: user.id,
-          selectedFoodName,
-          selectedImage,
-          quantity,
-          foodCategory,
-          expiryDate,
-          cost,
-        },
-      ]);
+      const foodItem = {
+        user_id: user.id,
+        selectedFoodName,
+        selectedImage,
+        quantity,
+        foodCategory,
+      };
+
+      if (expiryDate) {
+        foodItem.expiryDate = expiryDate;
+      }
+
+      if (cost) {
+        foodItem.cost = cost;
+      }
+
+      const { data, error } = await supabase
+        .from("food_items")
+        .insert([foodItem]);
 
       if (error) {
         console.log(error);
@@ -282,39 +290,9 @@ function Additem() {
       }
     }
 
-    // if (!selectedImage || !quantity || !expiryDate || !cost) {
-    //   setError("Please fill in all fields");
-    //   return;
-    // }
-    // console.log(selectedImage, quantity, expiryDate, cost);
-
-    let foodItemArray = JSON.parse(localStorage.getItem(foodCategory));
-
-    // Check if the foodItemArray exists in local storage and if it doesn't, create it
-    if (!foodItemArray) {
-      foodItemArray = [];
-    }
-
-    // This will add the form values to the foodItemArray and store it in local storage and clear the form
-    const foodItem = {
-      name: selectedFoodName,
-      image: selectedImage,
-      quantity: event.target["item-quantity"].value,
-    };
-
-    if (foodCategory === "fridge" || foodCategory === "pantry") {
-      foodItem.expiryDate = event.target["item-expiry"].value;
-      foodItem.cost = event.target["item-cost"].value;
-    }
-
-    foodItemArray.push(foodItem);
-    // This will store the foodItemArray in local storage
-    localStorage.setItem(foodCategory, JSON.stringify(foodItemArray)); //check this line
+    // Clear the form input fields
     event.target.reset();
-    setSelectedImage(null);
-    // console.log(selectedImage); // foodItemArray was here before
   };
-  // if this doesn't work host image on api - check help dev
 
   const getCurrentDate = () => {
     const currentDate = new Date();
