@@ -26,14 +26,19 @@ function KitchenFoodCard({
 
   // Define the color based on daysLeft
   let color;
+  let status;
   if (daysLeft < 0) {
     color = "grey";
+    status = `Expired ${Math.abs(daysLeft)} days ago`;
   } else if (daysLeft <= 2) {
     color = "red";
+    status = `Days left: ${daysLeft}`;
   } else if (daysLeft <= 5) {
     color = "orange";
+    status = `Days left: ${daysLeft}`;
   } else {
     color = "green";
+    status = `Days left: ${daysLeft}`;
   }
 
   return (
@@ -49,7 +54,7 @@ function KitchenFoodCard({
           </div>
           <div className="kitchen-food-card-expiry-container">
             <Card.Title className="kitchen-card-title" style={{ color }}>
-              Days left: {daysLeft}
+            {status}
             </Card.Title>
           </div>
 
