@@ -12,7 +12,8 @@ function ProfilePicture() {
   async function fetchData() {
     const response = await supabase.auth.getUser();
     const userEmail = response.data.user.email;
-    const firstLetter = userEmail[0];
+    let firstLetter = userEmail[0];
+    firstLetter = firstLetter.toUpperCase();
     setProfileName(firstLetter);
   }
 

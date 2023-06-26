@@ -1,6 +1,6 @@
 //this is shopping list
 import React, { useState, useEffect } from "react";
-import ShoppingFoodCard from "../components/FoodCard/ShoppingFoodCard.js";
+import ShoppingFoodCard from "../components/FoodCard/ShoppingFoodCard";
 import { supabase } from "../components/supabase/supabaseClient.js";
 
 function Shopping() {
