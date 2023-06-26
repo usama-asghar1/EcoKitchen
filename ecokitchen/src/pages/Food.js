@@ -12,7 +12,7 @@ function Food() {
   const [fridgeOrPantry, setFridgeOrPantry] = useState("pantryArray");
 
   useEffect(() => {
-      fetchData();
+    fetchData();
   }, [fridgeOrPantry]);
 
   async function fetchData() {
@@ -21,13 +21,11 @@ function Food() {
       .select("*")
       .eq("foodCategory", fridgeOrPantry);
 
-
     setData(dataSB.data);
     if (dataSB.error) {
       setFetchError(dataSB.error);
     }
   }
-
 
   async function decreaseQuantity(foodID) {
     const item = data.find((item) => item.id === foodID);
@@ -50,8 +48,6 @@ function Food() {
     console.log(fridgeOrPantry);
   }
 
-  
-
   const foodItemCard = data.map((foodItem) => {
     return (
       <KitchenFoodCard
@@ -66,7 +62,6 @@ function Food() {
     );
   });
   console.log(foodItemCard);
-
 
   return (
     <div>
