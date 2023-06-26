@@ -64,21 +64,22 @@ function Food() {
       <div>
         <h1 className="page-title">Food in your</h1>
       </div>
-       <div className="button-list-container">
-            <Button
-              id="pantry-button"
-              label="Pantry"
-              type="button"
-              onClick={PantryToggle}
-            
-            />
-            <Button
-              id="fridge-button"
-              label="Fridge"
-              type="button"
-              onClick={FridgeToggle}
-            />
-            </div>
+      <div className="button-list-container">
+        <Button
+          id="pantry-button"
+          label="Pantry"
+          type="button"
+          onClick={PantryToggle}
+          className={fridgeOrPantry === "pantryArray" ? "" : "not-selected"}
+        />
+        <Button
+          id="fridge-button"
+          label="Fridge"
+          type="button"
+          onClick={FridgeToggle}
+          className={fridgeOrPantry === "fridgeArray" ? "" : "not-selected"}
+        />
+      </div>
       {fetchError && <p>{fetchError}</p>}
       <div>
         <div>{foodItemCard}</div>
