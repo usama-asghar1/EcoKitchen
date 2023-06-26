@@ -4,22 +4,36 @@ import KitchenFoodCard from "../components/KitchenFoodCard/KitchenFoodCard.js";
 import "../App.css";
 import { useState, useEffect } from "react";
 import { supabase } from "../components/supabase/supabaseClient";
+import { Button } from "primereact/button";
 
 function Food() {
   const [fetchError, setFetchError] = useState(null);
   const [data, setData] = useState([]);
+  const [fridgeOrPantry, setFridgeOrPantry] = useState("pantryArray");
 
   useEffect(() => {
     async function fetchData() {
-      const dataSB = await supabase.from("food_items").select("*");
+      const dataSB = await supabase
+        .from("food_items")
+        .select("*")
+        .eq("foodCategory", fridgeOrPantry);
+
       setData(dataSB.data);
       if (dataSB.error) {
-      setFetchError(dataSB.error);
+        setFetchError(dataSB.error);
       }
     }
 
     fetchData();
-  }, []);
+  }, [fridgeOrPantry]);
+  async function FridgeToggle() {
+    setFridgeOrPantry("fridgeArray");
+    console.log(fridgeOrPantry);
+  }
+  async function PantryToggle() {
+    setFridgeOrPantry("pantryArray");
+    console.log(fridgeOrPantry);
+  }
 
   const foodItemCard = data.map((foodItem) => {
     return (
@@ -50,6 +64,21 @@ function Food() {
       <div>
         <h1 className="page-title">Food in your</h1>
       </div>
+       <div className="button-list-container">
+            <Button
+              id="pantry-button"
+              label="Pantry"
+              type="button"
+              onClick={PantryToggle}
+            
+            />
+            <Button
+              id="fridge-button"
+              label="Fridge"
+              type="button"
+              onClick={FridgeToggle}
+            />
+            </div>
       {fetchError && <p>{fetchError}</p>}
       <div>
         <div>{foodItemCard}</div>
