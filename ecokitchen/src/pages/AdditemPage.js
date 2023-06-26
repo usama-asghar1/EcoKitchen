@@ -46,11 +46,15 @@ PLAN for connecting to the database:
 1. Create useState for every row on the food_item table
 2. Expected Challenge: Finding the userID and food name to send to supabase
 3. Linking to food item table (on supabase)
-4. 
+
+PLAN For polishing code & setting up selectedFoodName,foodCategory, status:
+0. Do we really need status?
+1. Put the selectedFoodItem on the list.
+2. Put the foodCategory on the list.
 */
 
 // Dummy data for the food images
-const foodImages = [
+export const foodImages = [
   {
     className: "foodimage",
     src: Wbread,
@@ -205,8 +209,14 @@ function Additem() {
     );
   };
 
+  // const { user } = supabase.auth.user()
+  // const { user } = supabase.auth.getUser
+  // const userId = user.id
+
   const handleSubmit = async (event) => {
     event.preventDefault();
+    const response = await supabase.auth.getUser();
+    const user = response.data.user;
     setError(null);
 
     if (selectedImage === null) {
@@ -214,16 +224,23 @@ function Additem() {
       return;
     }
 
+    if (!user || !user.id) {
+      console.log(user);
+      setError("User not authenticated");
+      return;
+    }
+
     const { data, error } = await supabase.from("food_items").insert([
       {
-        user_id: "1423656b-c3dc-4d9c-8d2d-067b2b9b60d5",
+        user_id: user.id,
+        selectedFoodName,
         selectedImage,
         quantity,
+        foodCategory,
         expiryDate,
         cost,
       },
     ]);
-    // .insert({ id: 1, user_id: '1423656b-c3dc-4d9c-8d2d-067b2b9b60d5', quantity: 1, cost: 1, status: 'available', selectedFoodName: 'beef', foodCategory: 'fridge', expiryDate: '2021-10-10' })
 
     if (error) {
       console.log(error);
