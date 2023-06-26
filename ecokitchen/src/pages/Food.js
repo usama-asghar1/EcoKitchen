@@ -21,7 +21,8 @@ function Food() {
     const dataSB = await supabase
       .from("food_items")
       .select("*")
-      .eq("foodCategory", fridgeOrPantry);
+      .eq("foodCategory", fridgeOrPantry)
+      .order("expiryDate", { ascending: true });
 
     setData(dataSB.data);
     if (dataSB.error) {
