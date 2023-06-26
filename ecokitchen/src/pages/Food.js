@@ -66,7 +66,7 @@ function Food() {
   console.log(foodItemCard);
 
   return (
-    <div>
+    <div className="main">
       <div>
         <h1 className="page-title">Food in your</h1>
       </div>

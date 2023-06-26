@@ -35,40 +35,42 @@ function Recipes() {
   // }
 
   return (
-    <div className="recipe-container">
-      <div>
-        <h1 className="page-title">Recipe Search</h1>
-      </div>
-      <div className="recipe-search-container">
-        <input
-          type="text"
-          placeholder="Please input your main ingredient"
-          onChange={(e) => setIngredient(e.target.value)}
-        />
-        <button onClick={fetchRecipe}>Search</button>
-      </div>
-
-      {recipeData.length > 0 && (
-        <div className="recipes-grid">
-          {recipeData.map((recipe) => (
-            <div className="image-container" key={recipe.idMeal}>
-              <Link to={recipe.idMeal}>
-                <button
-                  className="btnRecipe"
-                  onClick={() => clickRecipe(recipe.idMeal)}
-                >
-                  <img
-                    className="recipe-img"
-                    src={recipe.strMealThumb}
-                    alt={recipe.strMeal}
-                  />
-                  <p>{recipe.strMeal}</p>
-                </button>
-              </Link>
-            </div>
-          ))}
+    <div className="main">
+      <div className="recipe-container">
+        <div>
+          <h1 className="page-title">Recipe Search</h1>
         </div>
-      )}
+        <div className="recipe-search-container">
+          <input
+            type="text"
+            placeholder="Please input your main ingredient"
+            onChange={(e) => setIngredient(e.target.value)}
+          />
+          <button onClick={fetchRecipe}>Search</button>
+        </div>
+
+        {recipeData.length > 0 && (
+          <div className="recipes-grid">
+            {recipeData.map((recipe) => (
+              <div className="image-container" key={recipe.idMeal}>
+                <Link to={recipe.idMeal}>
+                  <button
+                    className="btnRecipe"
+                    onClick={() => clickRecipe(recipe.idMeal)}
+                  >
+                    <img
+                      className="recipe-img"
+                      src={recipe.strMealThumb}
+                      alt={recipe.strMeal}
+                    />
+                    <p>{recipe.strMeal}</p>
+                  </button>
+                </Link>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 }

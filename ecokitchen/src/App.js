@@ -36,13 +36,12 @@ function App() {
   return (
     <BrowserRouter>
       {isAuthenticated && (
-        <div>
+        <div className="header">
           <Header />
-          <Navbar />
           {/* <AddItemButton /> */}
         </div>
       )}
-      <div>
+      <div className="main">
         <Routes>
           <Route path="/" element={<LandingPage />} />
 
@@ -72,6 +71,11 @@ function App() {
           )}
         </Routes>
       </div>
+      {isAuthenticated && (
+        <div className="footer">
+          <Navbar />
+        </div>
+      )}
     </BrowserRouter>
   );
 }

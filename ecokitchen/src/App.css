@@ -65,17 +65,21 @@
 .link {
   text-decoration: none;
 }
+
 .navbar-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 91px;
+
   background-color: #dddddd;
   border-top: 3px solid var(--primary-blue);
-  padding-left: 10px;
-  padding-right: 10px;
-  /* z-index: 1; */
-  position: sticky;
+
+  z-index: 9999;
+  padding: 10px;
+  width: 100%;
+  height: 10%;
+  position: fixed;
+  bottom: 0;
 }
 
 .navbar-icon {
@@ -153,4 +157,29 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+​ .main {
+  background-color: rgb(205, 205, 205);
+  padding: 10px;
+  width: 100%;
+  /* height: 62%; */
+  min-height: 80%;
+  overflow: scroll;
+}
+
+​ input {
+  width: 60%;
+  border-radius: 15px;
+  padding-left: 15px;
+  font-size: 0.8rem;
+  border: none;
+}
+​ input::placeholder {
+  color: rgb(121, 118, 118);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+​ input:focus {
+  outline-color: rgb(99, 176, 243);
 }

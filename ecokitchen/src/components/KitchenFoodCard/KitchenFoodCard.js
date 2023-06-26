@@ -61,7 +61,6 @@ function KitchenFoodCard({
             >
               ✔
             </Button>
-            <span>Used</span>
             <Button
               className="kitchen-food-card-delete-btn kitchen-food-card-use-btn food-btn"
               onClick={() => decreaseQuantity(foodID)}
@@ -69,7 +68,6 @@ function KitchenFoodCard({
             >
               🗑
             </Button>
-            <span>Wasted</span>
           </div>
         </Card.Body>
       </Card>

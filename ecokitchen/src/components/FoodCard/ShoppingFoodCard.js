@@ -14,7 +14,7 @@ function ShoppingFoodCard({
   deleteFood,
 }) {
   return (
-    <div className="shopping-food-card">
+    <div>
       <Card className="shopping-food-card">
         <Card.Body className="d-flex align-items-center justify-content-left ">
           <div className="shopping-food-card-image-container">
