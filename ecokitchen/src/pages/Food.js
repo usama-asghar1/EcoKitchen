@@ -14,6 +14,7 @@ function Food() {
   /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
     fetchData();
+    // eslint-disable-next-line
   }, [fridgeOrPantry]);
   /* eslint-enable react-hooks/exhaustive-deps */
 
