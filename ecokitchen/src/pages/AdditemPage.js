@@ -219,72 +219,80 @@ function Additem() {
     const user = response.data.user;
     setError(null);
 
-    if (selectedImage === null) {
-      setError("Please select an image");
-      return;
-    }
-
     if (!user || !user.id) {
       console.log(user);
       setError("User not authenticated");
       return;
     }
 
-    const { data, error } = await supabase.from("food_items").insert([
-      {
+    if (selectedImage === null) {
+      setError("Please select an image");
+      return;
+    }
+
+    if (foodCategory === "pantryArray" || "fridgeArray") {
+      postToFoodItems();
+    }
+
+    if (foodCategory === "shoppingArray") {
+      postToShoppingItems();
+    }
+
+    async function postToFoodItems() {
+      const foodItem = {
         user_id: user.id,
         selectedFoodName,
         selectedImage,
         quantity,
         foodCategory,
-        expiryDate,
-        cost,
-      },
-    ]);
+      };
 
-    if (error) {
-      console.log(error);
-      setError("There is an error");
-    }
-    if (data) {
-      console.log(data);
-      console.log(quantity, expiryDate, cost);
-      setError(null);
-    }
+      if (expiryDate) {
+        foodItem.expiryDate = expiryDate;
+      }
 
-    // if (!selectedImage || !quantity || !expiryDate || !cost) {
-    //   setError("Please fill in all fields");
-    //   return;
-    // }
-    // console.log(selectedImage, quantity, expiryDate, cost);
+      if (cost) {
+        foodItem.cost = cost;
+      }
 
-    let foodItemArray = JSON.parse(localStorage.getItem(foodCategory));
+      const { data, error } = await supabase
+        .from("food_items")
+        .insert([foodItem]);
 
-    // Check if the foodItemArray exists in local storage and if it doesn't, create it
-    if (!foodItemArray) {
-      foodItemArray = [];
+      if (error) {
+        console.log(error);
+        setError("There is an error");
+      }
+      if (data) {
+        console.log(data);
+        // console.log(quantity, expiryDate, cost);
+        setError(null);
+      }
     }
 
-    // This will add the form values to the foodItemArray and store it in local storage and clear the form
-    const foodItem = {
-      name: selectedFoodName,
-      image: selectedImage,
-      quantity: event.target["item-quantity"].value,
-    };
+    async function postToShoppingItems() {
+      const { data, error } = await supabase.from("Shopping_List").insert([
+        {
+          user_id: user.id,
+          name: selectedFoodName,
+          image_url: selectedImage,
+          quantity: quantity,
+        },
+      ]);
 
-    if (foodCategory === "fridge" || foodCategory === "pantry") {
-      foodItem.expiryDate = event.target["item-expiry"].value;
-      foodItem.cost = event.target["item-cost"].value;
+      if (error) {
+        console.log(error);
+        setError("There is an error");
+      }
+      if (data) {
+        console.log(data);
+        setError(null);
+      }
     }
 
-    foodItemArray.push(foodItem);
-    // This will store the foodItemArray in local storage
-    localStorage.setItem(foodCategory, JSON.stringify(foodItemArray)); //check this line
+    // Clear the form input fields
     event.target.reset();
-    setSelectedImage(null);
-    console.log(selectedImage); // foodItemArray was here before
   };
-  // if this doesn't work host image on api - check help dev
 
   const getCurrentDate = () => {
     const currentDate = new Date();
