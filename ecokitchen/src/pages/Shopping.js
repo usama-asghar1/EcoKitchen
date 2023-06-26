@@ -28,6 +28,8 @@ function Shopping() {
 
   const foodShoppingCard = data.map((foodItem) => {
     return (
+
+  
       <ShoppingFoodCard
         key={foodItem.id}
         foodID={foodItem.id}
@@ -40,6 +42,9 @@ function Shopping() {
 
   return (
     <div>
+      <div>
+        <h1 className="page-title">Shopping List</h1>
+      </div>
       <div>{foodShoppingCard}</div>
     </div>
   );

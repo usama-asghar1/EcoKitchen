@@ -102,6 +102,7 @@ function RecipeDetail() {
   return (
     <div className="recipe-detail-container">
       {/* <h1>ID: {selectedRecipeData.meals[0].idMeal}</h1> */}
+      <h1 className="page-title">Recipe for</h1>
       <h3 className="recipe-title">{selectedRecipeData.meals[0].strMeal}</h3>
       <img
         className="recipe-card-img"
