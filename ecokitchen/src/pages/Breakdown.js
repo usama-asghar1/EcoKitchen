@@ -201,5 +201,5 @@ function Breakdown() {
   );
 }
 
-// Export the Breakdown component
+// Export the Breakdown component so that it can be used in other files.
 export default Breakdown;
