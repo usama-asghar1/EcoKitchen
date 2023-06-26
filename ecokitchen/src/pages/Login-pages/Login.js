@@ -38,7 +38,7 @@ export default function Login({ setIsAuthenticated }) {
       setError(error.message);
     } else {
       console.log("User logged in");
-      navigate("/HomePage", { replace: true });
+      navigate("/Food", { replace: true });
       setIsAuthenticated(true);
       // Redirect user to the homepage after successful login
     }

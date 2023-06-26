@@ -66,7 +66,7 @@ function Food() {
   return (
     <div>
       <div>
-        <h1 className="page-title">Food in your</h1>
+       
       </div>
       <div className="button-list-container">
         <Button

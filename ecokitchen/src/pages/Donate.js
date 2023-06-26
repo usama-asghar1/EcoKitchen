@@ -53,7 +53,7 @@ function Donate() {
 
   return (
     <div>
-      <h1 className="page-title">Donation</h1>
+      
       <div className="p-inputgroup">
         <span className="p-inputgroup-addon">
           <i className="pi pi-search" />

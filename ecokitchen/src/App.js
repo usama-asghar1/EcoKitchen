@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Home from "./pages/Home";
+// import Home from "./pages/Home";
 import Recipes from "./pages/Recipes";
 import Donate from "./pages/Donate";
 //loging pages
@@ -32,13 +32,14 @@ import { useState } from "react";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [title, setTitle] = useState("Food");
 
   return (
     <BrowserRouter>
       {isAuthenticated && (
         <div>
-          <Header />
-          <Navbar />
+          <Header title={title} setTitle={setTitle} />
+          <Navbar setTitle={setTitle} />
           {/* <AddItemButton /> */}
         </div>
       )}
@@ -59,7 +60,7 @@ function App() {
 
           {isAuthenticated && (
             <>
-              <Route path="/HomePage" element={<Home />} />
+              {/* <Route path="/HomePage" element={<Home />} /> */}
               <Route path="/Food" element={<Food />} />
               <Route path="/Breakdown" element={<Breakdown />} />
               <Route path="/Recipes" element={<Recipes />} />

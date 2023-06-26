@@ -8,11 +8,16 @@ it should also have a certain degree of transparency so that it does not block t
 import React from "react";
 import { Link } from "react-router-dom";
 
-function AddItemButton() {
+function AddItemButton({setTitle}) {
   return (
     <div id="add-item-button-container">
       <Link className="link" to="/additem">
-        <button className="add-item-button ">+</button>
+        <button
+          className="add-item-button "
+          onClick={() => setTitle("Add Item")}
+        >
+          +
+        </button>
       </Link>
     </div>
   );
