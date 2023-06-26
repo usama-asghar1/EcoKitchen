@@ -12,20 +12,33 @@ function Food() {
   const [fridgeOrPantry, setFridgeOrPantry] = useState("pantryArray");
 
   useEffect(() => {
-    async function fetchData() {
-      const dataSB = await supabase
-        .from("food_items")
-        .select("*")
-        .eq("foodCategory", fridgeOrPantry);
-
-      setData(dataSB.data);
-      if (dataSB.error) {
-        setFetchError(dataSB.error);
-      }
-    }
-
     fetchData();
   }, [fridgeOrPantry]);
+
+  async function fetchData() {
+    const dataSB = await supabase
+      .from("food_items")
+      .select("*")
+      .eq("foodCategory", fridgeOrPantry);
+
+    setData(dataSB.data);
+    if (dataSB.error) {
+      setFetchError(dataSB.error);
+    }
+  }
+
+  async function decreaseQuantity(foodID) {
+    const item = data.find((item) => item.id === foodID);
+    item.quantity -= 1;
+
+    await supabase
+      .from("food_items")
+      .update({ quantity: item.quantity })
+      .eq("id", foodID);
+
+    fetchData();
+  }
+
   async function FridgeToggle() {
     setFridgeOrPantry("fridgeArray");
     console.log(fridgeOrPantry);
@@ -43,21 +56,12 @@ function Food() {
         quantity={foodItem.quantity}
         image_url={foodItem.selectedImage}
         expiry_date={foodItem.expiryDate}
+        decreaseQuantity={decreaseQuantity}
+        foodID={foodItem.id}
       />
     );
   });
   console.log(foodItemCard);
-
-  // const [food, setFood] = useState(null);
-
-  // useEffect(() => {
-  //   const fetchFood = async () => {
-  //     const { data, error } = await supabase.from("food_items").select("*");
-
-  //     console.log(data);
-
-  //   fetchFood();
-  // }, []);
 
   return (
     <div>
