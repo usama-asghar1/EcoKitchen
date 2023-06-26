@@ -53,6 +53,7 @@ function KitchenFoodCard({ name, quantity, image_url, expiry_date }) {
               id="decreaseQuantity"
             >
               ✔
+              
             </Button> */}
             <Button className="kitchen-food-card-delete-btn kitchen-food-card-use-btn food-btn"
              onClick={decreaseQuantity}
