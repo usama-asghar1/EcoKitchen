@@ -8,7 +8,7 @@ import {Link, useLocation } from "react-router-dom"
 import '../App.css'
 
 
-export default function Navbar() {
+export default function Navbar({setTitle}) {
   const location = useLocation();
   
     const getIconColor = (path) => {
@@ -20,7 +20,10 @@ export default function Navbar() {
         {/* Fridge icon */}
         <Link className="link" to="/Food">
           <div className={`navbar-icon ${getIconColor("/Food")}`}>
-            <BiFridge className="navbar-icon-image" />
+            <BiFridge
+              className="navbar-icon-image"
+              onClick={() => setTitle("Food")}
+            />
             <span className="navbar-icon-name">Kitchen</span>
           </div>
         </Link>
@@ -28,22 +31,28 @@ export default function Navbar() {
         {/* Recipes icon */}
         <Link className="link" to="/Recipes">
           <div className={`navbar-icon ${getIconColor("/Recipes")}`}>
-            <BiBookOpen className="navbar-icon-image" />
+            <BiBookOpen
+              className="navbar-icon-image"
+              onClick={() => setTitle("Recipes")}
+            />
             <span className="navbar-icon-name">Recipes</span>
           </div>
         </Link>
         {/* Add item button */}
         <Link className="link" to="/additem">
-        <div className={`navbar-icon ${getIconColor("/Shopping")}`}>
-          <AddItemButton className="navbar-icon-image" />
-        <span className="navbar-icon-name">Add Item</span>
-        </div>
+          <div className={`navbar-icon ${getIconColor("/Shopping")}`}>
+            <AddItemButton className="navbar-icon-image" setTitle={setTitle} />
+            <span className="navbar-icon-name">Add Item</span>
+          </div>
         </Link>
 
         {/* Shopping icon */}
         <Link className="link" to="/Shopping">
           <div className={`navbar-icon ${getIconColor("/Shopping")}`}>
-            <BiListCheck className="navbar-icon-image" />
+            <BiListCheck
+              className="navbar-icon-image"
+              onClick={() => setTitle("Shopping List")}
+            />
             <span className="navbar-icon-name">Shopping</span>
           </div>
         </Link>
@@ -51,7 +60,10 @@ export default function Navbar() {
         {/* Breakdown icon */}
         <Link className="link" to="/Breakdown">
           <div className={`navbar-icon ${getIconColor("/Breakdown")}`}>
-            <BiBarChartAlt className="navbar-icon-image" />
+            <BiBarChartAlt
+              className="navbar-icon-image"
+              onClick={() => setTitle("Cost Breakdown")}
+            />
             <span className="navbar-icon-name">Breakdown</span>
           </div>
         </Link>

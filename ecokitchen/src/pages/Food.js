@@ -14,6 +14,7 @@ function Food() {
   /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
     fetchData();
+    // eslint-disable-next-line
   }, [fridgeOrPantry]);
   /* eslint-enable react-hooks/exhaustive-deps */
 
@@ -69,7 +70,7 @@ function Food() {
   return (
     <div>
       <div>
-        <h1 className="page-title">Food in your</h1>
+       
       </div>
       <div className="button-list-container">
         <Button

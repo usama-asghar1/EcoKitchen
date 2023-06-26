@@ -37,7 +37,7 @@ function Recipes() {
   return (
     <div className="recipe-container">
       <div>
-        <h1 className="page-title">Recipe Search</h1>
+       
       </div>
       <div className="recipe-search-container">
         <input

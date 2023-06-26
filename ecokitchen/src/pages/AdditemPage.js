@@ -324,7 +324,7 @@ function Additem() {
 
   return (
     <div className="add-item-container">
-      <h1 className="page-title">Add Item</h1>
+    
       <div className="add-item-form-container">
         <form className="add-item-form" onSubmit={handleSubmit}>
           <div className="button-list-container">

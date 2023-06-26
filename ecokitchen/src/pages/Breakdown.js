@@ -168,7 +168,7 @@ function Breakdown() {
 
   return (
     <div>
-      <h1 className="page-title">Breakdown</h1>
+      
       <div>
         <div className="pie-chart" style={{ width: "90%", height: "auto" }}>
           <canvas ref={chartRef}></canvas>

@@ -79,7 +79,7 @@ function Shopping() {
   return (
     <div>
       <div>
-        <h1 className="page-title">Shopping List</h1>
+      
       </div>
       <div>{foodShoppingCard}</div>
     </div>
