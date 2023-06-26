@@ -11,9 +11,11 @@ function Food() {
   const [data, setData] = useState([]);
   const [fridgeOrPantry, setFridgeOrPantry] = useState("pantryArray");
 
+  /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
     fetchData();
   }, [fridgeOrPantry]);
+  /* eslint-enable react-hooks/exhaustive-deps */
 
   async function fetchData() {
     const dataSB = await supabase
