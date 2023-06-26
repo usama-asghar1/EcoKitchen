@@ -48,12 +48,14 @@ function ShoppingFoodCard({
             >
               ✔
             </Button>
+            <span>Bought</span>
             <Button
               onClick={() => deleteFood(foodID)}
               className="shopping-food-card-delete-btn shopping-food-card-use-btn food-btn"
             >
               🗑
             </Button>
+            <span>Delete</span>
           </div>
         </Card.Body>
       </Card>
