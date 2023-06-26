@@ -13,6 +13,9 @@ function Food() {
     async function fetchData() {
       const dataSB = await supabase.from("food_items").select("*");
       setData(dataSB.data);
+      if (dataSB.error) {
+      setFetchError(dataSB.error);
+      }
     }
 
     fetchData();
