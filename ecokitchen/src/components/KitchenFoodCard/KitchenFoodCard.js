@@ -4,13 +4,8 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Image from "react-bootstrap/Image";
 
-function KitchenFoodCard({ name, quantity, image_url, expiry_date }) {
-  const [updateQuantity, setUpdateQuantity] = useState(quantity);
-
-  function decreaseQuantity() {
-    setUpdateQuantity(updateQuantity - 1);
-  }
-
+function KitchenFoodCard({ name, quantity, image_url, expiry_date, decreaseQuantity, foodID}) {
+   
   // Convert the input into a Date object
   var expiryDate = new Date(expiry_date);
 
@@ -41,7 +36,7 @@ function KitchenFoodCard({ name, quantity, image_url, expiry_date }) {
         <Card.Body className="d-flex align-items-center justify-content-left ">
           <div className="kitchen-food-card-image-container">
             <Image className="kitchen-card-image" src={image_url} alt={name} />
-            <div className="quantity-count">{updateQuantity}</div>
+            <div className="quantity-count">{quantity}</div>
           </div>
           <div className="kitchen-food-card-title-container">
             <Card.Title className="kitchen-card-title">{name}</Card.Title>
@@ -55,18 +50,20 @@ function KitchenFoodCard({ name, quantity, image_url, expiry_date }) {
           <div className="kitchen-food-card-use-btns">
             <Button
               className="kitchen-food-card-bought-btn kitchen-food-card-use-btn food-btn"
-              onClick={decreaseQuantity}
+              onClick={() => decreaseQuantity(foodID)}
               id="decreaseQuantity"
             >
               ✔
             </Button>
+            <span>Used</span> 
             <Button
               className="kitchen-food-card-delete-btn kitchen-food-card-use-btn food-btn"
-              onClick={decreaseQuantity}
+              onClick={() => decreaseQuantity(foodID)}
               id="decreaseQuantity"
             >
               🗑
             </Button>
+            <span>Wasted</span>
           </div>
         </Card.Body>
       </Card>

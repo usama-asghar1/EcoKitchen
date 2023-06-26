@@ -18,10 +18,7 @@ function Shopping() {
       .from("Shopping_List")
       .select("*")
       .eq("user_id", user);
-    //convert from json to array
-    // const object = await result.json();
-    // const object2 = Object.values(object);
-    //remove this console log before deployment
+  
     setData(dataSB.data);
     console.log(dataSB.data);
   }
