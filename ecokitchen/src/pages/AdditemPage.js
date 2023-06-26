@@ -219,37 +219,67 @@ function Additem() {
     const user = response.data.user;
     setError(null);
 
-    if (selectedImage === null) {
-      setError("Please select an image");
-      return;
-    }
-
     if (!user || !user.id) {
       console.log(user);
       setError("User not authenticated");
       return;
     }
 
-    const { data, error } = await supabase.from("food_items").insert([
-      {
-        user_id: user.id,
-        selectedFoodName,
-        selectedImage,
-        quantity,
-        foodCategory,
-        expiryDate,
-        cost,
-      },
-    ]);
-
-    if (error) {
-      console.log(error);
-      setError("There is an error");
+    if (selectedImage === null) {
+      setError("Please select an image");
+      return;
     }
-    if (data) {
-      console.log(data);
-      console.log(quantity, expiryDate, cost);
-      setError(null);
+
+    if (foodCategory === "pantryArray" || "fridgeArray") {
+      postToFoodItems();
+    }
+
+    if (foodCategory === "shoppingArray") {
+      postToShoppingItems();
+    }
+
+    async function postToFoodItems() {
+      const { data, error } = await supabase.from("food_items").insert([
+        {
+          user_id: user.id,
+          selectedFoodName,
+          selectedImage,
+          quantity,
+          foodCategory,
+          expiryDate,
+          cost,
+        },
+      ]);
+
+      if (error) {
+        console.log(error);
+        setError("There is an error");
+      }
+      if (data) {
+        console.log(data);
+        // console.log(quantity, expiryDate, cost);
+        setError(null);
+      }
+    }
+
+    async function postToShoppingItems() {
+      const { data, error } = await supabase.from("Shopping_List").insert([
+        {
+          user_id: user.id,
+          name: selectedFoodName,
+          image_url: selectedImage,
+          quantity: quantity,
+        },
+      ]);
+
+      if (error) {
+        console.log(error);
+        setError("There is an error");
+      }
+      if (data) {
+        console.log(data);
+        setError(null);
+      }
     }
 
     // if (!selectedImage || !quantity || !expiryDate || !cost) {
@@ -282,7 +312,7 @@ function Additem() {
     localStorage.setItem(foodCategory, JSON.stringify(foodItemArray)); //check this line
     event.target.reset();
     setSelectedImage(null);
-    console.log(selectedImage); // foodItemArray was here before
+    // console.log(selectedImage); // foodItemArray was here before
   };
   // if this doesn't work host image on api - check help dev
 
