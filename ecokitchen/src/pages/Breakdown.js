@@ -201,4 +201,5 @@ function Breakdown() {
   );
 }
 
+// Export the Breakdown component
 export default Breakdown;
