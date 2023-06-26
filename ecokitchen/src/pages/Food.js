@@ -47,7 +47,9 @@ function Food() {
 
   return (
     <div>
-      <p>This is the Food Page</p>
+      <div>
+        <h1 className="page-title">Food in your</h1>
+      </div>
       {fetchError && <p>{fetchError}</p>}
       <div>
         <div>{foodItemCard}</div>
