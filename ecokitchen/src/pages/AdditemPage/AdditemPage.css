@@ -34,9 +34,7 @@
   cursor: pointer;
 }
 
-.selected {
-  border: 2px solid var(--primary-blue);
-}
+
 
 button {
   margin: 0;
@@ -52,6 +50,16 @@ button {
   margin-top: 5px;
   margin-bottom: 5px;
 }
+
+.selected {
+  border: 2px solid var(--primary-blue);
+  background-color: var(--primary-blue);
+}
+
+.selected:hover {
+  background-color: red
+}
+/* on hover doesnt work */
 
 .not-selected {
   background-color: var(--navbar-grey);

@@ -325,21 +325,21 @@ function Additem() {
               label="Pantry"
               type="button"
               onClick={() => handleFoodCategoryChange("pantryArray")}
-              className={foodCategory === "pantryArray" ? "" : "not-selected"}
+              className={foodCategory === "pantryArray" ? "selected" : "not-selected"}
             />
             <Button
               id="fridge-button"
               label="Fridge"
               type="button"
               onClick={() => handleFoodCategoryChange("fridgeArray")}
-              className={foodCategory === "fridgeArray" ? "" : "not-selected"}
+              className={foodCategory === "fridgeArray" ? "selected" : "not-selected"}
             />
             <Button
               id="shopping-button"
               label="Shopping"
               type="button"
               onClick={() => handleFoodCategoryChange("shoppingArray")}
-              className={foodCategory === "shoppingArray" ? "" : "not-selected"}
+              className={foodCategory === "shoppingArray" ? "selected" : "not-selected"}
             />
           </div>
         </form>
