@@ -25,7 +25,9 @@ function KitchenFoodCard({ name, quantity, image_url, expiry_date }) {
 
   // Define the color based on daysLeft
   let color;
-  if (daysLeft <= 2) {
+  if (daysLeft < 0) {
+    color = "grey";
+  } else if (daysLeft <= 2) {
     color = "red";
   } else if (daysLeft <= 5) {
     color = "orange";
