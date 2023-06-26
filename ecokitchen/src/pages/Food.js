@@ -76,14 +76,14 @@ function Food() {
           label="Pantry"
           type="button"
           onClick={PantryToggle}
-          className={fridgeOrPantry === "pantryArray" ? "" : "not-selected"}
+          className={fridgeOrPantry === "pantryArray" ? "selected" : "not-selected"}
         />
         <Button
           id="fridge-button"
           label="Fridge"
           type="button"
           onClick={FridgeToggle}
-          className={fridgeOrPantry === "fridgeArray" ? "" : "not-selected"}
+          className={fridgeOrPantry === "fridgeArray" ? "selected" : "not-selected"}
         />
       </div>
       {fetchError && <p>{fetchError}</p>}
