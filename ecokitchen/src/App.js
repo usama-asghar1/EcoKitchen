@@ -27,7 +27,7 @@ import Additem from "./pages/AdditemPage";
 
 import RecipeDetail from "./pages/RecipeDetail";
 
-import AddItemButton from "./components/AddItemButton.js";
+// import AddItemButton from "./components/AddItemButton.js";
 import { useState } from "react";
 
 function App() {
@@ -39,7 +39,7 @@ function App() {
         <div>
           <Header />
           <Navbar />
-          <AddItemButton />
+          {/* <AddItemButton /> */}
         </div>
       )}
       <div>

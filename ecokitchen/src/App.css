@@ -135,12 +135,12 @@
   align-items: center;
   opacity: 0.8;
 }
-
+/* 
 #add-item-button-container {
   position: absolute;
   bottom: 4px;
   right: 4px;
-}
+} */
 
 .breakdown-text {
   font-family: var(--font);
