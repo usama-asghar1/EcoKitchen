@@ -1,4 +1,6 @@
 import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
@@ -25,7 +27,7 @@ import Additem from "./pages/AdditemPage";
 
 import RecipeDetail from "./pages/RecipeDetail";
 
-import AddItemButton from "./components/AddItemButton.js";
+// import AddItemButton from "./components/AddItemButton.js";
 import { useState } from "react";
 
 function App() {
@@ -37,12 +39,12 @@ function App() {
         <div>
           <Header />
           <Navbar />
-          <AddItemButton />
+          {/* <AddItemButton /> */}
         </div>
       )}
       <div>
         <Routes>
-          <Route path="/LandingPage" element={<LandingPage />} />
+          <Route path="/" element={<LandingPage />} />
 
           <Route
             path="/Login"

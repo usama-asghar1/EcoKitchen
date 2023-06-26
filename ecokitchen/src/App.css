@@ -5,7 +5,7 @@
   --primary-green: #27ab5f;
   --red: #ea324c;
   --white: #eeeeee;
-  --background-white: #FFFFFF;
+  --background-white: #ffffff;
   --grey: #dddddd;
   --navbar-grey: #868686;
   --font: "Roboto Condensed", sans-serif;
@@ -54,7 +54,6 @@
 }
 
 .app-container {
-
   background-color: var(--grey);
   max-height: 926px;
   max-width: 428px;
@@ -63,83 +62,95 @@
   box-shadow: 0 0 1px black;
 }
 
-  .link {
-    text-decoration: none;
-  } 
-  .navbar-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 91px;
-    background-color: #DDDDDD;
-    border-top:  3px solid var(--primary-blue) ;
-    padding-left: 10px;
-    padding-right: 10px;
-    /* z-index: 1; */
-    position: sticky; 
-  }
-  
-  .navbar-icon {
-    /* display: grid;
+.link {
+  text-decoration: none;
+}
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 91px;
+  background-color: #dddddd;
+  border-top: 3px solid var(--primary-blue);
+  padding-left: 10px;
+  padding-right: 10px;
+  /* z-index: 1; */
+  position: sticky;
+}
+
+.navbar-icon {
+  /* display: grid;
     grid-template-columns: center repeat(5, 2); */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: var(--navbar-grey);
-    font-family: var(--font);
-    /* font size is the icon size */
-    font-size: 48px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .navbar-icon:hover {
-    color: var(--primary-blue);
-  }
-  
-  .navbar-icon-image {
-    margin-bottom: 5px;
-    
-  }
-  
-  .navbar-icon-name {
-    font-family: var(--font);
-    font-size: 12px;
-  }
-  
-  .navbar-icon-blue {
-    color: var(--primary-blue);
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--navbar-grey);
+  font-family: var(--font);
+  /* font size is the icon size */
+  font-size: 48px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
 
-  .navbar-icon-grey {
-    color: var(--navbar-grey);
-  }
-  .pantry-btn {
-    background-color: var(--primary-blue);
-  }
+.navbar-icon:hover {
+  color: var(--primary-blue);
+}
 
-  .add-item-button {
-    background-color: var(--primary-blue);
-    color: white;
-    border-style: none;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    font-size: 36px;
-    font-family: var(--font);
-    font-size: 40px;
-    font-weight: 500;
-    padding: 10px;
-    margin-top: 10px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0.8;
-  }
+.navbar-icon-image {
+  margin-bottom: 5px;
+}
 
-  #add-item-button-container {
-    position: absolute;
-    bottom: 4px;
-    right: 4px;
-  }
+.navbar-icon-name {
+  font-family: var(--font);
+  font-size: 12px;
+}
+
+.navbar-icon-blue {
+  color: var(--primary-blue);
+}
+
+.navbar-icon-grey {
+  color: var(--navbar-grey);
+}
+.pantry-btn {
+  background-color: var(--primary-blue);
+}
+
+.add-item-button {
+  background-color: var(--primary-blue);
+  color: white;
+  border-style: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 36px;
+  font-family: var(--font);
+  font-size: 40px;
+  font-weight: 500;
+  padding: 10px;
+  margin-top: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.8;
+}
+/* 
+#add-item-button-container {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+} */
+
+.breakdown-text {
+  font-family: var(--font);
+  font-size: 20px;
+  font-weight: 500;
+  margin-top: 10px;
+}
+
+.pie-chart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

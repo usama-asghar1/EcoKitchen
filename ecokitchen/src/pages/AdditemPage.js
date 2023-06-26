@@ -24,7 +24,7 @@ import Lime from "../assets/food/lime.jpg";
 import Cheese from "../assets/food/cheese.jpg";
 
 import { Message } from "primereact/message";
-import supabase from "../components/supabase/supabaseClient";
+import { supabase } from "../components/supabase/supabaseClient";
 
 /*
 PLAN:
@@ -46,11 +46,15 @@ PLAN for connecting to the database:
 1. Create useState for every row on the food_item table
 2. Expected Challenge: Finding the userID and food name to send to supabase
 3. Linking to food item table (on supabase)
-4. 
+
+PLAN For polishing code & setting up selectedFoodName,foodCategory, status:
+0. Do we really need status?
+1. Put the selectedFoodItem on the list.
+2. Put the foodCategory on the list.
 */
 
 // Dummy data for the food images
-const foodImages = [
+export const foodImages = [
   {
     className: "foodimage",
     src: Wbread,
@@ -205,63 +209,90 @@ function Additem() {
     );
   };
 
+  // const { user } = supabase.auth.user()
+  // const { user } = supabase.auth.getUser
+  // const userId = user.id
+
   const handleSubmit = async (event) => {
     event.preventDefault();
+    const response = await supabase.auth.getUser();
+    const user = response.data.user;
     setError(null);
+
+    if (!user || !user.id) {
+      console.log(user);
+      setError("User not authenticated");
+      return;
+    }
 
     if (selectedImage === null) {
       setError("Please select an image");
       return;
     }
 
-    const { data, error } = await supabase
-      .from("food_items")
-      .insert([{ user_id: '1423656b-c3dc-4d9c-8d2d-067b2b9b60d5', selectedImage, quantity, expiryDate, cost}]);
-      // .insert({ id: 1, user_id: '1423656b-c3dc-4d9c-8d2d-067b2b9b60d5', quantity: 1, cost: 1, status: 'available', selectedFoodName: 'beef', foodCategory: 'fridge', expiryDate: '2021-10-10' })
-
-    if (error) {
-      console.log(error);
-      setError("There is an error");
-    }
-    if (data) {
-      console.log(data);
-      console.log(quantity, expiryDate, cost);
-      setError(null);
+    if (foodCategory === "pantryArray" || "fridgeArray") {
+      postToFoodItems();
     }
 
-    // if (!selectedImage || !quantity || !expiryDate || !cost) {
-    //   setError("Please fill in all fields");
-    //   return;
-    // }
-    // console.log(selectedImage, quantity, expiryDate, cost);
-
-    let foodItemArray = JSON.parse(localStorage.getItem(foodCategory));
-
-    // Check if the foodItemArray exists in local storage and if it doesn't, create it
-    if (!foodItemArray) {
-      foodItemArray = [];
+    if (foodCategory === "shoppingArray") {
+      postToShoppingItems();
     }
 
-    // This will add the form values to the foodItemArray and store it in local storage and clear the form
-    const foodItem = {
-      name: selectedFoodName,
-      image: selectedImage,
-      quantity: event.target["item-quantity"].value,
-    };
+    async function postToFoodItems() {
+      const foodItem = {
+        user_id: user.id,
+        selectedFoodName,
+        selectedImage,
+        quantity,
+        foodCategory,
+      };
 
-    if (foodCategory === "fridge" || foodCategory === "pantry") {
-      foodItem.expiryDate = event.target["item-expiry"].value;
-      foodItem.cost = event.target["item-cost"].value;
+      if (expiryDate) {
+        foodItem.expiryDate = expiryDate;
+      }
+
+      if (cost) {
+        foodItem.cost = cost;
+      }
+
+      const { data, error } = await supabase
+        .from("food_items")
+        .insert([foodItem]);
+
+      if (error) {
+        console.log(error);
+        setError("There is an error");
+      }
+      if (data) {
+        console.log(data);
+        // console.log(quantity, expiryDate, cost);
+        setError(null);
+      }
     }
 
-    foodItemArray.push(foodItem);
-    // This will store the foodItemArray in local storage
-    localStorage.setItem(foodCategory, JSON.stringify(foodItemArray)); //check this line
+    async function postToShoppingItems() {
+      const { data, error } = await supabase.from("Shopping_List").insert([
+        {
+          user_id: user.id,
+          name: selectedFoodName,
+          image_url: selectedImage,
+          quantity: quantity,
+        },
+      ]);
+
+      if (error) {
+        console.log(error);
+        setError("There is an error");
+      }
+      if (data) {
+        console.log(data);
+        setError(null);
+      }
+    }
+
+    // Clear the form input fields
     event.target.reset();
-    setSelectedImage(null);
-    console.log(selectedImage); // foodItemArray was here before
   };
-  // if this doesn't work host image on api - check help dev
 
   const getCurrentDate = () => {
     const currentDate = new Date();
@@ -302,21 +333,21 @@ function Additem() {
               label="Pantry"
               type="button"
               onClick={() => handleFoodCategoryChange("pantryArray")}
-              className={foodCategory === "pantryArray" ? "" : "not-selected"}
+              className={foodCategory === "pantryArray" ? "selected" : "not-selected"}
             />
             <Button
               id="fridge-button"
               label="Fridge"
               type="button"
               onClick={() => handleFoodCategoryChange("fridgeArray")}
-              className={foodCategory === "fridgeArray" ? "" : "not-selected"}
+              className={foodCategory === "fridgeArray" ? "selected" : "not-selected"}
             />
             <Button
               id="shopping-button"
               label="Shopping"
               type="button"
               onClick={() => handleFoodCategoryChange("shoppingArray")}
-              className={foodCategory === "shoppingArray" ? "" : "not-selected"}
+              className={foodCategory === "shoppingArray" ? "selected" : "not-selected"}
             />
           </div>
         </form>
