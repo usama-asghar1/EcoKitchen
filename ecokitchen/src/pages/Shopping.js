@@ -78,10 +78,7 @@ function Shopping() {
 
   return (
     <div>
-      <div>
-      
-      </div>
-      <div>{foodShoppingCard}</div>
+      <div className="shopping-page-container">{foodShoppingCard}</div>
     </div>
   );
 }

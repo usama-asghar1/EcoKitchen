@@ -39,6 +39,7 @@
   text-transform: uppercase;
   margin-bottom: -3px;
   background-color: rgb(246, 246, 246);
+
 }
 
 .main-content {
@@ -158,3 +159,13 @@
   justify-content: center;
   align-items: center;
 }
+
+.shopping-page-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+/*cm*/

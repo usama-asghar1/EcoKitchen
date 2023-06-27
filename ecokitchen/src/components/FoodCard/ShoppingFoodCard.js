@@ -44,18 +44,18 @@ function ShoppingFoodCard({
           <div className="shopping-food-card-use-btns">
             <Button
               onClick={() => deleteFood(foodID)}
+              id="useFood"
               className="shopping-food-card-bought-btn shopping-food-card-use-btn food-btn"
             >
               ✔
             </Button>
-            <span>Bought</span>
             <Button
               onClick={() => deleteFood(foodID)}
+              id="deleteFood"
               className="shopping-food-card-delete-btn shopping-food-card-use-btn food-btn"
             >
               🗑
             </Button>
-            <span>Delete</span>
           </div>
         </Card.Body>
       </Card>
