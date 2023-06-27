@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
+import { BsSearch } from "react-icons/bs";
+
 import "./Recipe.css";
 
 function Recipes() {
@@ -36,16 +38,18 @@ function Recipes() {
 
   return (
     <div className="recipe-container">
-      <div>
-       
-      </div>
-      <div className="recipe-search-container">
+      <div></div>
+      <div className="recipe_search_container">
+        <BsSearch className="s_icon" />
         <input
           type="text"
           placeholder="Please input your main ingredient"
           onChange={(e) => setIngredient(e.target.value)}
         />
-        <button onClick={fetchRecipe}>Search</button>
+        {/* <button onClick={fetchRecipe}>Search</button> */}
+        <div className="search_btn" onClick={fetchRecipe}>
+          Search
+        </div>
       </div>
 
       {recipeData.length > 0 && (
@@ -62,7 +66,8 @@ function Recipes() {
                     src={recipe.strMealThumb}
                     alt={recipe.strMeal}
                   />
-                  <p>{recipe.strMeal}</p>
+
+                  <p className="recipe_text_link">{recipe.strMeal}</p>
                 </button>
               </Link>
             </div>

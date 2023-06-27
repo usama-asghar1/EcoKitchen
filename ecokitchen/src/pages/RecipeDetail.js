@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 // import Recipes from "./Recipes";
 import { useParams } from "react-router-dom";
 
+import "./Recipe.css";
+
 /* PLAN
 
 1. On ReceipeDetail.js 
@@ -44,10 +46,10 @@ function RecipeDetail() {
       const response = await fetch(
         `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`
       );
-      console.log(response);
+      // console.log(response);
 
       const data = await response.json();
-      console.log(data);
+      // console.log(data);
 
       setSelectedRecipe(data);
       // console.log(selectedRecipeData);
@@ -56,8 +58,8 @@ function RecipeDetail() {
     fetchSelectedRecipe();
   }, [mealId]);
 
-  console.log("After the useEffect");
-  console.log(selectedRecipeData);
+  // console.log("After the useEffect");
+  // console.log(selectedRecipeData);
 
   if (!selectedRecipeData) {
     return <div>Loading...</div>;
@@ -101,8 +103,6 @@ function RecipeDetail() {
 
   return (
     <div className="recipe-detail-container">
-      {/* <h1>ID: {selectedRecipeData.meals[0].idMeal}</h1> */}
-     
       <h3 className="recipe-title">{selectedRecipeData.meals[0].strMeal}</h3>
       <img
         className="recipe-card-img"
@@ -110,22 +110,27 @@ function RecipeDetail() {
         alt={selectedRecipeData.meals[0].strMeal}
       />
       <p className="recipe-instructions">
+        <h3>Cooking Instructions</h3>
         {selectedRecipeData.meals[0].strInstructions}
       </p>
-      <h3>Ingredients:</h3>
-      <ul>
-        {list.map((ingredient, index) => {
-          return <li key={index}>{ingredient}</li>;
-        })}
-      </ul>
-
-      <div>
-        <h3>measurements</h3>
-        <ul>
-          {measurements.map((measurement, index) => {
-            return <li key={index}>{measurement}</li>;
-          })}
-        </ul>
+      <div className="ingredients_container">
+        <div className="ingredients_heading">
+          <h3>Ingredients:</h3>
+        </div>
+        <div>
+          <ul>
+            {list.map((ingredient, index) => {
+              return <li key={index}>{ingredient}</li>;
+            })}
+          </ul>
+        </div>
+        <div>
+          <ul>
+            {measurements.map((measurement, index) => {
+              return <li key={index}>{measurement}</li>;
+            })}
+          </ul>
+        </div>
       </div>
     </div>
   );
