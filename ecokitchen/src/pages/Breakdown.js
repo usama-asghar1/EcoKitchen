@@ -183,22 +183,42 @@ function Breakdown() {
   return (
     <div>
       <div>
-        <div className="pie-chart" style={{ width: "90%", height: "auto" }}>
-          <canvas ref={chartRef}></canvas>
+        <div style={{ width: "90%", height: "auto" }}>
+          <canvas className="pie-chart" ref={chartRef}></canvas>
         </div>
+
+        <div className="breakdown-text">
+        <ul>
+          <li> </li>
+            <li> </li>
+              <li> </li>
+                <li>  </li>
+                  <li>  </li>
+                  <li>  </li>
+
+        </ul>
         <h2 className="breakdown-text">
-          The food that you've thrown away the most is {mostCommonItemInfo.name}
-          .
+          The food that you've thrown away the most is{" "}
+          <span className="important-text"> {mostCommonItemInfo.name}. </span>
         </h2>
         <h2 className="breakdown-text">
-          The total cost of wasting this food is £{mostCommonItemInfo.cost}.
+          The total cost of wasting this food is{" "}
+          <span className="important-text">
+            £{mostCommonItemInfo.cost.toFixed(2)}.{" "}
+          </span>
         </h2>
         <h2 className="breakdown-text">
           The total quantity that you've thrown away is{" "}
-          {mostCommonItemInfo.quantity}.
+          <span className="important-text">
+            {mostCommonItemInfo.quantity}.{" "}
+          </span>
         </h2>
         <h2 className="breakdown-text">
-          To find out how to reduce your {mostCommonItemInfo.name} food waste,{" "}
+          To find out how to reduce your{" "}
+          <span className="important-text">
+            {" "}
+            {mostCommonItemInfo.name} food waste{" "}
+          </span>
           <a
             href={`https://stopfoodwaste.ie/foods/${mostCommonItemInfo.name}`}
             target="_blank"
@@ -210,6 +230,7 @@ function Breakdown() {
           .
         </h2>
       </div>
+    </div>
     </div>
   );
 }
