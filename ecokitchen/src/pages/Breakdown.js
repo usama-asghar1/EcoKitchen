@@ -57,7 +57,20 @@ function Breakdown() {
       cumulativeQuantities[name] = (cumulativeQuantities[name] || 0) + quantity;
     }
 
-    let mostCommonItem = null;
+    // Convert wastedFoodCounts into an array
+    const entries = Object.entries(wastedFoodCounts);
+
+    // Sort the array based on counts in descending order
+    entries.sort((a, b) => b[1] - a[1]);
+
+    // Take the top 6 entries
+    const topSixEntries = entries.slice(0, 6);
+
+    const labels = topSixEntries.map((entry) => entry[0]);
+    const data = topSixEntries.map((entry) => entry[1]);
+
+    let mostCommonItem = labels[0];
+
     let maxCount = 0;
 
     for (const name in wastedFoodCounts) {
@@ -79,13 +92,14 @@ function Breakdown() {
       labels: Object.keys(wastedFoodCounts),
       datasets: [
         {
-          data: Object.values(wastedFoodCounts),
+          data: data,
           backgroundColor: [
-            "#FF6384",
-            "#36A2EB",
-            "#FFCE56",
-            "#C23B22",
-            "#ff8000",
+            "#DF8B7F",
+            "#4B86E0",
+            "#F5DA67",
+            "#225F5D",
+            "#e5a012",
+            "#5B3F49",
           ],
         },
       ],
@@ -168,7 +182,6 @@ function Breakdown() {
 
   return (
     <div>
-      
       <div>
         <div className="pie-chart" style={{ width: "90%", height: "auto" }}>
           <canvas ref={chartRef}></canvas>
