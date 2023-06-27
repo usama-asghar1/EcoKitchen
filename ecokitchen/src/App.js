@@ -35,45 +35,56 @@ function App() {
   const [title, setTitle] = useState("Food");
 
   return (
-    <BrowserRouter>
-      {isAuthenticated && (
-        <div>
-          <Header title={title} setTitle={setTitle} />
-          <Navbar setTitle={setTitle} />
-          {/* <AddItemButton /> */}
+    <div className="phone-size">
+      <BrowserRouter>
+        {isAuthenticated && (
+          <div>
+            <Header title={title} setTitle={setTitle} />
+            {/* <AddItemButton /> */}
+          </div>
+        )}
+        <div className="main-content">
+          <div>
+            <Routes>
+              <Route path="/" element={<LandingPage />} />
+
+              <Route
+                path="/Login"
+                element={<Login setIsAuthenticated={setIsAuthenticated} />}
+              />
+
+              <Route path="/SignUp" element={<SignUp />} />
+
+              <Route path="/ResetPassword" element={<ResetPassword />} />
+
+              <Route path="/RequestPassword" element={<RequestPassword />} />
+
+              {isAuthenticated && (
+                <>
+                  {/* <Route path="/HomePage" element={<Home />} /> */}
+                  <Route path="/Food" element={<Food />} />
+                  <Route path="/Breakdown" element={<Breakdown />} />
+                  <Route path="/Recipes" element={<Recipes />} />
+                  <Route
+                    path="/Recipes/:recipeIdMeal"
+                    element={<RecipeDetail />}
+                  />
+                  <Route path="/Shopping" element={<Shopping />} />
+                  <Route path="/Donate" element={<Donate />} />
+                  <Route path="/additem" element={<Additem />} />
+                  <Route path="/Styles" element={<Styles />} />
+                </>
+              )}
+            </Routes>
+          </div>
         </div>
-      )}
-      <div>
-        <Routes>
-          <Route path="/" element={<LandingPage />} />
-
-          <Route
-            path="/Login"
-            element={<Login setIsAuthenticated={setIsAuthenticated} />}
-          />
-
-          <Route path="/SignUp" element={<SignUp />} />
-
-          <Route path="/ResetPassword" element={<ResetPassword />} />
-
-          <Route path="/RequestPassword" element={<RequestPassword />} />
-
-          {isAuthenticated && (
-            <>
-              {/* <Route path="/HomePage" element={<Home />} /> */}
-              <Route path="/Food" element={<Food />} />
-              <Route path="/Breakdown" element={<Breakdown />} />
-              <Route path="/Recipes" element={<Recipes />} />
-              <Route path="/Recipes/:recipeIdMeal" element={<RecipeDetail />} />
-              <Route path="/Shopping" element={<Shopping />} />
-              <Route path="/Donate" element={<Donate />} />
-              <Route path="/additem" element={<Additem />} />
-              <Route path="/Styles" element={<Styles />} />
-            </>
-          )}
-        </Routes>
-      </div>
-    </BrowserRouter>
+        {isAuthenticated && (
+          <div>
+            <Navbar setTitle={setTitle} />
+          </div>
+        )}
+      </BrowserRouter>
+    </div>
   );
 }
 
