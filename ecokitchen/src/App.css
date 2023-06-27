@@ -70,12 +70,14 @@
   justify-content: space-between;
   align-items: center;
   height: 91px;
+  width: 100%;
   background-color: #dddddd;
   border-top: 3px solid var(--primary-blue);
   padding-left: 10px;
   padding-right: 10px;
   /* z-index: 1; */
-  position: sticky;
+  position: fixed;
+  bottom:0;
 }
 
 .navbar-icon {
