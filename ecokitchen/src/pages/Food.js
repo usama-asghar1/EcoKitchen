@@ -53,6 +53,26 @@ function Food() {
 
    */
 
+  async function usedFoodItem(foodID) {
+    if (data && data.length > 0) {
+      const [foodItem] = data;
+
+      if (foodItem.quantity <= 1) {
+        try {
+          await supabase.from("food_items").delete().eq("id", foodID);
+          console.log("Record deleted");
+        }
+        catch (error) {
+          console.log("Error inserting into wasted_items:", error);
+        }
+      } else if (foodItem.quantity > 1) {
+        decreaseQuantity(foodID);
+        console.log("decreased quantity by 1");
+      }
+      fetchData();
+    }
+  }
+
    async function moveToWasted(foodID) {
     if (data && data.length > 0) {
       const [foodItem] = data;
@@ -127,6 +147,7 @@ function Food() {
         decreaseQuantity={decreaseQuantity}
         foodID={foodItem.id}
         moveToWasted={moveToWasted}
+        usedFoodItem={usedFoodItem}
       />
     );
   });
