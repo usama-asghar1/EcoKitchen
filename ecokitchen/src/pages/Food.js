@@ -43,6 +43,39 @@ function Food() {
     fetchData();
   }
 
+     /* Waste Button 
+    * - if the quantity is above 0, decrease the quantity by 1 and move the record to wasted_items
+    * - if the quantity is 0, move the record to wasted_items and delete the record from food_items
+    * - if quantity is less than 0 (expired) move the record to wasted_items and delete the record from food_items
+    */
+
+  async function moveToWasted(foodID) {
+    if (data && data.length > 0) {
+      const [foodItem] = data;
+      
+     console.log(foodItem);
+
+      if (foodItem.quantity === 1) 
+       {
+        await supabase.from("wasted_items").insert([foodItem]);
+        await supabase.from("food_items").delete().eq("id", foodID);
+        console.log("Record deleted and moved to wasted_items");
+      }
+      else if (foodItem.quantity > 1) {
+        decreaseQuantity(foodID);
+        await supabase.from("wasted_items").insert([foodItem]);
+        console.log("wasted 1 and decreased quantity by 1");
+      }
+
+    else {
+      console.log("Data not available");
+
+      fetchData();
+
+    }
+  }
+  }
+
   async function FridgeToggle() {
     setFridgeOrPantry("fridgeArray");
     console.log(fridgeOrPantry);
@@ -62,6 +95,7 @@ function Food() {
         expiry_date={foodItem.expiryDate}
         decreaseQuantity={decreaseQuantity}
         foodID={foodItem.id}
+        moveToWasted={moveToWasted}
       />
     );
   });
@@ -94,6 +128,6 @@ function Food() {
       </div>
     </div>
   );
-}
 
+  }
 export default Food;
