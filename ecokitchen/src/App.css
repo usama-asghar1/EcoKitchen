@@ -41,13 +41,6 @@
   background-color: rgb(246, 246, 246);
 }
 
-.content-container {
-  height: 740px;
-  background-color: var(--background-white);
-  z-index: 0;
-  padding: 15px;
-}
-
 .main-content {
   position: relative;
   background-color: rgb(246, 246, 246);
@@ -79,7 +72,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 10%;
+  height: 8.7vh;
   width: 100%;
   background-color: #dddddd;
   border-top: 3px solid var(--primary-blue);
@@ -87,6 +80,7 @@
   z-index: 1;
   position: sticky;
   bottom: 0;
+  overflow-y: hidden;
 }
 
 .navbar-icon {
