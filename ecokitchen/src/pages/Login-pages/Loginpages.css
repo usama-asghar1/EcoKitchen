@@ -1,16 +1,4 @@
 
-/* logosize */
-.logo-image-login-pages {
-  height: 186px;
-  width: 186px;
-}
-
-/* Logo position on page */
-.logo-position-login-pages {
-  margin-left: 100px;
-  margin-top: 120px;
-}
-
 /* button position on page */
 .button-position-login-pages {
   margin-left: 1px;
@@ -35,17 +23,9 @@
   display: inline-block;
   margin: 4px 2px;
   cursor: pointer;
+
 }
-.page-text-positioning {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 30 px;
-  font-family: 'Roboto Condensed', sans-serif;
-  font-weight: 700;
-  text-align: center;
-}
+
 /*login page css start*/
 .box-centering {
   display: flex;
@@ -63,3 +43,135 @@
 }
 /* login page css finish*/
 
+
+/* ---landing_container */
+.landing_container {
+  width: 100%;
+  margin: 0 auto;
+  /* border: 1px solid red; */
+
+  display: flex;
+  flex-direction: column;
+}
+
+.top-box {
+  background: rgb(231, 229, 229);
+  background: linear-gradient(354deg, rgba(200,200,200,0.6110819327731092) 0%, rgba(246,246,249,0.37298669467787116) 100%);
+  border-radius: 0px 0 150px 150px;
+  height: 300px;
+  position: relative;
+  margin-bottom: 0;
+}
+
+/* Logo position on page */
+.logo_container {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  /* border: 1px solid red; */
+  top:180px;
+  left:100px;
+}
+
+.logo_container img {
+  width: 195px;
+  height: 195px;
+}
+
+.welcome_title{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 70px;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 700;
+
+  text-align: center;
+  /* border: 1px solid red; */
+}
+
+.welcome_info{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 10px;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 400;
+  text-align: center;
+
+}
+
+.button_container{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 30px;
+  padding-right: 30px;
+  /* border: 1px solid red; */
+  margin: 0 auto;
+
+
+}
+
+.login_btn {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  width: 70%;
+  padding: 15px 120px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  background-color: var(--primary-blue);
+  border: 1px solid var(--primary-blue);
+  border-radius: 40px;
+  cursor: pointer;
+}
+
+.login_btn:hover {
+  border: 1px solid #ffffff;
+  background-color: #b4b3b1;
+  color: #ffffff;
+}
+
+.login_btn :active {
+    border: 1px solid #ffffff;
+    background-color: #b4b3b1;
+    color: #ffffff;
+}
+
+.signup_btn {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  width: 70%;
+  padding: 15px 120px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  background-color: var(--primary-blue);
+  border: 1px solid var(--primary-blue);
+  border-radius: 40px;
+  cursor: pointer;
+
+}
+
+.signup_btn:hover {
+  border: 1px solid #ffffff;
+  background-color: #b4b3b1;
+  color: #ffffff;
+}
+
+.signup_btn :active {
+    border: 1px solid #ffffff;
+    background-color: #b4b3b1;
+    color: #ffffff;
+}
