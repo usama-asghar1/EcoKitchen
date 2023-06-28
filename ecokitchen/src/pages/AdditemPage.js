@@ -409,7 +409,7 @@ function Additem() {
                     />
                   </div>
                   <div className="add-item-form-input">
-                    <label htmlFor="item-cost">Cost (£)</label>
+                    <label htmlFor="item-cost">Cost Per Unit (£)</label>
                     <input
                       type="number"
                       step="0.01"

@@ -9,9 +9,9 @@ function KitchenFoodCard({
   quantity,
   image_url,
   expiry_date,
-  decreaseQuantity,
   foodID,
   moveToWasted,
+  usedFoodItem,
 }) {
   // Convert the input into a Date object
   var expiryDate = new Date(expiry_date);
@@ -62,7 +62,7 @@ function KitchenFoodCard({
           <div className="kitchen-food-card-use-btns">
             <Button
               className="kitchen-food-card-bought-btn kitchen-food-card-use-btn food-btn"
-              onClick={() => decreaseQuantity(foodID)}
+              onClick={() => usedFoodItem(foodID)}
               id="decreaseQuantity"
             >
               ✔
