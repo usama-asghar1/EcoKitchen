@@ -206,7 +206,7 @@ function Breakdown() {
               <li>
                 To find out how to reduce your{" "}
                 <span className="less-important-text">
-                  {mostCommonItemInfo.name} food waste{" "}
+                  {mostCommonItemInfo.name} waste{" "}
                 </span>
               </li>
 
