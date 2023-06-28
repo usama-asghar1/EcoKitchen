@@ -45,7 +45,9 @@
 .kitchen-card-title {
   /* display: flex;
     justify-content: center;
-    align-items: center; */
+    align-items: center; 
+    comment
+    */
   font-weight: 600;
   font-size: 0.97rem;
   font-family: var(--font);
