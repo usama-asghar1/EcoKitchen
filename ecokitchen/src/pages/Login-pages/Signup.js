@@ -58,10 +58,14 @@ export default function SignUp() {
 
   return (
     <div>
-      <div className="logo_container">
-        <img src={logo1} alt="Logo" className="logo-image-login-pages" />
+      <div className="landing_container">
+      <div className="top-box">
+        <div className="logo_container">
+          <img src={logo1} alt="Logo" className="logo-image"></img>
+        </div>
       </div>
-      <h2 className="login_title">SIGN UP</h2>
+      </div>
+      <h2 className="login_title" style={{ marginTop: '90px' }}>SIGN UP</h2>
       <div className="box-centering">
         <label htmlFor="Email">Email</label>
         <InputText value={email} onChange={handleEmailChange} id="Email" />
@@ -69,12 +73,13 @@ export default function SignUp() {
       <div className="box-centering">
         <label htmlFor="Password">Password</label>
 
-        <Password value={password} onChange={handlePasswordChange} toggleMask />
+        <Password id="Password2" value={password} onChange={handlePasswordChange} toggleMask />
       </div>
       <div className="box-centering">
         <label htmlFor="Confirm Password">Confirm Password</label>
 
         <Password
+        id="ConfirmPassword"
           value={confirmPassword}
           onChange={handleConfirmPasswordChange}
           toggleMask
@@ -83,7 +88,7 @@ export default function SignUp() {
       <br />
       <div className="button_container">
         <Link className="link" to="/Login">
-          <div className="login_btn" onClick={signUp}>
+          <div className="login_btn" onClick={signUp} style={{ marginTop: '-100px' }}>
             SignUp
           </div>
         </Link>

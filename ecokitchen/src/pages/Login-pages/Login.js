@@ -46,10 +46,15 @@ export default function Login({ setIsAuthenticated }) {
 
   return (
     <div>
-      <div className="logo_container">
-        <img src={logo1} alt="Logo" className="logo-image-login-pages"></img>
+      <div className="landing_container">
+      <div className="top-box">
+        <div className="logo_container">
+          <img src={logo1} alt="Logo" className="logo-image"></img>
+        </div>
+      </div>
       </div>
       <h2 className="login_title"> LOGIN </h2>
+      <div className="login_info">
       <div className="box-centering">
         <label htmlFor="username">
           Email
@@ -65,7 +70,9 @@ export default function Login({ setIsAuthenticated }) {
           <Password
             value={password}
             onChange={handlePasswordChange}
+            id="Password"
             toggleMask
+            
           />
           {error && <Message severity="error" text={error} />}
         </div>
@@ -75,11 +82,12 @@ export default function Login({ setIsAuthenticated }) {
           </Link>
         </div>
       </div>
+      </div>
       <br />
      
       <div className="button_container">
         <Link className="link" to="/Login">
-          <div className="login_btn" onClick={signInWithEmail}>Login</div>
+          <div className="login_btn" onClick={signInWithEmail} style={{ marginTop: '-85px' }}>Login</div>
         </Link>
         </div>
     </div>

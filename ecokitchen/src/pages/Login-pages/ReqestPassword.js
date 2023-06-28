@@ -56,19 +56,23 @@ export default function RequestPassword() {
   return (
     <div>
       <div>
+      <div className="landing_container">
+      <div className="top-box">
         <div className="logo_container">
-          <img src={logo1} alt="Logo" className="logo-image-login-pages" />
+          <img src={logo1} alt="Logo" className="logo-image"></img>
         </div>
+      </div>
+      </div>
         {sentEmail === false && (
           <>
             <div>
-              <h2 className="login_title">
-                To Reset Your Password <br /> Please Enter Your Email Below To
-                Receive A Link
-              </h2>
+              <p className="login_title">
+                To reset your password <br /> please enter your email below <br /> to
+                receive a link
+              </p>
             </div>
             <br />
-            <br />
+           
             <div className="box-centering">
               <label htmlFor="Email">Email</label>
               <InputText
@@ -90,6 +94,7 @@ export default function RequestPassword() {
                     }
                   }}
                   label="Send Link"
+                  style={{ marginTop: '-30px' }}
                 >
                   Send
                 </div>
