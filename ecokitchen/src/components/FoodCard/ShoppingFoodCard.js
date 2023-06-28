@@ -3,6 +3,9 @@ import "./ShoppingFoodCard.css";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Image from "react-bootstrap/Image";
+import { BiCheck } from "react-icons/bi";
+import { RxCross2 } from "react-icons/rx";
+
 function ShoppingFoodCard({
   foodID,
   name,
@@ -41,20 +44,20 @@ function ShoppingFoodCard({
             </Button>
           </div>
           <div className="shopping-food-card-use-btns">
-            <Button
+            <button
               onClick={() => deleteFood(foodID)}
               id="useFood"
               className="shopping-food-card-bought-btn shopping-food-card-use-btn food-btn"
             >
-              :heavy_tick:
-            </Button>
-            <Button
+              <BiCheck id="checkmark" size={1000} />
+            </button>
+            <button
               onClick={() => deleteFood(foodID)}
               id="deleteFood"
               className="shopping-food-card-delete-btn shopping-food-card-use-btn food-btn"
             >
-              :rubbish_bin:
-            </Button>
+              <RxCross2 id="cross" size={30} />
+            </button>
           </div>
         </Card.Body>
       </Card>
