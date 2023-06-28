@@ -40,7 +40,6 @@
   text-transform: uppercase;
   margin-bottom: -3px;
   background-color: rgb(246, 246, 246);
-
 }
 
 .main-content {
@@ -184,6 +183,7 @@ li {
   list-style-type: none;
 }
 
+
 .important-text {
   background-color: var(--grey);
   padding: 10px;
@@ -196,6 +196,16 @@ li {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   
   
+  font-weight: bolder;
+}
+
+#kitchen-selection-buttons-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  padding: 0px;
+  margin: 8px 0 0 0;
 }
 
 #breakdown-information-container {
@@ -239,6 +249,4 @@ li {
   font-weight: 700;
 
 }
-
-
 
