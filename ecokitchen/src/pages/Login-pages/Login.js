@@ -4,8 +4,8 @@ import logo1 from "./LOGO.svg";
 import "./Loginpages.css";
 import { InputText } from "primereact/inputtext";
 import { Password } from "primereact/password";
-import { Button } from "primereact/button";
-import "./theme.css";
+
+
 import { Link } from "react-router-dom";
 import { Message } from "primereact/message";
 // We import our supabase client from the supabase folder to use it hello
@@ -46,12 +46,14 @@ export default function Login({ setIsAuthenticated }) {
 
   return (
     <div>
-      <div className="logo-position-login-pages">
+      <div className="logo_container">
         <img src={logo1} alt="Logo" className="logo-image-login-pages"></img>
       </div>
-      <h2 className="page-text-positioning"> LOGIN </h2>
+      <h2 className="login_title"> LOGIN </h2>
       <div className="box-centering">
-        <label htmlFor="username">Email</label>
+        <label htmlFor="username">
+          Email
+        </label>
         <InputText
           value={email}
           onChange={handleUsernameChange}
@@ -68,15 +70,18 @@ export default function Login({ setIsAuthenticated }) {
           {error && <Message severity="error" text={error} />}
         </div>
         <div>
-          <Link className="link" to="/RequestPassword">
-            <p> forgotten password?</p>
+          <Link className="link forgot" to="/RequestPassword">
+            <p> Forgotten Password?</p>
           </Link>
         </div>
       </div>
       <br />
-      <div className="button-position-login-pages">
-        <Button label="Login" onClick={signInWithEmail} rounded />
-      </div>
+     
+      <div className="button_container">
+        <Link className="link" to="/Login">
+          <div className="login_btn" onClick={signInWithEmail}>Login</div>
+        </Link>
+        </div>
     </div>
   );
 }

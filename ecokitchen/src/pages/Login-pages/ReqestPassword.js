@@ -5,7 +5,7 @@ import { InputText } from "primereact/inputtext";
 import { Message } from "primereact/message";
 import { Button } from "primereact/button";
 import { supabase } from "../../components/supabase/supabaseClient.js";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 export default function RequestPassword() {
   const [email, setEmail] = useState("");
@@ -56,15 +56,15 @@ export default function RequestPassword() {
   return (
     <div>
       <div>
-        <div className="logo-position-login-pages">
+        <div className="logo_container">
           <img src={logo1} alt="Logo" className="logo-image-login-pages" />
         </div>
         {sentEmail === false && (
           <>
-            <div className="page-text-positioning">
-              <h2>
-                To Reset Your Password Please Enter Your Email Below To Receive
-                A Link
+            <div>
+              <h2 className="login_title">
+                To Reset Your Password <br /> Please Enter Your Email Below To
+                Receive A Link
               </h2>
             </div>
             <br />
@@ -79,17 +79,24 @@ export default function RequestPassword() {
               />
             </div>
             <br />
+            <div className="button_container">
+              <Link className="link" to="/Login">
+                <div
+                  className="login_btn"
+                  onClick={SendResetPasswordLink}
+                  onKeyDown={(event) => {
+                    if (event.key === "Enter") {
+                      SendResetPasswordLink();
+                    }
+                  }}
+                  label="Send Link"
+                >
+                  Send
+                </div>
+              </Link>
+            </div>
             <div className="button-position-login-pages" aria-live="polite">
-              <Button
-                onClick={SendResetPasswordLink}
-                onKeyDown={(event) => {
-                  if (event.key === "Enter") {
-                    SendResetPasswordLink();
-                  }
-                }}
-                label="Send Link"
-                rounded
-              />
+              
             </div>
           </>
         )}

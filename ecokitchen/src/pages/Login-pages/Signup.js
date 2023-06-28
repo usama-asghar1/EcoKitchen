@@ -3,8 +3,8 @@ import "./Loginpages.css";
 import React, { useState } from "react";
 import { Password } from "primereact/password";
 import { InputText } from "primereact/inputtext";
-import { Button } from "primereact/button";
-import { useNavigate } from "react-router-dom";
+
+import { useNavigate, Link } from "react-router-dom";
 import { supabase } from "../../components/supabase/supabaseClient.js";
 
 export default function SignUp() {
@@ -58,29 +58,22 @@ export default function SignUp() {
 
   return (
     <div>
-      <div className="logo-position-login-pages">
+      <div className="logo_container">
         <img src={logo1} alt="Logo" className="logo-image-login-pages" />
       </div>
-      <h2 className="page-text-positioning">SIGN UP</h2>
-      {/* <div className="box-centering">
-        <label htmlFor="username">Username</label>
-        <InputText
-          value={username}
-          onChange={handleUsernameChange}
-          id="username"
-          aria-describedby="username-help"
-        />
-      </div> */}
+      <h2 className="login_title">SIGN UP</h2>
       <div className="box-centering">
         <label htmlFor="Email">Email</label>
         <InputText value={email} onChange={handleEmailChange} id="Email" />
       </div>
       <div className="box-centering">
         <label htmlFor="Password">Password</label>
+
         <Password value={password} onChange={handlePasswordChange} toggleMask />
       </div>
       <div className="box-centering">
         <label htmlFor="Confirm Password">Confirm Password</label>
+
         <Password
           value={confirmPassword}
           onChange={handleConfirmPasswordChange}
@@ -88,10 +81,15 @@ export default function SignUp() {
         />
       </div>
       <br />
-
-      <div className="button-position-login-pages">
-        <Button onClick={signUp} label="Sign Up" rounded />
+      <div className="button_container">
+        <Link className="link" to="/Login">
+          <div className="login_btn" onClick={signUp}>
+            SignUp
+          </div>
+        </Link>
       </div>
+
+      
     </div>
   );
 }
