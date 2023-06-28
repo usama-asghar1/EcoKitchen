@@ -45,10 +45,10 @@ export default function ResetPassword() {
   return (
     <div>
       <div>
-        <div className="logo-position-login-pages">
+        <div className="logo_container">
           <img src={logo1} alt="Logo" className="logo-image-login-pages"></img>
         </div>
-        <h2 className="page-text-positioning"> RESET PASSWORD </h2>
+        <h2 className="login_title"> RESET PASSWORD </h2>
         <div className="box-centering">
           <p> New Password </p>
           <div className="box-centering">

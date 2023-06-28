@@ -1,18 +1,15 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-// import Home from "./pages/Home";
 import Recipes from "./pages/Recipes";
 import Donate from "./pages/Donate";
-//loging pages
+
 import LandingPage from "./pages/Login-pages/LandingPage";
 import SignUp from "./pages/Login-pages/Signup";
 import Login from "./pages/Login-pages/Login";
 import ResetPassword from "./pages/Login-pages/ResetPassword";
 import RequestPassword from "./pages/Login-pages/ReqestPassword";
-
 import Styles from "./pages/Styles";
 import Header from "./components/header/Header";
 import Shopping from "./pages/Shopping";
@@ -21,44 +18,32 @@ import Breakdown from "./pages/Breakdown";
 import Navbar from "./components/Navbar";
 import Additem from "./pages/AdditemPage";
 
-// authorisation component
-// import AuthProvider from "./components/authorisation/AuthProvider";
-// import AuthRoute from "./components/authorisation/AuthRoute";
-
 import RecipeDetail from "./pages/RecipeDetail";
 
-// import AddItemButton from "./components/AddItemButton.js";
 import { useState } from "react";
-
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [title, setTitle] = useState("Food");
-
   return (
     <div className="phone-size">
       <BrowserRouter>
         {isAuthenticated && (
           <div>
             <Header title={title} setTitle={setTitle} />
-            {/* <AddItemButton /> */}
+            
           </div>
         )}
-        <div className="main-content">
+        <div className={isAuthenticated ? "main-content" : "login-content"}>
           <div>
             <Routes>
               <Route path="/" element={<LandingPage />} />
-
               <Route
                 path="/Login"
                 element={<Login setIsAuthenticated={setIsAuthenticated} />}
               />
-
               <Route path="/SignUp" element={<SignUp />} />
-
               <Route path="/ResetPassword" element={<ResetPassword />} />
-
               <Route path="/RequestPassword" element={<RequestPassword />} />
-
               {isAuthenticated && (
                 <>
                   {/* <Route path="/HomePage" element={<Home />} /> */}
@@ -87,5 +72,4 @@ function App() {
     </div>
   );
 }
-
 export default App;

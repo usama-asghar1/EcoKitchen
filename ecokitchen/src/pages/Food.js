@@ -1,62 +1,49 @@
 //this is food
 import KitchenFoodCard from "../components/KitchenFoodCard/KitchenFoodCard.js";
-
 import "../App.css";
 import { useState, useEffect } from "react";
 import { supabase } from "../components/supabase/supabaseClient";
 import { Button } from "primereact/button";
-
 function Food() {
   const [fetchError, setFetchError] = useState(null);
   const [data, setData] = useState([]);
   const [fridgeOrPantry, setFridgeOrPantry] = useState("pantryArray");
-
   /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
     fetchData();
     // eslint-disable-next-line
   }, [fridgeOrPantry]);
   /* eslint-enable react-hooks/exhaustive-deps */
-
   async function fetchData() {
     const dataSB = await supabase
       .from("food_items")
       .select("*")
       .eq("foodCategory", fridgeOrPantry)
       .order("expiryDate", { ascending: true });
-
     setData(dataSB.data);
     if (dataSB.error) {
       setFetchError(dataSB.error);
     }
   }
-
   async function decreaseQuantity(foodID) {
     const item = data.find((item) => item.id === foodID);
     item.quantity -= 1;
-
     await supabase
       .from("food_items")
       .update({ quantity: item.quantity })
       .eq("id", foodID);
-
     fetchData();
   }
-
   /* Waste Button
    * - if the quantity is above 0, decrease the quantity by 1 and move the record to wasted_items
    * - if the quantity is 0, move the record to wasted_items and delete the record from food_items
    */
-
   /*
-    * user press waste button, quantity -1, then check to see if 
-
+   * user press waste button, quantity -1, then check to see if
    */
-
   async function usedFoodItem(foodID) {
     if (data && data.length > 0) {
       const [foodItem] = data;
-
       if (foodItem.quantity <= 1) {
         try {
           await supabase.from("food_items").delete().eq("id", foodID);
@@ -71,11 +58,9 @@ function Food() {
       fetchData();
     }
   }
-
   async function moveToWasted(foodID) {
     if (data && data.length > 0) {
       const [foodItem] = data;
-
       if (foodItem.quantity <= 1) {
         try {
           await supabase.from("wasted_items").insert([
@@ -93,9 +78,7 @@ function Food() {
         }
       } else if (foodItem.quantity > 1) {
         decreaseQuantity(foodID);
-
         console.log(foodItem.user_id);
-
         try {
           const { data, error } = await supabase.from("wasted_items").insert([
             {
@@ -111,7 +94,6 @@ function Food() {
           if (data) {
             console.log("Data inserted into wasted_items:", data);
           }
-
           console.log("wasted 1 and decreased quantity by 1");
         } catch (error) {
           console.log("Error inserting into wasted_items:", error);
@@ -122,7 +104,6 @@ function Food() {
     }
     fetchData();
   }
-
   async function FridgeToggle() {
     setFridgeOrPantry("fridgeArray");
     console.log(fridgeOrPantry);
@@ -131,7 +112,6 @@ function Food() {
     setFridgeOrPantry("pantryArray");
     console.log(fridgeOrPantry);
   }
-
   const foodItemCard = data.map((foodItem) => {
     return (
       <KitchenFoodCard
@@ -148,13 +128,10 @@ function Food() {
     );
   });
   console.log(foodItemCard);
-
   return (
     <div>
-      <div
-        id="kitchen-selection-buttons-container"
-        className="button-list-container"
-      >
+      <div></div>
+      <div className="button-list-container">
         <Button
           id="pantry-button"
           label="Pantry"
