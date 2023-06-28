@@ -73,7 +73,7 @@ function Donate() {
       {error === null &&
         foodbankData.map((foodbank, index) => {
           const header = (
-            <div
+            <div className="foodbank-container"
               style={{
                 display: "flex",
                 justifyContent: "space-between",
@@ -83,7 +83,7 @@ function Donate() {
               }}
             >
               <h2 style={{ margin: 0 }}>{foodbank.name}</h2>
-              <button
+              <button className="btnDonate"
                 // icon="pi pi-check"
                 // className="p-button-rounded p-button-success"
                 // Would be best to use a separate CSS file to style the buttons
@@ -94,18 +94,20 @@ function Donate() {
                     `https://www.google.com/maps/search/?api=1&query=${foodbank.address}`
                   )
                 }
-              />
+              > MAP </button>
             </div>
           );
 
           return (
+            
             <Card
               key={index}
               header={header}
               subTitle={`${foodbank.distance_mi} miles away`}
-              className="p-shadow-10"
-              style={{ marginBottom: "1em" }}
+              className="p-shadow-10 custom-card"
+              style={{ marginBottom: "1em", backgroundColor: "#eeeeee"}}
             >
+            <div className="p-container">
               <p>
                 <strong>Address: </strong>
                 {foodbank.address}
@@ -114,8 +116,11 @@ function Donate() {
                 <strong>Phone Number: </strong>
                 {foodbank.phone}
               </p>
+              </div>
+              
               {/* <img src={foodbank.urls.map} alt="foodbank map" /> */}
             </Card>
+           
           );
         })}
 
