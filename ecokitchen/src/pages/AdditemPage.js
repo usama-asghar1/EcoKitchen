@@ -324,7 +324,6 @@ function Additem() {
 
   return (
     <div className="add-item-container">
-    
       <div className="add-item-form-container">
         <form className="add-item-form" onSubmit={handleSubmit}>
           <div className="button-list-container">
@@ -333,21 +332,27 @@ function Additem() {
               label="Pantry"
               type="button"
               onClick={() => handleFoodCategoryChange("pantryArray")}
-              className={foodCategory === "pantryArray" ? "selected" : "not-selected"}
+              className={
+                foodCategory === "pantryArray" ? "selected" : "not-selected"
+              }
             />
             <Button
               id="fridge-button"
               label="Fridge"
               type="button"
               onClick={() => handleFoodCategoryChange("fridgeArray")}
-              className={foodCategory === "fridgeArray" ? "selected" : "not-selected"}
+              className={
+                foodCategory === "fridgeArray" ? "selected" : "not-selected"
+              }
             />
             <Button
               id="shopping-button"
               label="Shopping"
               type="button"
               onClick={() => handleFoodCategoryChange("shoppingArray")}
-              className={foodCategory === "shoppingArray" ? "selected" : "not-selected"}
+              className={
+                foodCategory === "shoppingArray" ? "selected" : "not-selected"
+              }
             />
           </div>
         </form>
@@ -357,6 +362,7 @@ function Additem() {
               <div className="add-item-form-input">
                 <label htmlFor="item-name"></label>
                 <input
+                  className="input-form"
                   onChange={handleChange}
                   type="text"
                   id="item-name"
@@ -385,8 +391,11 @@ function Additem() {
               {error && <Message severity="error" text={error} />}
 
               <div className="add-item-form-input">
-                <label htmlFor="item-quantity">Quantity</label>
+                <label htmlFor="item-quantity">
+                  <span className="input-text">Quantity</span>
+                </label>
                 <input
+                  className="input-form"
                   type="number"
                   id="item-quantity"
                   name="item-quantity"
@@ -398,8 +407,11 @@ function Additem() {
               {foodCategory !== "shoppingArray" && (
                 <>
                   <div className="add-item-form-input">
-                    <label htmlFor="item-expiry">Expiry Date</label>
+                    <label htmlFor="item-expiry">
+                      <span className="input-text">Expiry Date</span>
+                    </label>
                     <input
+                      className="input-form"
                       type="date"
                       id="item-expiry"
                       name="item-expiry"
@@ -409,8 +421,11 @@ function Additem() {
                     />
                   </div>
                   <div className="add-item-form-input">
-                    <label htmlFor="item-cost">Cost Per Unit (£)</label>
+                    <label htmlFor="item-cost">
+                      <span className="input-text">Cost Per Unit (£)</span>
+                    </label>
                     <input
+                      className="input-form"
                       type="number"
                       step="0.01"
                       min="0"
@@ -423,10 +438,14 @@ function Additem() {
                 </>
               )}
 
-              <div className="add-item-form-input">
-                <Button variant="contained" color="primary" type="submit">
+              <div className="add-item-form-button">
+                <button
+                  id="add-item-button"
+                  className="search_btn"
+                  type="submit"
+                >
                   Add Item
-                </Button>
+                </button>
               </div>
             </form>
           </div>
