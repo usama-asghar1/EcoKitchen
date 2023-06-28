@@ -50,15 +50,16 @@ function KitchenFoodCard({
             <Image className="kitchen-card-image" src={image_url} alt={name} />
             <div className="quantity-count">{quantity}</div>
           </div>
-          <div className="kitchen-food-card-title-container">
-            <Card.Title className="kitchen-card-title">{name}</Card.Title>
+          <div className="kitchen-title-and-expiry-container">
+            <div className="kitchen-food-card-title-container">
+              <Card.Title className="kitchen-card-title">{name}</Card.Title>
+            </div>
+            <div className="kitchen-food-card-expiry-container">
+              <Card.Title className="kitchen-card-title" style={{ color }}>
+                {status}
+              </Card.Title>
+            </div>
           </div>
-          <div className="kitchen-food-card-expiry-container">
-            <Card.Title className="kitchen-card-title" style={{ color }}>
-            {status}
-            </Card.Title>
-          </div>
-
           <div className="kitchen-food-card-use-btns">
             <Button
               className="kitchen-food-card-bought-btn kitchen-food-card-use-btn food-btn"
@@ -67,7 +68,7 @@ function KitchenFoodCard({
             >
               ✔
             </Button>
-            <span>Used</span>
+            {/* <span>Used</span> */}
             <Button
               className="kitchen-food-card-delete-btn kitchen-food-card-use-btn food-btn"
               onClick={() => moveToWasted(foodID)}
@@ -75,7 +76,7 @@ function KitchenFoodCard({
             >
               🗑
             </Button>
-            <span>Wasted</span>
+            {/* <span>Wasted</span> */}
           </div>
         </Card.Body>
       </Card>
