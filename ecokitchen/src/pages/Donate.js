@@ -105,7 +105,7 @@ function Donate() {
               header={header}
               subTitle={`${foodbank.distance_mi} miles away`}
               className="p-shadow-10 custom-card"
-              style={{ marginBottom: "1em", backgroundColor: "#eeeeee"}}
+              style={{ marginBottom: "1em", backgroundColor: "#f1f1f1"}}
             >
             <div className="p-container">
               <p>
