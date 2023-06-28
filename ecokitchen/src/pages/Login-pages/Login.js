@@ -70,8 +70,8 @@ export default function Login({ setIsAuthenticated }) {
           {error && <Message severity="error" text={error} />}
         </div>
         <div>
-          <Link className="link" to="/RequestPassword">
-            <p> forgotten password?</p>
+          <Link className="link forgot" to="/RequestPassword">
+            <p> Forgotten Password?</p>
           </Link>
         </div>
       </div>
