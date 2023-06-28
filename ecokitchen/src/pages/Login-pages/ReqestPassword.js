@@ -56,14 +56,14 @@ export default function RequestPassword() {
   return (
     <div>
       <div>
-        <div className="logo-position-login-pages">
+        <div className="logo_container">
           <img src={logo1} alt="Logo" className="logo-image-login-pages" />
         </div>
         {sentEmail === false && (
           <>
-            <div className="page-text-positioning">
-              <h2>
-                To Reset Your Password Please Enter Your Email Below To Receive
+            <div >
+              <h2 className="login_title">
+                To Reset Your Password <br/> Please Enter Your Email Below To Receive
                 A Link
               </h2>
             </div>

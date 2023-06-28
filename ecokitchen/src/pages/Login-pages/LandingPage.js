@@ -1,7 +1,7 @@
 import React from "react";
 import logo1 from "./LOGO.svg";
 
-import "./theme.css";
+
 import "./Loginpages.css";
 import { Link } from "react-router-dom";
 

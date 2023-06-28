@@ -46,86 +46,35 @@ function Food() {
      /* Waste Button 
     * - if the quantity is above 0, decrease the quantity by 1 and move the record to wasted_items
     * - if the quantity is 0, move the record to wasted_items and delete the record from food_items
+    * - if quantity is less than 0 (expired) move the record to wasted_items and delete the record from food_items
     */
 
-   /*
-    * user press waste button, quantity -1, then check to see if 
-
-   */
-
-  async function usedFoodItem(foodID) {
+  async function moveToWasted(foodID) {
     if (data && data.length > 0) {
       const [foodItem] = data;
+      
+     console.log(foodItem);
 
-      if (foodItem.quantity <= 1) {
-        try {
-          await supabase.from("food_items").delete().eq("id", foodID);
-          console.log("Record deleted");
-        }
-        catch (error) {
-          console.log("Error inserting into wasted_items:", error);
-        }
-      } else if (foodItem.quantity > 1) {
-        decreaseQuantity(foodID);
-        console.log("decreased quantity by 1");
+      if (foodItem.quantity === 1) 
+       {
+        await supabase.from("wasted_items").insert([foodItem]);
+        await supabase.from("food_items").delete().eq("id", foodID);
+        console.log("Record deleted and moved to wasted_items");
       }
+      else if (foodItem.quantity > 1) {
+        decreaseQuantity(foodID);
+        await supabase.from("wasted_items").insert([foodItem]);
+        console.log("wasted 1 and decreased quantity by 1");
+      }
+
+    else {
+      console.log("Data not available");
+
       fetchData();
+
     }
   }
-
-   async function moveToWasted(foodID) {
-    if (data && data.length > 0) {
-      const [foodItem] = data;
-  
-      if (foodItem.quantity <= 1) {
-        try {
-          await supabase.from("wasted_items").insert([
-            {
-              user_id: foodItem.user_id,
-              name: foodItem.selectedFoodName,
-              quantity: 1,
-              cost: foodItem.cost,
-            },
-          ]);
-          await supabase.from("food_items").delete().eq("id", foodID);
-          console.log("Record deleted and moved to wasted_items");
-          
-        } catch (error) {
-          console.log("Error inserting into wasted_items:", error);
-        }
-      } else if (foodItem.quantity > 1) {
-        decreaseQuantity(foodID);
-  
-        
-        console.log(foodItem.user_id);
-  
-        try {
-          const { data, error } = await supabase.from("wasted_items").insert([
-            {
-              user_id: foodItem.user_id,
-              name: foodItem.selectedFoodName,
-              quantity: 1,
-              cost: foodItem.cost,
-            },
-          ]);
-          if (error) {
-            console.log("Error inserting into wasted_items:", error);
-          }
-          if (data) {
-            console.log("Data inserted into wasted_items:", data);
-          }
-  
-          console.log("wasted 1 and decreased quantity by 1");
-        } catch (error) {
-          console.log("Error inserting into wasted_items:", error);
-        }
-      }
-    } else {
-      console.log("Data not available");
-          }
-    fetchData();
   }
-  
 
   async function FridgeToggle() {
     setFridgeOrPantry("fridgeArray");
@@ -147,7 +96,6 @@ function Food() {
         decreaseQuantity={decreaseQuantity}
         foodID={foodItem.id}
         moveToWasted={moveToWasted}
-        usedFoodItem={usedFoodItem}
       />
     );
   });

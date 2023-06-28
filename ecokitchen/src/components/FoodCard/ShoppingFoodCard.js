@@ -3,7 +3,6 @@ import "./ShoppingFoodCard.css";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Image from "react-bootstrap/Image";
-
 function ShoppingFoodCard({
   foodID,
   name,
@@ -47,14 +46,14 @@ function ShoppingFoodCard({
               id="useFood"
               className="shopping-food-card-bought-btn shopping-food-card-use-btn food-btn"
             >
-              ✔
+              :heavy_tick:
             </Button>
             <Button
               onClick={() => deleteFood(foodID)}
               id="deleteFood"
               className="shopping-food-card-delete-btn shopping-food-card-use-btn food-btn"
             >
-              🗑
+              :rubbish_bin:
             </Button>
           </div>
         </Card.Body>
@@ -62,5 +61,4 @@ function ShoppingFoodCard({
     </div>
   );
 }
-
 export default ShoppingFoodCard;

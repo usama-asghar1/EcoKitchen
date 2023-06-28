@@ -77,6 +77,18 @@
   
 }
 
+.login_title{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 700;
+
+  text-align: center;
+}
+
 .welcome_title{
   display: flex;
   flex-direction: column;
