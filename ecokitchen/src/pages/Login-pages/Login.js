@@ -46,42 +46,49 @@ export default function Login({ setIsAuthenticated }) {
 
   return (
     <div>
-      <div className="logo_container">
-        <img src={logo1} alt="Logo" className="logo-image-login-pages"></img>
-      </div>
-      <h2 className="login_title"> LOGIN </h2>
-      <div className="box-centering">
-        <label htmlFor="username">
-          Email
-        </label>
-        <InputText
-          value={email}
-          onChange={handleUsernameChange}
-          id="Email"
-          aria-describedby="Email-help"
-        />
-        <div className="box-centering">
-          <label htmlFor="Password">Password</label>
-          <Password
-            value={password}
-            onChange={handlePasswordChange}
-            toggleMask
-          />
-          {error && <Message severity="error" text={error} />}
+      <div>
+        <div className="logo_container">
+          <img src={logo1} alt="Logo" className="logo-image-login-pages"></img>
         </div>
-        <div>
-          <Link className="link" to="/RequestPassword">
-            <p> forgotten password?</p>
+        <h2 className="login_title"> LOGIN </h2>
+        <div className="box-centering">
+          <label htmlFor="username">Email</label>
+          <InputText
+            value={email}
+            onChange={handleUsernameChange}
+            id="Email"
+            aria-describedby="Email-help"
+          />
+          <div className="box-centering">
+            <label htmlFor="Password">Password</label>
+            <Password
+              value={password}
+              onChange={handlePasswordChange}
+              toggleMask
+            />
+            {error && <Message severity="error" text={error} />}
+          </div>
+          <div>
+            <Link className="link" to="/RequestPassword">
+              <p> forgotten password?</p>
+            </Link>
+          </div>
+        </div>
+
+        <div className="button_container">
+          <Link className="link" to="/Login">
+            <div className="login_btn" onClick={signInWithEmail}>
+              Login
+            </div>
+          </Link>
+        </div>
+
+        <div className="button_container">
+          <Link to="/">
+            <div className="back_btn">Back</div>
           </Link>
         </div>
       </div>
-      <br />
-     
-      <div className="button_container">
-        <Link className="link" to="/Login">
-          <div className="login_btn" onClick={signInWithEmail}>Login</div>
-        </Link>
-        </div>
     </div>
   );
 }

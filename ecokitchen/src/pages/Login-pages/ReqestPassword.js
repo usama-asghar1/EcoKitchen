@@ -68,7 +68,7 @@ export default function RequestPassword() {
               </h2>
             </div>
             <br />
-            <br />
+            
             <div className="box-centering">
               <label htmlFor="Email">Email</label>
               <InputText
@@ -78,9 +78,9 @@ export default function RequestPassword() {
                 id="Email"
               />
             </div>
-            <br />
+            
             <div className="button_container">
-              <Link className="link" to="/Login">
+              <Link to="/Login">
                 <div
                   className="login_btn"
                   onClick={SendResetPasswordLink}
@@ -89,15 +89,15 @@ export default function RequestPassword() {
                       SendResetPasswordLink();
                     }
                   }}
-                  label="Send Link"
                 >
-                  Send
+                  Send Link
                 </div>
               </Link>
             </div>
-            <div className="button-position-login-pages" aria-live="polite">
-              
-            </div>
+            <div
+              className="button-position-login-pages"
+              aria-live="polite"
+            ></div>
           </>
         )}
         {error && <Message text={"Please enter a valid email address"} />}
@@ -120,6 +120,12 @@ export default function RequestPassword() {
             />
           </section>
         )}
+      </div>
+      
+      <div className="button_container">
+        <Link to="/">
+          <div className="back_btn">Back</div>
+        </Link>
       </div>
     </div>
   );

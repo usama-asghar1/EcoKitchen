@@ -84,12 +84,16 @@ export default function SignUp() {
       <div className="button_container">
         <Link className="link" to="/Login">
           <div className="login_btn" onClick={signUp}>
-            SignUp
+            Sign Up
           </div>
         </Link>
       </div>
-
       
+      <div className="button_container">
+        <Link to="/">
+          <div className="back_btn">Back</div>
+        </Link>
+      </div>
     </div>
   );
 }
