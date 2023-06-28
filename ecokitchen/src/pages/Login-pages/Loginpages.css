@@ -26,12 +26,31 @@
 
 }
 
-/*login page css start*/
 .box-centering {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
+
+  border: 2px solid red;
+  text-align: center;
 }
+
+.inputBoxContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+
+.inputBox {
+  border: 2px solid blue;
+  width: 380px;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+}
+
+
 
 .box-centering-text {
   font-family: 'Roboto Condensed', sans-serif;

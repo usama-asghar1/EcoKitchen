@@ -51,30 +51,35 @@ export default function Login({ setIsAuthenticated }) {
       </div>
       <h2 className="login_title"> LOGIN </h2>
       <div className="box-centering">
-        <label htmlFor="username">
-          Email
-        </label>
-        <InputText
-          value={email}
-          onChange={handleUsernameChange}
-          id="Email"
-          aria-describedby="Email-help"
-        />
-        <div className="box-centering">
-          <label htmlFor="Password">Password</label>
-          <Password
-            value={password}
-            onChange={handlePasswordChange}
-            toggleMask
-          />
+      
+  <div className="inputBoxContainer">
+    <label htmlFor="username">Email</label>
+    <div className="inputBox">
+      <InputText
+        value={email}
+        onChange={handleUsernameChange}
+        id="Email"
+        aria-describedby="Email-help"
+      />
+    </div>
+    <label htmlFor="Password">Password</label>
+    <div className="inputBox">
+      <Password value={password} onChange={handlePasswordChange} toggleMask />
+    </div>
+  </div>
+
+      
+</div>
+
           {error && <Message severity="error" text={error} />}
-        </div>
+      
         <div>
           <Link className="link forgot" to="/RequestPassword">
             <p> Forgotten Password?</p>
           </Link>
         </div>
-      </div>
+      
+
       <br />
      
       <div className="button_container">
