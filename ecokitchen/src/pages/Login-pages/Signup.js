@@ -58,34 +58,34 @@ export default function SignUp() {
 
   return (
     <div>
-      <div className="logo-position-login-pages">
+      <div className="logo_container">
         <img src={logo1} alt="Logo" className="logo-image-login-pages" />
       </div>
-      <h2 className="page-text-positioning">SIGN UP</h2>
-      {/* <div className="box-centering">
-        <label htmlFor="username">Username</label>
-        <InputText
-          value={username}
-          onChange={handleUsernameChange}
-          id="username"
-          aria-describedby="username-help"
-        />
-      </div> */}
+      <h2 className="login_title">SIGN UP</h2>
+
       <div className="box-centering">
         <label htmlFor="Email">Email</label>
         <InputText value={email} onChange={handleEmailChange} id="Email" />
       </div>
       <div className="box-centering">
         <label htmlFor="Password">Password</label>
-        <Password value={password} onChange={handlePasswordChange} toggleMask />
+        
+          <Password
+            value={password}
+            onChange={handlePasswordChange}
+            toggleMask
+          />
+        
       </div>
       <div className="box-centering">
         <label htmlFor="Confirm Password">Confirm Password</label>
-        <Password
-          value={confirmPassword}
-          onChange={handleConfirmPasswordChange}
-          toggleMask
-        />
+        
+          <Password
+            value={confirmPassword}
+            onChange={handleConfirmPasswordChange}
+            toggleMask
+          />
+       
       </div>
       <br />
 
