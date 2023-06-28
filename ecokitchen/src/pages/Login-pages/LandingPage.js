@@ -18,8 +18,7 @@ export default function LandingPage() {
       <h2 className="welcome_title">WELCOME TO ECO KITCHEN </h2>
 
       <h3 className="welcome_info">
-        This app is desgined to help Reduce waste, Cut cost and Find new
-        recipies
+        *cool catchy slogan*
       </h3>
 
       <div className="button_container">
@@ -27,9 +26,14 @@ export default function LandingPage() {
           <div className="login_btn">Login</div>
         </Link>
         <br />
-        <Link className="link" to="/SignUp">
-          <div className="signup_btn">Sign&nbsp;Up </div>
+
+        <div className="signUp-Container">
+        <p className="question">Don't have an account?</p>
+        <Link className="linktag" to="/SignUp">
+          <div className="signup">Sign&nbsp;Up </div>
         </Link>
+      </div>
+
       </div>
     </div>
   );
