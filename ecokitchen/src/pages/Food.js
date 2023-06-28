@@ -130,8 +130,10 @@ function Food() {
   console.log(foodItemCard);
   return (
     <div>
-      <div></div>
-      <div className="button-list-container">
+      <div
+        className="button-list-container"
+        id="kitchen-selection-buttons-container"
+      >
         <Button
           id="pantry-button"
           label="Pantry"
