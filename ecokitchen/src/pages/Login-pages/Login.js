@@ -4,7 +4,7 @@ import logo1 from "./LOGO.svg";
 import "./Loginpages.css";
 import { InputText } from "primereact/inputtext";
 import { Password } from "primereact/password";
-import { Button } from "primereact/button";
+
 
 import { Link } from "react-router-dom";
 import { Message } from "primereact/message";
@@ -76,9 +76,12 @@ export default function Login({ setIsAuthenticated }) {
         </div>
       </div>
       <br />
-      <div className="button-position-login-pages">
-        <Button label="Login" onClick={signInWithEmail} rounded />
-      </div>
+     
+      <div className="button_container">
+        <Link className="link" to="/Login">
+          <div className="login_btn" onClick={signInWithEmail}>Login</div>
+        </Link>
+        </div>
     </div>
   );
 }

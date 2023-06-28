@@ -2,8 +2,8 @@ import logo1 from "./LOGO.svg";
 import "./Loginpages.css";
 import { Password } from "primereact/password";
 import React, { useState } from "react";
-import { Button } from "primereact/button";
-import { useNavigate } from "react-router-dom";
+
+import { useNavigate, Link } from "react-router-dom";
 import { supabase } from "../../components/supabase/supabaseClient.js";
 import { Message } from "primereact/message";
 
@@ -68,9 +68,14 @@ export default function ResetPassword() {
             {error && <Message severity="error" text={error} />}
           </div>
           <br />
-          <div className="button-position-login-pages">
-            <Button onClick={handleSubmit} label="Reset Password" rounded />
+          <div className="button_container">
+            <Link className="link" to="/Login">
+              <div className="login_btn" onClick={handleSubmit}>
+                Reset
+              </div>
+            </Link>
           </div>
+          
         </div>
       </div>
     </div>
