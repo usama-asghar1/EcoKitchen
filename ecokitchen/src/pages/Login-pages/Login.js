@@ -45,7 +45,7 @@ export default function Login({ setIsAuthenticated }) {
   }
 
   return (
-    <div>
+    
       <div>
         <div className="logo_container">
           <img src={logo1} alt="Logo" className="logo-image-login-pages"></img>
@@ -89,6 +89,6 @@ export default function Login({ setIsAuthenticated }) {
           </Link>
         </div>
       </div>
-    </div>
+    
   );
 }
