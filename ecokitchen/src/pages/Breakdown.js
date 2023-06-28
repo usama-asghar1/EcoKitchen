@@ -186,40 +186,36 @@ function Breakdown() {
         <div style={{ width: "90%", height: "auto" }}>
           <canvas className="pie-chart" ref={chartRef}></canvas>
         </div>
-
+      <div id="breakdown-information-container">
         <div className="breakdown-text">
-        <ul>
-          <li> </li>
-            <li> </li>
-              <li> </li>
-                <li>  </li>
-                  <li>  </li>
-                  <li>  </li>
-
-        </ul>
-        <h2 className="breakdown-text">
-          The food that you've thrown away the most is{" "}
-          <span className="important-text"> {mostCommonItemInfo.name}. </span>
-        </h2>
-        <h2 className="breakdown-text">
-          The total cost of wasting this food is{" "}
-          <span className="important-text">
-            £{mostCommonItemInfo.cost.toFixed(2)}.{" "}
-          </span>
-        </h2>
-        <h2 className="breakdown-text">
-          The total quantity that you've thrown away is{" "}
-          <span className="important-text">
-            {mostCommonItemInfo.quantity}.{" "}
-          </span>
-        </h2>
-        <h2 className="breakdown-text">
-          To find out how to reduce your{" "}
-          <span className="important-text">
+      
+        <ul id="breakdown-details">
+          <li>The food that you've thrown away the most is{" "}</li>
+  
+          <li className="important-text"> {mostCommonItemInfo.name}</li>
+        
+          <li>The total cost of wasting this food is{" "}</li>
+          
+          <li className="important-text">
+            £{mostCommonItemInfo.cost.toFixed(2)}{" "} </li>
+           
+        
+        
+          <li>The total quantity that you've thrown away is{" "}</li>
+          
+          <li className="important-text">
+            {mostCommonItemInfo.quantity}{" "}</li>
+          
+        
+        
+          <li>To find out how to reduce your{" "}
             {" "}
-            {mostCommonItemInfo.name} food waste{" "}
-          </span>
-          <a
+            <span className="less-important-text">{mostCommonItemInfo.name} food waste{" "} </span>
+            </li>
+          
+          
+          <li className="button-text">
+          <a className="search_breakdown_btn"
             href={`https://stopfoodwaste.ie/foods/${mostCommonItemInfo.name}`}
             target="_blank"
             rel="noopener noreferrer"
@@ -227,9 +223,12 @@ function Breakdown() {
           >
             click here
           </a>
-          .
-        </h2>
+          </li>
+          </ul>
+        
+        
       </div>
+    </div>
     </div>
     </div>
   );

@@ -114,6 +114,7 @@ input:focus {
   border: 1px solid var(--primary-blue);
   border-radius: 40px;
   cursor: pointer;
+  
 }
 
 .search_btn:hover {
@@ -127,6 +128,9 @@ input:focus {
     background-color: #b4b3b1;
     color: #ffffff;
 }
+
+
+
 
 .s_icon {
   position: absolute;
