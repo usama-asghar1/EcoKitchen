@@ -1,8 +1,10 @@
 import { useState } from "react";
-import { InputText } from "primereact/inputtext";
-import { Button } from "primereact/button";
+// import { InputText } from "primereact/inputtext";
+// import { Button } from "primereact/button";
 import { Card } from "primereact/card";
+import { BsSearch } from "react-icons/bs";
 import { Message } from "primereact/message";
+import "./Donate.css";
 
 function Donate() {
   /*
@@ -52,19 +54,20 @@ function Donate() {
   }
 
   return (
-    <div>
-      
-      <div className="p-inputgroup">
-        <span className="p-inputgroup-addon">
-          <i className="pi pi-search" />
-        </span>
-        <InputText
+    <div className="donate-container">
+      <div></div>
+      <div className="donate_search_container">
+        <BsSearch className="s_icon" />
+        <input
           type="text"
           placeholder="Enter location"
           onChange={(e) => setAddress(e.target.value)}
         />
 
-        <Button onClick={fetchFoodbanks} label="Search" />
+        <button className="btnDonate" onClick={fetchFoodbanks} label="Search">
+          {" "}
+          SEARCH{" "}
+        </button>
       </div>
 
       {error === null &&
@@ -80,7 +83,7 @@ function Donate() {
               }}
             >
               <h2 style={{ margin: 0 }}>{foodbank.name}</h2>
-              <Button
+              <button
                 // icon="pi pi-check"
                 // className="p-button-rounded p-button-success"
                 // Would be best to use a separate CSS file to style the buttons

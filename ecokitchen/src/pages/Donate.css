@@ -1,0 +1,30 @@
+.btnDonate {
+ display: flex;
+ margin-left: 5px;
+ padding: 10px 20px;
+ font-size: 0.6rem;
+ text-transform: uppercase;
+ font-weight: 700;
+ text-align: center;
+ text-decoration: none;
+ color: rgb(255, 255, 255);
+ background-color: var(--primary-blue);
+ border: 1px solid var(--primary-blue);
+ border-radius: 40px;
+ cursor: pointer;
+ 
+}
+.donate_search_container {
+ display: flex;
+ position: relative;
+ padding-left: 3px;
+ padding-right: 3px;
+}
+.donate-container {
+
+ display: flex;
+ flex-direction: column;
+ margin-top: 20px;
+ margin-bottom: 20px;
+ /* border: 1px solid red; */
+ }
