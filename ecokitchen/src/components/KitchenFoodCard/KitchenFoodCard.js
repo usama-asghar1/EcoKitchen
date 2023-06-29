@@ -4,7 +4,6 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Image from "react-bootstrap/Image";
 import { BiCheck } from "react-icons/bi";
-import { RxCross2 } from "react-icons/rx";
 
 function KitchenFoodCard({
   name,
@@ -85,13 +84,6 @@ function KitchenFoodCard({
             >
               🗑
             </Button>
-
-            {/* <button
-            className="kitchen-food-card-delete-btn kitchen-food-card-use-btn food-btn"
-              onClick={() => moveToWasted(foodID)}
-              id="decreaseQuantity">
-              <RxCross2 id="cross" size={30} />
-            </button> */}
             
           </div>
         </Card.Body>
