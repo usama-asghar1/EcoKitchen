@@ -18,7 +18,8 @@ export default function LandingPage() {
       <h2 className="welcome_title">WELCOME TO ECO KITCHEN </h2>
 
       <h3 className="welcome_info">
-        *cool catchy slogan*
+      Effortless Food Management: <br/>
+      Minimize Waste, Maximize Taste
       </h3>
 
       <div className="button_container">
