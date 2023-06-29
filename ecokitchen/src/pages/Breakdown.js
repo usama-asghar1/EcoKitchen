@@ -9,6 +9,7 @@ import {
 } from "chart.js";
 import { supabase } from "../components/supabase/supabaseClient.js";
 
+import "../App.css";
 // register required controllers and elementss
 Chart.register(PieController, ArcElement, CategoryScale, Tooltip, Legend);
 
