@@ -35,10 +35,10 @@
   cursor: pointer;
 }
 
-.add-item-container{
-  margin-top:5px;
+.add-item-container {
+  margin-top: 5px;
   padding-left: 20px;
-  padding-right: 20px
+  padding-right: 20px;
 }
 
 button {
@@ -46,20 +46,19 @@ button {
   padding: 0;
 }
 
-.add-item-form-container{
+.add-item-form-container {
   align-items: center;
-  
 }
 
-#item-name{
-  width:100%;
+#item-name {
+  width: 100%;
 }
 
 .button-list-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom:10px;
+  margin-bottom: 10px;
 }
 
 .selected {
@@ -68,7 +67,7 @@ button {
 }
 
 .selected:hover {
-  background-color: red
+  background-color: red;
 }
 /* on hover doesnt work */
 
@@ -82,7 +81,6 @@ button {
   flex-direction: column;
   align-items: center;
   margin-bottom: 0.15em;
-  
 }
 
 .add-item-form-input label {
@@ -99,7 +97,28 @@ button {
   font-family: var(--font);
 }
 
+#pantry-button:hover,
+#fridge-button:hover,
+#shopping-button:hover,
+#add-item-button-submit:hover {
+  background-color: var(--primary-blue);
+  border: none;
+}
 
+#add-item-button-submit {
+  background-color: var(--primary-blue);
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: normal;
+  font-weight: 500;
+}
+
+.input-form {
+  height: 25px;
+  text-align: center;
+  padding: 0;
+}
 
 /* form {
   display: flex;
