@@ -3,6 +3,7 @@ import "./KitchenFoodCard.css";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Image from "react-bootstrap/Image";
+import { BiCheck } from "react-icons/bi";
 
 function KitchenFoodCard({
   name,
@@ -66,7 +67,7 @@ function KitchenFoodCard({
               onClick={() => usedFoodItem(foodID)}
               id="decreaseQuantity"
             >
-              ✔
+              <BiCheck id="checkmark" size={20000} />
             </Button>
             {/* <span>Used</span> */}
             <Button

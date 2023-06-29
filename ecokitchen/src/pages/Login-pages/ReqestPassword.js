@@ -71,8 +71,8 @@ export default function RequestPassword() {
                 receive a link:
               </p>
             </div>
-            <br />
-            <br />
+           
+            
             <div className="box-centering">
               <label htmlFor="Email">Email</label>
               <InputText
@@ -94,7 +94,7 @@ export default function RequestPassword() {
                     }
                   }}
                   label="Send Link"
-                  style={{ marginTop: '-55px' }}
+                  style={{ marginTop: '15px' }}
                 >
                   Send Link
                 </div>
@@ -131,7 +131,7 @@ export default function RequestPassword() {
       
       <div className="button_container">
         <Link to="/">
-          <div className="back_btn" style={{ marginTop: '-15px' }}>Back</div>
+          <div className="back_btn" style={{ marginTop: '1px' }}>Back</div>
         </Link>
       </div>
     </div>
