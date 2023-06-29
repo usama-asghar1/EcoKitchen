@@ -56,23 +56,22 @@ export default function RequestPassword() {
   return (
     <div>
       <div>
-      <div className="landing_container">
-      <div className="top-box">
-        <div className="logo_container">
-          <img src={logo1} alt="Logo" className="logo-image"></img>
+        <div className="landing_container">
+          <div className="top-box">
+            <div className="logo_container" style={{ marginTop: "90px" }}>
+              <img src={logo1} alt="Logo" className="logo-image"></img>
+            </div>
+          </div>
         </div>
-      </div>
-      </div>
         {sentEmail === false && (
           <>
             <div>
-              <p className="login_title">
-                To reset your password, <br /> please enter your email below <br /> to
-                receive a link:
+              <p className="login_title" style={{ marginTop: "60px" }}>
+                To reset your password, <br /> please enter your email below{" "}
+                <br /> to receive a link:
               </p>
             </div>
-           
-            
+
             <div className="box-centering">
               <label htmlFor="Email">Email</label>
               <InputText
@@ -82,7 +81,7 @@ export default function RequestPassword() {
                 id="Email"
               />
             </div>
-            
+
             <div className="button_container">
               <Link to="/Login">
                 <div
@@ -94,7 +93,7 @@ export default function RequestPassword() {
                     }
                   }}
                   label="Send Link"
-                  style={{ marginTop: '15px' }}
+                  style={{ marginTop: "15px" }}
                 >
                   Send Link
                 </div>
@@ -123,15 +122,16 @@ export default function RequestPassword() {
               label="Go to login page"
               rounded
               aria-label="Navigate to the login page"
-              
             />
           </section>
         )}
       </div>
-      
+
       <div className="button_container">
         <Link to="/">
-          <div className="back_btn" style={{ marginTop: '1px' }}>Back</div>
+          <div className="back_btn" style={{ marginTop: "1px" }}>
+            Back
+          </div>
         </Link>
       </div>
     </div>

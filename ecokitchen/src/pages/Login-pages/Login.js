@@ -45,60 +45,65 @@ export default function Login({ setIsAuthenticated }) {
   }
 
   return (
-   
-  <div>
+    <div>
       <div className="landing_container">
-      <div className="top-box">
-        <div className="logo_container">
-          <img src={logo1} alt="Logo" className="logo-image"></img>
+        <div className="top-box">
+          <div className="logo_container" style={{ marginTop: "90px" }}>
+            <img src={logo1} alt="Logo" className="logo-image"></img>
+          </div>
         </div>
       </div>
-      </div>
-      <h2 className="login_title"> LOGIN </h2>
+      <h2 className="login_title" style={{ marginTop: "60px" }}>
+        {" "}
+        LOGIN{" "}
+      </h2>
       <div className="login_info">
-      <div className="box-centering">
-        <label htmlFor="username">
-          Email
-        </label>
-        <InputText
-          value={email}
-          onChange={handleUsernameChange}
-          id="Email"
-          aria-describedby="Email-help"
-        />
         <div className="box-centering">
-          <label htmlFor="Password">Password</label>
-          <Password
-            value={password}
-            onChange={handlePasswordChange}
-            id="Password"
-            toggleMask
-            
+          <label htmlFor="username">Email</label>
+          <InputText
+            value={email}
+            onChange={handleUsernameChange}
+            id="Email"
+            aria-describedby="Email-help"
           />
-          {error && <Message severity="error" text={error} />}
+          <div className="box-centering">
+            <label htmlFor="Password">Password</label>
+            <Password
+              value={password}
+              onChange={handlePasswordChange}
+              id="Password"
+              toggleMask
+            />
+            {error && <Message severity="error" text={error} />}
+          </div>
+          <div>
+            <Link className="link forgot" to="/RequestPassword">
+              <p> Forgotten Password?</p>
+            </Link>
+          </div>
         </div>
-        <div>
-          <Link className="link forgot" to="/RequestPassword">
-            <p> Forgotten Password?</p>
-          </Link>
-        </div>
-      </div>
       </div>
       <br />
-     
+
       <div className="button_container">
         <Link className="link" to="/Login">
-          <div className="login_btn" onClick={signInWithEmail} style={{ marginTop: '-10px' }}>Login</div>
+          <div
+            className="login_btn"
+            onClick={signInWithEmail}
+            style={{ marginTop: "-10px" }}
+          >
+            Login
+          </div>
         </Link>
 
         <div className="button_container">
           <Link to="/">
-            <div className="back_btn" style={{ marginTop: '10px' }}>Back</div>
+            <div className="back_btn" style={{ marginTop: "10px" }}>
+              Back
+            </div>
           </Link>
         </div>
       </div>
     </div>
-   
-    
   );
 }

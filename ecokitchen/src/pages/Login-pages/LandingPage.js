@@ -11,22 +11,22 @@ export default function LandingPage() {
   return (
     <div className="landing_container">
       <div className="top-box">
-        <div className="logo_container">
+        <div className="logo_container" style={{ marginTop: "90px" }}>
           <img src={logo1} alt="Logo" className="logo-image"></img>
         </div>
       </div>
-      <h2 className="welcome_title" style={{ marginTop: "150px" }}>
+      <h2 className="welcome_title" style={{ marginTop: "60px" }}>
         WELCOME TO ECO KITCHEN{" "}
       </h2>
 
-      <h3 className="welcome_info">
+      <h3 className="welcome_info" style={{ marginTop: "30px" }}>
         Effortless Food Management: <br />
         Minimize Waste, Maximize Taste
       </h3>
 
       <div className="button_container">
         <Link className="link" to="/Login">
-          <div className="login_btn" style={{ marginTop: "20px" }}>
+          <div className="login_btn" style={{ marginTop: "60px" }}>
             Login
           </div>
         </Link>
