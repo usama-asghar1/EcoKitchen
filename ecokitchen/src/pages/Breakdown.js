@@ -9,7 +9,6 @@ import {
 } from "chart.js";
 import { supabase } from "../components/supabase/supabaseClient.js";
 
-import "../App.css";
 // register required controllers and elementss
 Chart.register(PieController, ArcElement, CategoryScale, Tooltip, Legend);
 
@@ -197,7 +196,7 @@ function Breakdown() {
               <li>The total cost of wasting this food is </li>
 
               <li className="important-text">
-                £{mostCommonItemInfo.cost.toFixed(2)}{" "}
+                {/* £{mostCommonItemInfo.cost.toFixed(2)}{" "} */}
               </li>
 
               <li>The total quantity that you've thrown away is </li>

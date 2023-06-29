@@ -32,7 +32,8 @@
  flex-direction: column;
  margin-top: 20px;
  margin-bottom: 20px;
- overflow: auto;
+ /* overflow: auto; */
+
  }
 
  .p-shadow-10{
