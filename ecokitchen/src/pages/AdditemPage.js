@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import "primereact/resources/themes/lara-light-indigo/theme.css";
 import { Button } from "primereact/button";
 import "./AdditemPage/AdditemPage.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import Wbread from "../assets/food/whitebread.jpg";
 import Potatoe from "../assets/food/potatoes.jpg";
@@ -238,6 +240,17 @@ function Additem() {
       postToShoppingItems();
     }
 
+    toast.success("Item added!", {
+      position: "top-center",
+      autoClose: 1500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+
     async function postToFoodItems() {
       const foodItem = {
         user_id: user.id,
@@ -324,6 +337,19 @@ function Additem() {
 
   return (
     <div className="add-item-container">
+      <ToastContainer
+        position="top-center"
+        autoClose={1500}
+        limit={1}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss={false}
+        draggable
+        pauseOnHover
+        theme="light"
+      />
       <div className="add-item-form-container">
         <form className="add-item-form" onSubmit={handleSubmit}>
           <div className="button-list-container">
