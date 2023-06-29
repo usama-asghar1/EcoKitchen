@@ -87,9 +87,16 @@ export default function Login({ setIsAuthenticated }) {
      
       <div className="button_container">
         <Link className="link" to="/Login">
-          <div className="login_btn" onClick={signInWithEmail} style={{ marginTop: '-85px' }}>Login</div>
+          <div className="login_btn" onClick={signInWithEmail} style={{ marginTop: '-90px' }}>Login</div>
         </Link>
+
+        <div className="button_container">
+          <Link to="/">
+            <div className="back_btn" style={{ marginTop: '-150px' }}>Back</div>
+          </Link>
         </div>
+      </div>
     </div>
+    
   );
 }

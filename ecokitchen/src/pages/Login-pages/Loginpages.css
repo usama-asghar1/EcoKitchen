@@ -160,8 +160,25 @@
   /* border: 1px solid red; */
   /* margin: 0 auto; */
   margin-top: 120px;
+  margin-bottom: -100px;
+}
 
-
+.back_btn {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  width: 50%;
+  padding: 15px 40px;
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  color:  #404040;
+  background-color: #e2dfdf;
+  border: 1px solid #e2dfdf;
+  border-radius: 40px;
+  cursor: pointer;
+  
 }
 
 .login_btn {
@@ -179,6 +196,7 @@
   border: 1px solid var(--primary-blue);
   border-radius: 40px;
   cursor: pointer;
+  
 }
 
 .login_btn:hover {

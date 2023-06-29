@@ -93,8 +93,12 @@ export default function SignUp() {
           </div>
         </Link>
       </div>
-
       
+      <div className="button_container">
+        <Link to="/">
+          <div className="back_btn">Back</div>
+        </Link>
+      </div>
     </div>
   );
 }
