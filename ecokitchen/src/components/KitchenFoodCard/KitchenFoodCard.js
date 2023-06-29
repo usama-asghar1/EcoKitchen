@@ -26,7 +26,7 @@ function KitchenFoodCard({
   // Convert milliseconds to days
   var daysLeft = Math.ceil(timeDiff / (1000 * 3600 * 24));
 
-  // Define the color based on daysLeft
+  // Define the color based on daysLeft.
   let color;
   let status;
   if (daysLeft < 0) {
