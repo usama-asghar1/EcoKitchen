@@ -179,7 +179,7 @@ function Breakdown() {
   }, []); // The empty array means that this useEffect will only run once, when the component mounts.
 
   /* eslint-enable react-hooks/exhaustive-deps */
-
+  /* Saynab was here */
   return (
     <div>
       <div>
@@ -196,7 +196,7 @@ function Breakdown() {
               <li>The total cost of wasting this food is </li>
 
               <li className="important-text">
-                £{mostCommonItemInfo.cost.toFixed(2)}{" "}
+                {/* £{mostCommonItemInfo.cost.toFixed(2)}{" "} */}
               </li>
 
               <li>The total quantity that you've thrown away is </li>

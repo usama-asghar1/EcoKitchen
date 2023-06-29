@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { BsSearch } from "react-icons/bs";
 
@@ -11,7 +11,11 @@ function Recipes() {
   const [error, setError] = useState(null);
   const [clickedRecipeId, setClickedRecipeId] = useState(null);
 
-  async function fetchRecipe() {
+  useEffect(() => {
+    loadData();
+  }, []);
+
+  const loadData = async function fetchRecipe() {
     setError(error);
 
     const response = await fetch(
@@ -24,7 +28,7 @@ function Recipes() {
 
     const limitedRecipes = data.meals ? data.meals.slice(0, 9) : [];
     setRecipe(limitedRecipes);
-  }
+  };
 
   function clickRecipe(recipeId) {
     setClickedRecipeId(recipeId);
@@ -47,7 +51,7 @@ function Recipes() {
           onChange={(e) => setIngredient(e.target.value)}
         />
         {/* <button onClick={fetchRecipe}>Search</button> */}
-        <div className="search_btn" onClick={fetchRecipe}>
+        <div className="search_btn" onClick={loadData}>
           Search
         </div>
       </div>
