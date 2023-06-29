@@ -324,7 +324,6 @@ function Additem() {
 
   return (
     <div className="add-item-container">
-    
       <div className="add-item-form-container">
         <form className="add-item-form" onSubmit={handleSubmit}>
           <div className="button-list-container">
@@ -333,24 +332,46 @@ function Additem() {
               label="Pantry"
               type="button"
               onClick={() => handleFoodCategoryChange("pantryArray")}
-              className={foodCategory === "pantryArray" ? "selected" : "not-selected"}
-              style={{ borderRadius: '40px', height: '25px', width: '100px', paddingTop: '0px' }}
+              className={
+                foodCategory === "pantryArray" ? "selected" : "not-selected"
+              }
+              style={{
+                borderRadius: "40px",
+                height: "25px",
+                width: "100px",
+                paddingTop: "0px",
+              }}
             />
             <Button
               id="fridge-button"
               label="Fridge"
               type="button"
               onClick={() => handleFoodCategoryChange("fridgeArray")}
-              className={foodCategory === "fridgeArray" ? "selected" : "not-selected"}
-              style={{ borderRadius: '40px', height: '25px', width: '100px', paddingTop: '0px' }}
+              className={
+                foodCategory === "fridgeArray" ? "selected" : "not-selected"
+              }
+              style={{
+                borderRadius: "40px",
+                height: "25px",
+                width: "100px",
+                paddingTop: "0px",
+              }}
             />
             <Button
               id="shopping-button"
               label="Shopping"
               type="button"
               onClick={() => handleFoodCategoryChange("shoppingArray")}
-              className={foodCategory === "shoppingArray" ? "selected" : "not-selected"}
-              style={{ borderRadius: '40px', height: '25px', width: '100px', paddingTop: '0', paddingLeft:'13px' }}
+              className={
+                foodCategory === "shoppingArray" ? "selected" : "not-selected"
+              }
+              style={{
+                borderRadius: "40px",
+                height: "25px",
+                width: "100px",
+                paddingTop: "0",
+                paddingLeft: "13px",
+              }}
             />
           </div>
         </form>
@@ -386,10 +407,11 @@ function Additem() {
               </div>
 
               {error && <Message severity="error" text={error} />}
-                       
+
               <div className="add-item-form-input">
                 <label htmlFor="item-quantity">Quantity</label>
                 <input
+                  className="input-form"
                   type="number"
                   id="item-quantity"
                   name="item-quantity"
@@ -404,6 +426,7 @@ function Additem() {
                   <div className="add-item-form-input">
                     <label htmlFor="item-expiry">Expiry Date</label>
                     <input
+                      className="input-form"
                       type="date"
                       id="item-expiry"
                       name="item-expiry"
@@ -416,6 +439,7 @@ function Additem() {
                   <div className="add-item-form-input">
                     <label htmlFor="item-cost">Cost Per Unit (£)</label>
                     <input
+                      className="input-form"
                       type="number"
                       step="0.01"
                       min="0"
@@ -425,13 +449,22 @@ function Additem() {
                       onChange={(e) => setCost(e.target.value)}
                     />
                   </div>
-                  
                 </>
               )}
 
               <div className="add-item-form-input">
-                <Button variant="contained" color="primary" type="submit"
-                style={{ borderRadius: '40px',height: '30px', paddingTop: '0px', marginTop: '10px'}}>
+                <Button
+                  id="add-item-button-submit"
+                  variant="contained"
+                  color="primary"
+                  type="submit"
+                  style={{
+                    borderRadius: "40px",
+                    height: "30px",
+                    paddingTop: "0px",
+                    marginTop: "10px",
+                  }}
+                >
                   Add Item
                 </Button>
               </div>
