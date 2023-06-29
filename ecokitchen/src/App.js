@@ -23,7 +23,7 @@ import RecipeDetail from "./pages/RecipeDetail";
 import { useState } from "react";
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [title, setTitle] = useState("Food");
+  const [title, setTitle] = useState("Your Kitchen");
   return (
     <div className="phone-size">
       <BrowserRouter>

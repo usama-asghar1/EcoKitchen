@@ -27,7 +27,7 @@
 .header-container {
   background-color: var(--background-white);
   padding: 0px;
-  height: 10%;
+  height: 15%;
   position: sticky;
   top: 0px;
 }
@@ -49,7 +49,7 @@
   padding-left: 0.3rem;
   padding-right: 0.3rem;
   width: 100%;
-  height: 77.8%;
+  height: 75.1%;
   overflow: scroll;
 }
 .login-content {
@@ -85,7 +85,7 @@
   align-items: center;
   height: 8.7vh;
   width: 100%;
-  background-color: #dddddd;
+  background-color: #ddddddaf;
   border-top: 3px solid var(--primary-blue);
   padding: 2px 10px;
   z-index: 1;
@@ -113,7 +113,13 @@
 }
 
 .navbar-icon-image {
-  margin-bottom: 5px;
+  margin-top: 5px;
+  /* margin-bottom: 5px; */
+  width: 90%;
+}
+
+.navbar-icon-image-shopping {
+  margin-top: 5px;
 }
 
 .navbar-icon-name {
@@ -162,7 +168,7 @@
   font-size: 20px;
   font-weight: 500;
   margin-top: 10px;
-  margin-left: 10px;
+  margin-left: 13px;
 }
 
 .pie-chart {
@@ -182,14 +188,16 @@
   height: 100%;
 }
 
+
 #breakdown-details {
-  padding: 0px;
-  margin-right: 0px 6.5px 0px 0px;
+  padding: 0;
+  margin-right: 0 6.5px 0 0;
+  text-align: center;
+  margin-bottom: -20px;
 }
 
-li {
-  padding: 0;
-  margin: 0;
+#breakdown-details li {
+  margin-left: 5px;
   list-style-type: none;
 }
 
@@ -198,15 +206,11 @@ li {
   background-color: var(--grey);
   padding: 10px;
   border-radius: 10px;
-  padding: 10px 0px 7px 0px;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 1.3rem;
-  /* display: inline-block;  */
-  margin: 10px 35px 10px 35px; 
+  margin: 10px 30px 10px 15px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  
-  
-  font-weight: bolder;
+  text-align: center; /* Center the text */
 }
 
 #kitchen-selection-buttons-container {
@@ -220,8 +224,9 @@ li {
 
 #breakdown-information-container {
   padding: 0px;
-  margin-left: -8px;
+  /* margin-left: 2px; */
   text-align: center;
+  
 }
 
 .search_breakdown_btn {
@@ -251,7 +256,7 @@ li {
   border-radius: 10px;
   padding: 10px;
   font-weight: bold;
-  margin: 5px; 
+  margin-bottom: -10px;
 
 }
 

@@ -334,6 +334,7 @@ function Additem() {
               type="button"
               onClick={() => handleFoodCategoryChange("pantryArray")}
               className={foodCategory === "pantryArray" ? "selected" : "not-selected"}
+              style={{ borderRadius: '40px', height: '25px', width: '100px', paddingTop: '0px' }}
             />
             <Button
               id="fridge-button"
@@ -341,6 +342,7 @@ function Additem() {
               type="button"
               onClick={() => handleFoodCategoryChange("fridgeArray")}
               className={foodCategory === "fridgeArray" ? "selected" : "not-selected"}
+              style={{ borderRadius: '40px', height: '25px', width: '100px', paddingTop: '0px' }}
             />
             <Button
               id="shopping-button"
@@ -348,6 +350,7 @@ function Additem() {
               type="button"
               onClick={() => handleFoodCategoryChange("shoppingArray")}
               className={foodCategory === "shoppingArray" ? "selected" : "not-selected"}
+              style={{ borderRadius: '40px', height: '25px', width: '100px', paddingTop: '0', paddingLeft:'13px' }}
             />
           </div>
         </form>
@@ -383,7 +386,7 @@ function Additem() {
               </div>
 
               {error && <Message severity="error" text={error} />}
-
+                       
               <div className="add-item-form-input">
                 <label htmlFor="item-quantity">Quantity</label>
                 <input
@@ -395,6 +398,7 @@ function Additem() {
                   onChange={(e) => setQuantity(e.target.value)}
                 />
               </div>
+
               {foodCategory !== "shoppingArray" && (
                 <>
                   <div className="add-item-form-input">
@@ -408,6 +412,7 @@ function Additem() {
                       onChange={(e) => setExpiryDate(e.target.value)}
                     />
                   </div>
+
                   <div className="add-item-form-input">
                     <label htmlFor="item-cost">Cost Per Unit (£)</label>
                     <input
@@ -420,11 +425,13 @@ function Additem() {
                       onChange={(e) => setCost(e.target.value)}
                     />
                   </div>
+                  
                 </>
               )}
 
               <div className="add-item-form-input">
-                <Button variant="contained" color="primary" type="submit">
+                <Button variant="contained" color="primary" type="submit"
+                style={{ borderRadius: '40px',height: '30px', paddingTop: '0px', marginTop: '10px'}}>
                   Add Item
                 </Button>
               </div>

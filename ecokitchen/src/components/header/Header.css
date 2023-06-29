@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 10%;
+  height: 15%;
   width: 100%;
   padding: 0 10px;
   margin: 0;
@@ -11,15 +11,16 @@
 }
 
 .donate-btn {
+  width: 60px;
+  height: 40px;
   background-color: var(--primary-orange);
-  padding: 12px;
   border-radius: 5px;
   font-family: var(--font);
-  font-size: 20px;
+  font-size: 15px;
   font-weight: 500;
   border-style: none;
-  margin-top: -2px;
   cursor: pointer;
+  text-align: center;
 }
 
 .donate-btn:hover {
@@ -29,4 +30,9 @@
 .logo-image {
   height: 70px;
   margin-top: 8px;
+}
+
+.page-title{
+  margin-top: 10px;
+  margin-bottom: 10px;
 }

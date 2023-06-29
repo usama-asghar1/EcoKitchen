@@ -22,7 +22,7 @@ export default function Navbar({setTitle}) {
           <div className={`navbar-icon ${getIconColor("/Food")}`}>
             <BiFridge
               className="navbar-icon-image"
-              onClick={() => setTitle("Food")}
+              onClick={() => setTitle("Your Kitchen")}
             />
             <span className="navbar-icon-name">Kitchen</span>
           </div>
@@ -50,7 +50,7 @@ export default function Navbar({setTitle}) {
         <Link className="link" to="/Shopping">
           <div className={`navbar-icon ${getIconColor("/Shopping")}`}>
             <BiListCheck
-              className="navbar-icon-image"
+              className="navbar-icon-image-shopping"
               onClick={() => setTitle("Shopping List")}
             />
             <span className="navbar-icon-name">Shopping</span>

@@ -142,6 +142,7 @@ function Food() {
           className={
             fridgeOrPantry === "pantryArray" ? "selected" : "not-selected"
           }
+          style={{ borderRadius: '40px', height: '25px', width: '150px', paddingTop: '0px', marginBottom:'10px' }}
         />
         <Button
           id="fridge-button"
@@ -151,10 +152,11 @@ function Food() {
           className={
             fridgeOrPantry === "fridgeArray" ? "selected" : "not-selected"
           }
+          style={{ borderRadius: '40px',height: '25px', width: '150px', paddingTop: '1px',  marginBottom:'10px'}}
         />
       </div>
       {fetchError && <p>{fetchError}</p>}
-      <div>
+      <div style={{ marginTop:'-10px' }}>
         <div>{foodItemCard}</div>
       </div>
     </div>

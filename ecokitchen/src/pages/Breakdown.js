@@ -9,7 +9,7 @@ import {
 } from "chart.js";
 import { supabase } from "../components/supabase/supabaseClient.js";
 
-// register required controllers and elements
+// register required controllers and elementss
 Chart.register(PieController, ArcElement, CategoryScale, Tooltip, Legend);
 
 // breakdown
@@ -206,7 +206,7 @@ function Breakdown() {
               <li>
                 To find out how to reduce your{" "}
                 <span className="less-important-text">
-                  {mostCommonItemInfo.name} food waste{" "}
+                  {mostCommonItemInfo.name} waste{" "}
                 </span>
               </li>
 

@@ -28,7 +28,7 @@ export default function LandingPage() {
         <br />
 
         <div className="signUp-Container">
-        <p className="question">Don't have an account?</p>
+        {/* <p className="question">Don't have an account?</p> */}
         <Link className="linktag" to="/SignUp">
           <div className="signup">Sign&nbsp;Up </div>
         </Link>

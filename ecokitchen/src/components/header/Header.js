@@ -15,7 +15,7 @@ function Header({ title, setTitle }) {
         </div>
         <div>
           <Link to={"/Food"}>
-            <img src={logo1} alt="Logo" className="logo-image" onClick={() => setTitle("Food")} />
+            <img src={logo1} alt="Logo" className="logo-image" onClick={() => setTitle("Your Kitchen")} />
           </Link>
         </div>
         <div className="propic-donate">
