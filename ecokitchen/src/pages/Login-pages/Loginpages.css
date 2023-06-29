@@ -80,17 +80,17 @@
 .landing_container {
   width: 100%;
   margin: 0 auto;
-  /* border: 1px solid red; */
-
   display: flex;
   flex-direction: column;
 }
+
+
 
 .top-box {
   background: rgb(231, 229, 229);
   background: linear-gradient(354deg, rgba(200,200,200,0.6110819327731092) 0%, rgba(246,246,249,0.37298669467787116) 100%);
   border-radius: 0px 0 150px 150px;
-  height: 300px;
+  height: 230px;
   position: relative;
   margin-bottom: 0;
 }
@@ -110,7 +110,7 @@
 }
 
 .login_title{
-  margin-top: 100px;
+  margin-top: 150px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -157,19 +157,17 @@
   justify-content: center;
   padding-left: 30px;
   padding-right: 30px;
-  /* border: 1px solid red; */
-  /* margin: 0 auto; */
-  margin-top: 120px;
-  margin-bottom: -100px;
+  
+  
 }
 
 .back_btn {
   display: flex;
   justify-content: center;
   margin: 0 auto;
-  width: 50%;
-  padding: 15px 40px;
-  font-size: 1rem;
+  width: 45%;
+  padding: 10px 80px;
+  font-size: 1.2rem;
   font-weight: 700;
   text-align: center;
   text-decoration: none;
@@ -197,6 +195,25 @@
   border-radius: 40px;
   cursor: pointer;
   
+}
+
+.sendlink_btn {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  width: 50%;
+  padding: 10px 50px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  background-color: var(--primary-blue);
+  border: 1px solid var(--primary-blue);
+  border-radius: 40px;
+  cursor: pointer;
+  white-space: nowrap;
+
 }
 
 .login_btn:hover {

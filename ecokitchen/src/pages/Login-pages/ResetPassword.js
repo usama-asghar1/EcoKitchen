@@ -22,13 +22,7 @@ export default function ResetPassword() {
   const navigate = useNavigate();
 
   async function handleSubmit() {
-    // const newPasswordSubmit = {
-    //   Password: newPassword,
-    //   ConfirmedPassword: confirmPassword
-    // };
-
-    // console.log(newPasswordSubmit);
-
+   
     if (newPassword === confirmPassword) {
       const { user, error } = await supabase.auth.updateUser({
         password: confirmPassword,
@@ -44,38 +38,43 @@ export default function ResetPassword() {
 
   return (
     <div>
-      <div>
-        <div className="logo_container">
-          <img src={logo1} alt="Logo" className="logo-image-login-pages"></img>
+      <div className="landing_container">
+        <div className="top-box">
+          <div className="logo_container" style={{ marginTop: "90px" }}>
+            <img src={logo1} alt="Logo" className="logo-image"></img>
+          </div>
         </div>
-        <h2 className="login_title"> RESET PASSWORD </h2>
+        <h2 className="login_title" style={{ marginTop: "60px" }}>
+          RESET PASSWORD
+        </h2>
         <div className="box-centering">
-          <p> New Password </p>
-          <div className="box-centering">
-            <Password
-              value={newPassword}
-              onChange={handlenewPasswordChange}
-              toggleMask
-            />
-          </div>
-          <p> Confirm New Password </p>
-          <div className="box-centering">
-            <Password
-              value={confirmPassword}
-              onChange={handleConfirmPasswordChange}
-              toggleMask
-            />
-            {error && <Message severity="error" text={error} />}
-          </div>
-          <br />
-          <div className="button_container">
-            <Link className="link" to="/Login">
-              <div className="login_btn" onClick={handleSubmit}>
-                Reset
-              </div>
-            </Link>
-          </div>
-          
+          <label htmlFor="New Password">New Password</label>
+
+          <Password
+            id="Password2"
+            value={newPassword}
+            onChange={handlenewPasswordChange}
+            toggleMask
+          />
+        </div>
+        <div className="box-centering">
+          <label htmlFor="Confirm Password">Confirm Password</label>
+
+          <Password
+            id="ConfirmPassword"
+            value={confirmPassword}
+            onChange={handleConfirmPasswordChange}
+            toggleMask
+          />
+          {error && <Message severity="error" text={error} />}
+        </div>
+        <br />
+        <div className="button_container">
+          <Link className="link" to="/Login">
+            <div className="login_btn" onClick={handleSubmit}>
+              Reset
+            </div>
+          </Link>
         </div>
       </div>
     </div>

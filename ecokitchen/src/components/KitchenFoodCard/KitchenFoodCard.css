@@ -128,3 +128,12 @@
   margin-left: 0.2rem;
   margin-right: 0.2rem;
 }
+
+#checkmark {
+  color: rgb(22, 144, 22);
+  stroke: currentColor;
+  stroke-width: 1.5;
+  ;
+  
+  
+}

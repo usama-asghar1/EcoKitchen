@@ -59,13 +59,15 @@ export default function SignUp() {
   return (
     <div>
       <div className="landing_container">
-      <div className="top-box">
-        <div className="logo_container">
-          <img src={logo1} alt="Logo" className="logo-image"></img>
+        <div className="top-box">
+          <div className="logo_container" style={{ marginTop: "90px" }}>
+            <img src={logo1} alt="Logo" className="logo-image"></img>
+          </div>
         </div>
       </div>
-      </div>
-      <h2 className="login_title" style={{ marginTop: '90px' }}>SIGN UP</h2>
+      <h2 className="login_title" style={{ marginTop: "60px" }}>
+        SIGN UP
+      </h2>
       <div className="box-centering">
         <label htmlFor="Email">Email</label>
         <InputText value={email} onChange={handleEmailChange} id="Email" />
@@ -73,13 +75,18 @@ export default function SignUp() {
       <div className="box-centering">
         <label htmlFor="Password">Password</label>
 
-        <Password id="Password2" value={password} onChange={handlePasswordChange} toggleMask />
+        <Password
+          id="Password2"
+          value={password}
+          onChange={handlePasswordChange}
+          toggleMask
+        />
       </div>
       <div className="box-centering">
         <label htmlFor="Confirm Password">Confirm Password</label>
 
         <Password
-        id="ConfirmPassword"
+          id="ConfirmPassword"
           value={confirmPassword}
           onChange={handleConfirmPasswordChange}
           toggleMask
@@ -88,15 +95,21 @@ export default function SignUp() {
       <br />
       <div className="button_container">
         <Link className="link" to="/Login">
-          <div className="login_btn" onClick={signUp} style={{ marginTop: '-100px' }}>
+          <div
+            className="login_btn"
+            onClick={signUp}
+            style={{ marginTop: "-10px" }}
+          >
             SignUp
           </div>
         </Link>
       </div>
-      
+
       <div className="button_container">
         <Link to="/">
-          <div className="back_btn">Back</div>
+          <div className="back_btn" style={{ marginTop: "10px" }}>
+            Back
+          </div>
         </Link>
       </div>
     </div>
