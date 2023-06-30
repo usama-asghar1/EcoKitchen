@@ -44,17 +44,6 @@ export default function SignUp() {
     }
   }
 
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   const loginSubmit = {
-  //     Username: username,
-  //     Email: email,
-  //     Password: password,
-  //     ConfirmedPassword: confirmPassword,
-  //   };
-
-  //   console.log(loginSubmit);
-  // };
 
   return (
     <div>
@@ -104,7 +93,6 @@ export default function SignUp() {
           </div>
         </Link>
       </div>
-
       <div className="button_container">
         <Link to="/">
           <div className="back_btn" style={{ marginTop: "10px" }}>
