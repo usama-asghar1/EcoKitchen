@@ -44,17 +44,6 @@ export default function SignUp() {
     }
   }
 
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   const loginSubmit = {
-  //     Username: username,
-  //     Email: email,
-  //     Password: password,
-  //     ConfirmedPassword: confirmPassword,
-  //   };
-
-  //   console.log(loginSubmit);
-  // };
 
   return (
     <div>
@@ -100,7 +89,7 @@ export default function SignUp() {
             onClick={signUp}
             style={{ marginTop: "-10px" }}
           >
-            SignUp
+            Sign Up
           </div>
         </Link>
       </div>
