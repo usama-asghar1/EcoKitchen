@@ -5,6 +5,7 @@ import { BsSearch } from "react-icons/bs";
 
 import "./Recipe.css";
 
+/* eslint-disable react-hooks/exhaustive-deps */
 function Recipes() {
   const [ingredient, setIngredient] = useState("");
   const [recipeData, setRecipe] = useState([]);
@@ -14,6 +15,7 @@ function Recipes() {
   useEffect(() => {
     loadData();
   }, []);
+  /* eslint-disable react-hooks/exhaustive-deps */
 
   const loadData = async function fetchRecipe() {
     setError(error);
