@@ -89,11 +89,10 @@ export default function SignUp() {
             onClick={signUp}
             style={{ marginTop: "-10px" }}
           >
-            Sign Up
+            SignUp
           </div>
         </Link>
       </div>
-
       <div className="button_container">
         <Link to="/">
           <div className="back_btn" style={{ marginTop: "10px" }}>
