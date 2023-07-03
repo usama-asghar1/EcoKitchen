@@ -8,6 +8,7 @@ import {
   Legend,
 } from "chart.js";
 import { supabase } from "../components/supabase/supabaseClient.js";
+import { Message } from "primereact/message";
 
 // register required controllers and elementss
 Chart.register(PieController, ArcElement, CategoryScale, Tooltip, Legend);
@@ -24,6 +25,9 @@ function Breakdown() {
     quantity: 0,
   });
 
+  // State if wasted items is empty
+  const [wastedItemsIsEmpty, setWastedItemsIsEmpty] = useState(false);
+
   async function fetchData() {
     const response = await supabase.auth.getUser();
     const user = response.data.user.id;
@@ -33,6 +37,14 @@ function Breakdown() {
       .from("wasted_items")
       .select("name, cost, quantity")
       .eq("user_id", user);
+
+    if (
+      !wastedFoodNames ||
+      wastedFoodNames.length === 0 ||
+      !wastedFoodNames.data
+    ) {
+      return;
+    }
 
     return wastedFoodNames;
   }
@@ -69,24 +81,28 @@ function Breakdown() {
     const labels = topSixEntries.map((entry) => entry[0]);
     const data = topSixEntries.map((entry) => entry[1]);
 
-    let mostCommonItem = labels[0];
+    if (labels.length > 0) {
+      let mostCommonItem = labels[0];
 
-    let maxCount = 0;
+      let maxCount = 0;
 
-    for (const name in wastedFoodCounts) {
-      const count = wastedFoodCounts[name];
+      for (const name in wastedFoodCounts) {
+        const count = wastedFoodCounts[name];
 
-      if (count > maxCount) {
-        maxCount = count;
-        mostCommonItem = name;
+        if (count > maxCount) {
+          maxCount = count;
+          mostCommonItem = name;
+        }
       }
-    }
 
-    setMostCommonItemInfo({
-      name: mostCommonItem,
-      cost: cumulativeCosts[mostCommonItem],
-      quantity: cumulativeQuantities[mostCommonItem],
-    });
+      setMostCommonItemInfo({
+        name: mostCommonItem,
+        cost: cumulativeCosts[mostCommonItem],
+        quantity: cumulativeQuantities[mostCommonItem],
+      });
+    } else {
+      setWastedItemsIsEmpty(true);
+    }
 
     return {
       labels: labels,
@@ -182,49 +198,50 @@ function Breakdown() {
   /* Saynab was here */
   return (
     <div>
-      <div>
-        <div style={{ width: "90%", height: "auto" }}>
-          <canvas className="pie-chart" ref={chartRef}></canvas>
+      {wastedItemsIsEmpty ? (
+        <div className="no-wasted-items">
+          <Message type="warning" severity="info" text="No wasted items" />
         </div>
-        <div id="breakdown-information-container">
-          <div className="breakdown-text">
-            <ul id="breakdown-details">
-              <li>The food that you've thrown away the most is </li>
-
-              <li className="important-text"> {mostCommonItemInfo.name}</li>
-
-              <li>The total cost of wasting this food is </li>
-
-              <li className="important-text">
-                £{mostCommonItemInfo.cost.toFixed(2)}{" "}
-              </li>
-
-              <li>The total quantity that you've thrown away is </li>
-
-              <li className="important-text">{mostCommonItemInfo.quantity} </li>
-
-              <li>
-                To find out how to reduce your{" "}
-                <span className="less-important-text">
-                  {mostCommonItemInfo.name} waste{" "}
-                </span>
-              </li>
-
-              <li className="button-text">
-                <a
-                  className="search_breakdown_btn"
-                  href={`https://stopfoodwaste.ie/foods/${mostCommonItemInfo.name}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`Learn more about reducing ${mostCommonItemInfo.name} food waste`}
-                >
-                  click here
-                </a>
-              </li>
-            </ul>
+      ) : (
+        <div>
+          <div style={{ width: "90%", height: "auto" }}>
+            <canvas className="pie-chart" ref={chartRef}></canvas>
+          </div>
+          <div id="breakdown-information-container">
+            <div className="breakdown-text">
+              <ul id="breakdown-details">
+                <li>The food that you've thrown away the most is</li>
+                <li className="important-text">{mostCommonItemInfo.name}</li>
+                <li>The total cost of wasting this food is</li>
+                <li className="important-text">
+                  £{mostCommonItemInfo.cost.toFixed(2)}
+                </li>
+                <li>The total quantity that you've thrown away is</li>
+                <li className="important-text">
+                  {mostCommonItemInfo.quantity}
+                </li>
+                <li>
+                  To find out how to reduce your{" "}
+                  <span className="less-important-text">
+                    {mostCommonItemInfo.name} waste
+                  </span>
+                </li>
+                <li className="button-text">
+                  <a
+                    className="search_breakdown_btn"
+                    href={`https://stopfoodwaste.ie/foods/${mostCommonItemInfo.name}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Learn more about reducing ${mostCommonItemInfo.name} food waste`}
+                  >
+                    click here
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }

@@ -40,7 +40,6 @@
   text-transform: uppercase;
   margin-bottom: -3px;
   background-color: #ffffff;
-
 }
 
 .main-content {
@@ -189,14 +188,11 @@
   height: 100%;
 }
 
-
 #breakdown-details {
   padding: 0;
   /* margin-right: 0 6px 0 0; */
   text-align: center;
   margin-bottom: -20px;
-
-  
 }
 
 #breakdown-details li {
@@ -204,7 +200,6 @@
 
   list-style-type: none;
 }
-
 
 .important-text {
   background-color: var(--grey);
@@ -234,8 +229,6 @@
   justify-content: center;
   text-align: center;
   /* border: 1px solid red; */
-
-  
 }
 
 .search_breakdown_btn {
@@ -266,16 +259,19 @@
   padding: 10px;
   font-weight: bold;
   margin-bottom: -10px;
-
 }
 
-.less-important-text{
+.less-important-text {
   font-weight: 700;
-
 }
 
 li {
-
   justify-content: center;
   /* border: 1px solid green; */
+}
+
+.no-wasted-items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
