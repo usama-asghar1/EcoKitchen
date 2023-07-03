@@ -3,12 +3,18 @@ import React, { useState, useEffect } from "react";
 import ShoppingFoodCard from "../components/FoodCard/ShoppingFoodCard.js";
 import { supabase } from "../components/supabase/supabaseClient.js";
 
+import { Message } from "primereact/message";
+
 function Shopping() {
   const [data, setData] = useState([]);
+  const [emptyshoppinglist, setEmptyShoppingList] = useState(false);
 
+  /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [emptyshoppinglist]);
+
+  /* eslint-disable react-hooks/exhaustive-deps */
 
   async function fetchData() {
     const response = await supabase.auth.getUser();
@@ -20,6 +26,13 @@ function Shopping() {
       .eq("user_id", user);
 
     setData(dataSB.data);
+    console.log(data);
+
+    if (data.length === 0) {
+      setEmptyShoppingList(true);
+    } else {
+      setEmptyShoppingList(false);
+    }
   }
 
   // Function to increase the quantity of a food item
@@ -106,7 +119,7 @@ function Shopping() {
     // Filter out the deleted item from the state
     const updatedData = data.filter((item) => item.id !== foodID);
 
-    // Update the state
+    // Update the state /
     setData(updatedData);
   }
 
@@ -127,7 +140,17 @@ function Shopping() {
 
   return (
     <div>
-      <div className="shopping-page-container">{foodShoppingCard}</div>
+      {emptyshoppinglist ? (
+        <div className="no-wasted-items">
+          <Message
+            type="warning"
+            severity="info"
+            text="Your shopping list is empty"
+          />
+        </div>
+      ) : (
+        <div className="shopping-page-container">{foodShoppingCard}</div>
+      )}
     </div>
   );
 }
