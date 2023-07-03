@@ -204,11 +204,28 @@ function Additem() {
   // This function handles the click of the food image
   const handleImageClick = (event) => {
     event.preventDefault();
+
     // This sets the selected image to the image that was clicked
     setSelectedImage(event.target.src);
-    setSelectedFoodName(
-      capitalizeWords(event.target.alt.replace(/[^a-zA-Z]/g, " ").toLowerCase())
+
+    // Store the state with a new food name
+    const newSelectedFoodName = capitalizeWords(
+      event.target.alt.replace(/[^a-zA-Z]/g, " ").toLowerCase()
     );
+
+    // This sets the selected food name to the food name of the image that was clicked
+    setSelectedFoodName(newSelectedFoodName);
+
+    toast.info(`You have selected ${newSelectedFoodName}!`, {
+      position: "top-center",
+      autoClose: 1000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
   };
 
   // const { user } = supabase.auth.user()
@@ -339,9 +356,9 @@ function Additem() {
     <div className="add-item-container">
       <ToastContainer
         position="top-center"
-        autoClose={1500}
+        autoClose={1000}
         limit={1}
-        hideProgressBar={false}
+        hideProgressBar
         newestOnTop={false}
         closeOnClick
         rtl={false}
