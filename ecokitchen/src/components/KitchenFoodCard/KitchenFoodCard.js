@@ -14,6 +14,14 @@ function KitchenFoodCard({
   moveToWasted,
   usedFoodItem,
 }) {
+  console.log(`KitchenFoodCard created with foodID: ${foodID}`);
+
+  // Function to handle the 'use' button click
+  const handleUseButtonClick = () => {
+    console.log(`Button clicked with foodID: ${foodID}`);
+    usedFoodItem(foodID);
+  };
+
   // Convert the input into a Date object
   var expiryDate = new Date(expiry_date);
 
@@ -71,9 +79,10 @@ function KitchenFoodCard({
             </Button> */}
 
             <button
-            className="kitchen-food-card-bought-btn kitchen-food-card-use-btn food-btn"
-              onClick={() => usedFoodItem(foodID)}
-              id="decreaseQuantity">
+              className="kitchen-food-card-bought-btn kitchen-food-card-use-btn food-btn"
+              onClick={handleUseButtonClick}
+              id="decreaseQuantity"
+            >
               <BiCheck id="checkmark" size={1000} />
             </button>
 
@@ -84,7 +93,6 @@ function KitchenFoodCard({
             >
               🗑
             </Button>
-            
           </div>
         </Card.Body>
       </Card>
