@@ -240,6 +240,7 @@ function Additem() {
       postToShoppingItems();
     }
 
+    // code for the successfull submission of the form
     toast.success("Item added!", {
       position: "top-center",
       autoClose: 1500,
@@ -250,6 +251,7 @@ function Additem() {
       progress: undefined,
       theme: "light",
     });
+    
 
     async function postToFoodItems() {
       const foodItem = {
