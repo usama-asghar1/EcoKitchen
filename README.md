@@ -21,16 +21,16 @@ Recommended viewing is for mobile devices, if opening on desktop then use mobile
 **Client:** React, JavaScript, HTML, CSS, Supabase, Chart.js, Jest, Netlify
 
 
-# Git Branching Strategy
+## Git Branching Strategy
 
-## Branches
+### Branches
 
 - `main`: Contains the Minimum Viable Product (MVP). Only well-tested and reviewed code that is considered ready for production is merged into this branch.
 - `development`: Serves as the staging area for integrating code from the `frontend` and `backend` branches.
 - `frontend`: Contains complete features that form part of the app's frontend.
 - `backend`: Contains complete features that form part of the app's backend.
 
-## Best Practices
+### Best Practices
 
 - Pull the latest changes from the parent branch frequently.
 - Keep feature branches focused – one branch per feature.
@@ -38,7 +38,7 @@ Recommended viewing is for mobile devices, if opening on desktop then use mobile
 - Resolve merge conflicts as soon as they arise.
 - Communicate with your team members.
 
-## Workflow
+### Workflow
 
 1. **Create Feature Branch**: Create a new branch off from either `frontend` or `backend` for your new feature. Name it descriptively, e.g., `feature/navbar`.
 
@@ -52,7 +52,7 @@ Recommended viewing is for mobile devices, if opening on desktop then use mobile
 
 6. **Final Review and Merge to Main**: After thorough testing and when the `development` branch is production-ready, merge it into the `main` branch.
 
-## Example
+### Example
 
 1. **Create a new feature branch from frontend**
 
@@ -93,8 +93,3 @@ git merge development
 git push origin main
 
 
-# develoment is a secondary main but breakable and won't effect main
- - Front end
-    - Page branches
-- back end
-    - page branches
