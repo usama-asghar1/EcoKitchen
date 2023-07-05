@@ -70,13 +70,6 @@ function KitchenFoodCard({
             </div>
           </div>
           <div className="kitchen-food-card-use-btns">
-            {/* <Button
-              className="kitchen-food-card-bought-btn kitchen-food-card-use-btn food-btn"
-              onClick={() => usedFoodItem(foodID)}
-              id="decreaseQuantity"
-            >
-            ✔️
-            </Button> */}
 
             <button
               className="kitchen-food-card-bought-btn kitchen-food-card-use-btn food-btn"

@@ -34,6 +34,7 @@ function Recipes() {
 
   function clickRecipe(recipeId) {
     setClickedRecipeId(recipeId);
+    console.log(clickedRecipeId);
   
   }
 
