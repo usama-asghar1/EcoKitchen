@@ -1,0 +1,64 @@
+.btnDonate {
+ display: flex;
+ margin-left: 5px;
+ /* margin-top: 5px; */
+ padding: 10px 20px;
+ font-size: 0.6rem;
+ text-transform: uppercase;
+ font-weight: 700;
+ text-align: center;
+ text-decoration: none;
+ color: rgb(255, 255, 255);
+ height: 37px;
+ background-color: var(--primary-blue);
+ border: 1px solid var(--primary-blue);
+ border-radius: 40px;
+ cursor: pointer;
+ 
+}
+.donate_search_container {
+ display: flex;
+ position: relative;
+ height: 37px;
+ padding-left: 3px;
+ padding-right: 3px;
+ margin-bottom: 10px;
+
+}
+
+.donate-container {
+
+ display: flex;
+ flex-direction: column;
+ margin-top: 20px;
+ margin-bottom: 20px;
+ /* overflow: auto; */
+
+ }
+
+ .p-shadow-10{
+  margin: 3px 5px 3px 5px;
+  padding-bottom: 20px;
+  width: 96vw;
+  height: 24vh;
+  background-color: #868686;
+  border-radius: 10px
+ 
+ }
+
+ .foodbank-details {
+    max-height: 20vh;
+    
+ }
+ 
+ p{
+    margin-bottom: -0.09rem;
+    padding: -1.25rem 0;
+ }
+
+ .p-card .p-card-content {
+    padding: 1.25rem 0;
+ }
+
+
+ 

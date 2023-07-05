@@ -1,8 +1,12 @@
-import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+// import { InputText } from "primereact/inputtext";
+// import { Button } from "primereact/button";
+import { Card } from "primereact/card";
+import { BsSearch } from "react-icons/bs";
+import { Message } from "primereact/message";
+import "./Donate.css";
 
 function Donate() {
-  <Link to={`/donate}`}></Link>;
   /*
   state that tracks users location (postcode/town)
   -Begin as empty string
@@ -27,27 +31,100 @@ function Donate() {
 
   async function fetchFoodbanks() {
     setError(null);
+    if (address === "") {
+      setError("Please enter a valid address");
+      return;
+    }
+    try {
+      const response = await fetch(
+        `https://www.givefood.org.uk/api/2/foodbanks/search/?address=${address}`
+      );
 
-    const response = await fetch(
-      `https://www.givefood.org.uk/api/2/foodbanks/search/?address=${address}`
-    );
-    console.log(response);
+      if (!response.ok) {
+        setError("Something went wrong, try again");
+        return;
+      }
 
-    const data = await response.json();
-    console.log(data);
-    setFoodbankData(data);
+      const data = await response.json();
+
+      setFoodbankData(data.slice(0, 5));
+    } catch (error) {
+      setError("Please enter a valid address");
+    }
   }
 
-
   return (
-    <div>
-      <input
-        type="text"
-        placeholder="Please input your address"
-        onChange={(e) => setAddress(e.target.value)}
-      />
-      {foodbankData.length > 0 && <p>{foodbankData[0].name}</p>}
-      <button onClick={fetchFoodbanks}>Fetch</button>
+    <div className="donate-container">
+      <div></div>
+      <div className="donate_search_container">
+        <BsSearch className="s_icon" />
+        <input
+          type="text"
+          placeholder="Enter location"
+          onChange={(e) => setAddress(e.target.value)}
+        />
+
+        <button className="btnDonate" onClick={fetchFoodbanks} label="Search">
+          {" "}
+          SEARCH{" "}
+        </button>
+      </div>
+
+      {error === null &&
+        foodbankData.map((foodbank, index) => {
+          const header = (
+            <div className="foodbank-container"
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                margin: 20,
+                marginBottom: -28,
+              }}
+            >
+              <h2 style={{ margin: 0 }}>{foodbank.name}</h2>
+              <button className="btnDonate"
+                // icon="pi pi-check"
+                // className="p-button-rounded p-button-success"
+                // Would be best to use a separate CSS file to style the buttons
+                style={{ backgroundColor: "#10a7e6", borderColor: "#10a7e6" }}
+                label="View on map"
+                onClick={() =>
+                  window.open(
+                    `https://www.google.com/maps/search/?api=1&query=${foodbank.address}`
+                  )
+                }
+              > MAP </button>
+            </div>
+          );
+
+          return (
+            
+            <Card
+              key={index}
+              header={header}
+              subTitle={`${foodbank.distance_mi} miles away`}
+              className="p-shadow-10 custom-card"
+              style={{ marginBottom: "1em", backgroundColor: "#f1f1f1"}}
+            >
+            <div className="p-container">
+              <p>
+                <strong>Address: </strong>
+                {foodbank.address}
+              </p>
+              <p>
+                <strong>Phone Number: </strong>
+                {foodbank.phone}
+              </p>
+              </div>
+              
+              {/* <img src={foodbank.urls.map} alt="foodbank map" /> */}
+            </Card>
+           
+          );
+        })}
+
+      {error && <Message severity="error" text={error} />}
     </div>
   );
 }

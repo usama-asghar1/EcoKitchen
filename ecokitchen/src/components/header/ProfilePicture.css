@@ -1,9 +1,9 @@
 .profile-picture {
   background-color: var(--primary-blue);
-  width: 70px;
-  height: 70px;
+  width: 58px;
+  height: 58px;
   border-radius: 50%;
-  font-size: 36px;
+  font-size: 1.9rem;
   color: var(--white);
   display: flex;
   justify-content: center;
