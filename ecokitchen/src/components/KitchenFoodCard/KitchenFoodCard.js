@@ -76,7 +76,7 @@ function KitchenFoodCard({
               onClick={handleUseButtonClick}
               id="decreaseQuantity"
             >
-              <BiCheck id="checkmark" size={1000} />
+              <BiCheck id="checkmark" size={35} />
             </button>
 
             <Button
