@@ -8,6 +8,9 @@ Available to view on netlify live server - https://ecokitchen.netlify.app/
 
 Recommended viewing is for mobile devices, if opening on desktop then use mobile simulator or head over to Developer Tools (Ctrl+Shift+I) in the browser settings (Google Chrome) and toggle the device toolbar to iPhone 12 Pro.
 
+**Known Bugs/Errors:**
+
+Adding more than 1 item to pantry, fridge or shopping list causes it delete incorrectly if using the tick button to say the item is used. Bin button can be used to waste item to delete instead. 
 
 ## Tech Stack
 
