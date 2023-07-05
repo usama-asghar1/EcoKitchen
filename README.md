@@ -1,12 +1,18 @@
 # Eco Kitchen
 
-A full stack app created in React that is mobile first designed to helps users manage their food consumption, reduce waste and save money. A one-stop app that lets you add items to your kitchen, discover recipes, track expiry dates or manage your shopping list. Created in an agile team of 6 called the console.loggers() and planned, prepared and presented to industry professionals in 5 weeks.
+A full stack app created in React that is mobile first designed to helps users manage their food consumption, reduce waste and save money. A one-stop app that lets you add items to your kitchen, discover recipes, track expiry dates or manage your shopping list. Created in an agile team of 6 called console.loggers() and planned, prepared and presented to industry professionals in 5 weeks.
 
 ## Setup and Usage 
 
 Available to view on netlify live server - https://ecokitchen.netlify.app/
 
 Recommended viewing is for mobile devices, if opening on desktop then use mobile simulator or head over to Developer Tools (Ctrl+Shift+I) in the browser settings (Google Chrome) and toggle the device toolbar to iPhone 12 Pro.
+
+
+## Tech Stack
+
+**Client:** React, JavaScript, HTML, CSS, Supabase, Chart.js, Jest, Netlify
+
 
 # Git Branching Strategy
 
