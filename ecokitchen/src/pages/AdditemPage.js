@@ -170,7 +170,7 @@ function Additem() {
 
   // This useEffect will run when the foodCategory state changes
   useEffect(() => {
-    console.log(foodCategory);
+    
   }, [foodCategory]);
 
   // This function capitalises the first letter of each word in the search term
@@ -188,7 +188,7 @@ function Additem() {
   const handleChange = (event) => {
     // This edits the search term to capitalises the first letter of each word in the search term
     const editedSearchTerm = capitalizeWords(event.target.value);
-    console.log(editedSearchTerm);
+   
     setsearchTerm(editedSearchTerm);
   };
 
@@ -239,7 +239,7 @@ function Additem() {
     setError(null);
 
     if (!user || !user.id) {
-      console.log(user);
+  
       setError("User not authenticated");
       return;
     }
@@ -290,11 +290,11 @@ function Additem() {
         .insert([foodItem]);
 
       if (error) {
-        console.log(error);
+      
         setError("There is an error");
       }
       if (data) {
-        console.log(data);
+    
         // console.log(quantity, expiryDate, cost);
         setError(null);
       }
@@ -311,11 +311,11 @@ function Additem() {
       ]);
 
       if (error) {
-        console.log(error);
+      
         setError("There is an error");
       }
       if (data) {
-        console.log(data);
+     
         setError(null);
       }
     }

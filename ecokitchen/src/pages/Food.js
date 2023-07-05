@@ -47,13 +47,13 @@ function Food() {
       if (foodItem.quantity <= 1) {
         try {
           await supabase.from("food_items").delete().eq("id", foodID);
-          console.log("Record deleted");
+         
         } catch (error) {
-          console.log("Error inserting into wasted_items:", error);
+          
         }
       } else if (foodItem.quantity > 1) {
         decreaseQuantity(foodID);
-        console.log("decreased quantity by 1");
+        
       }
       fetchData();
     }
@@ -72,13 +72,13 @@ function Food() {
             },
           ]);
           await supabase.from("food_items").delete().eq("id", foodID);
-          console.log("Record deleted and moved to wasted_items");
+          
         } catch (error) {
-          console.log("Error inserting into wasted_items:", error);
+          
         }
       } else if (foodItem.quantity > 1) {
         decreaseQuantity(foodID);
-        console.log(foodItem.user_id);
+        
         try {
           const { data, error } = await supabase.from("wasted_items").insert([
             {
@@ -89,28 +89,28 @@ function Food() {
             },
           ]);
           if (error) {
-            console.log("Error inserting into wasted_items:", error);
+            
           }
           if (data) {
-            console.log("Data inserted into wasted_items:", data);
+            
           }
-          console.log("wasted 1 and decreased quantity by 1");
+          
         } catch (error) {
-          console.log("Error inserting into wasted_items:", error);
+          
         }
       }
     } else {
-      console.log("Data not available");
+     
     }
     fetchData();
   }
   async function FridgeToggle() {
     setFridgeOrPantry("fridgeArray");
-    console.log(fridgeOrPantry);
+    
   }
   async function PantryToggle() {
     setFridgeOrPantry("pantryArray");
-    console.log(fridgeOrPantry);
+   
   }
   const foodItemCard = data.map((foodItem) => {
     return (
@@ -127,7 +127,7 @@ function Food() {
       />
     );
   });
-  console.log(foodItemCard);
+
   return (
     <div>
       <div

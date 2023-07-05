@@ -14,11 +14,11 @@ function KitchenFoodCard({
   moveToWasted,
   usedFoodItem,
 }) {
-  console.log(`KitchenFoodCard created with foodID: ${foodID}`);
+ 
 
   // Function to handle the 'use' button click
   const handleUseButtonClick = () => {
-    console.log(`Button clicked with foodID: ${foodID}`);
+  
     usedFoodItem(foodID);
   };
 

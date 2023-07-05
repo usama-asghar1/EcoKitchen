@@ -23,10 +23,10 @@ function Recipes() {
     const response = await fetch(
       `https://www.themealdb.com/api/json/v1/1/filter.php?i=${ingredient}`
     );
-    console.log(response);
+  
 
     const data = await response.json();
-    console.log(data);
+  
 
     const limitedRecipes = data.meals ? data.meals.slice(0, 9) : [];
     setRecipe(limitedRecipes);
@@ -34,13 +34,9 @@ function Recipes() {
 
   function clickRecipe(recipeId) {
     setClickedRecipeId(recipeId);
-    console.log(`this is what we want:${recipeId}`);
-    console.log(clickedRecipeId);
+  
   }
 
-  // function selectRecipe() {
-  //   console.log(recipe.mealId);
-  // }
 
   return (
     <div className="recipe-container">

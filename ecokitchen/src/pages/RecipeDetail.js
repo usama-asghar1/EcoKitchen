@@ -34,13 +34,11 @@ Create the route from the receipe search page to deatil page:
 function RecipeDetail() {
   // need ot come back to this
   const parmas = useParams();
-  console.log("i am here");
-  console.log(parmas.recipeIdMeal);
+ 
 
   const mealId = parmas.recipeIdMeal;
   const [selectedRecipeData, setSelectedRecipe] = useState(null);
-  // console.log(id);
-
+ 
   useEffect(() => {
     async function fetchSelectedRecipe() {
       const response = await fetch(

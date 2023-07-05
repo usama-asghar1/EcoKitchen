@@ -26,8 +26,7 @@ function Shopping() {
       .eq("user_id", user);
 
     setData(dataSB.data);
-    console.log(data);
-
+  
     if (data.length === 0) {
       setEmptyShoppingList(true);
     } else {

@@ -11,7 +11,7 @@ const login = (email, password) =>
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [auth, setAuth] = useState(false);
-  console.log(auth.user);
+
 
   useEffect(() => {
     const { data } = supabase.auth.onAuthStateChange((event, session) => {
