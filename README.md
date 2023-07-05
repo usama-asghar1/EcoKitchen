@@ -4,7 +4,7 @@ A full stack app created in React that is mobile first designed to helps users m
 
 ## Setup and Usage 
 
-Available to view on netlify live server - https://ecokitchen.netlify.app/
+Available to view on netlify live server - https://eco-kitchen.netlify.app/
 
 Recommended viewing is for mobile devices, if opening on desktop then use mobile simulator or head over to Developer Tools (Ctrl+Shift+I) in the browser settings (Google Chrome) and toggle the device toolbar to iPhone 12 Pro.
 
