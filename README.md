@@ -88,7 +88,6 @@ git merge development
 
 git push origin main
 
-7. Testing revert by carrie
 
 # develoment is a secondary main but breakable and won't effect main
  - Front end
