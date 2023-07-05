@@ -1,19 +1,12 @@
-# Console-loggers-App
+# Eco Kitchen
 
-DEVELOPMENT BRANCH ahia
-note by carrie & saynab
+A full stack app created in React that is mobile first designed to helps users manage their food consumption, reduce waste and save money. A one-stop app that lets you add items to your kitchen, discover recipes, track expiry dates or manage your shopping list. Created in an agile team of 6 called the console.loggers() and planned, prepared and presented to industry professionals in 5 weeks.
 
-test by carrie
+# Setup and Usage 
 
+Available to view on netlify live server - https://ecokitchen.netlify.app/
 
-# Problem Statement
-
-“In the UK, many households waste a significant portion of their food costs due to poor planning, lack of culinary ideas, and poor use of leftovers. There is no current solution that solves these problems simultaneously.
-
-<p>
-Our challenge is to make an easy-to-use app to helps users manage their food consumption, reduce waste and save money.”
-
-Welcome to our project! This document describes our Git branching strategy, which is designed to ensure that new features are properly tested before they are merged into the main branch.
+Recommended viewing is for mobile devices, if opening on desktop then use mobile simulator or head over to Developer Tools (Ctrl+Shift+I) in the browser settings (Google Chrome) and toggle the device toolbar to iPhone 12 Pro.
 
 # Git Branching Strategy
 
