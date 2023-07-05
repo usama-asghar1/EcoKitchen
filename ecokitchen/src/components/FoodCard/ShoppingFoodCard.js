@@ -49,14 +49,14 @@ function ShoppingFoodCard({
               id="useFood"
               className="shopping-food-card-bought-btn shopping-food-card-use-btn food-btn"
             >
-              <BiCheck id="checkmark" size={30} />
+              <BiCheck id="checkmark" size={35} />
             </button>
             <button
               onClick={() => deleteFood(foodID)}
               id="deleteFood"
               className="shopping-food-card-delete-btn shopping-food-card-use-btn food-btn"
             >
-              <RxCross2 id="cross" size={1000} />
+              <RxCross2 id="cross" size={30} />
             </button>
           </div>
         </Card.Body>
