@@ -3,9 +3,10 @@ import "./Loginpages.css";
 import React, { useState } from "react";
 import { Password } from "primereact/password";
 import { InputText } from "primereact/inputtext";
-
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { supabase } from "../../components/supabase/supabaseClient.js";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function SignUp() {
   // const [username, setUsername] = useState("");
@@ -26,7 +27,7 @@ export default function SignUp() {
     setConfirmPassword(event.target.value);
   };
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   async function signUp() {
     if (password === confirmPassword) {
@@ -34,7 +35,16 @@ export default function SignUp() {
         email: email,
         password: password,
       });
-      navigate("/Login");
+      toast.success("Sign up sucessfull, please check email.", {
+        position: "top-center",
+        autoClose: 1500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
       console.log(data);
       console.log(error);
       return;
@@ -47,6 +57,19 @@ export default function SignUp() {
 
   return (
     <div>
+    <ToastContainer
+        position="top-center"
+        autoClose={1000}
+        limit={1}
+        hideProgressBar
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss={false}
+        draggable
+        pauseOnHover
+        theme="light"
+      />
       <div className="landing_container">
         <div className="top-box">
           <div className="logo_container" style={{ marginTop: "90px" }}>
@@ -83,7 +106,7 @@ export default function SignUp() {
       </div>
       <br />
       <div className="button_container">
-        <Link className="link" to="/Login">
+        {/* <Link className="link" to="/Login"> */}
           <div
             className="login_btn"
             onClick={signUp}
@@ -91,7 +114,7 @@ export default function SignUp() {
           >
             SignUp
           </div>
-        </Link>
+        {/* </Link> */}
       </div>
       <div className="button_container">
         <Link to="/">
