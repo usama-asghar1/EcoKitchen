@@ -1,6 +1,6 @@
 # Eco Kitchen
 
-A full stack app created in React that is mobile first designed to helps users manage their food consumption, reduce waste and save money. A one-stop app that lets you add items to your kitchen, discover recipes, track expiry dates or manage your shopping list. Created in an agile team of 6 called console.loggers() and planned, prepared and presented to industry professionals in 5 weeks.
+A full stack app created in React that is mobile first designed to help users manage their food consumption, reduce waste and save money. A one-stop app that lets you add items to your kitchen, discover recipes, track expiry dates or manage your shopping list. Created in an agile team of 6 called console.loggers() and planned, prepared and presented to industry professionals in 5 weeks.
 
 https://github.com/usama-asghar1/EcoKitchen/assets/124916801/9e2767e3-8b45-43af-b169-11cd0c44c97e
 
